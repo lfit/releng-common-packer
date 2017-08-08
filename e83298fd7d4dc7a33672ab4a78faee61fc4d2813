@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "26e69358_fb6347b8",
+        "filename": "README.markdown",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2017-08-08T16:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e60747b_f2c4dcbc",
+      "revId": "e83298fd7d4dc7a33672ab4a78faee61fc4d2813",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04cf7a45_9713c110",
         "filename": "README.markdown",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2017-08-08T16:04:38Z",
       "side": 1,
       "message": "common-packer\n\nTo keep things simple I think projects should always do the symlink method for new image types.",
+      "range": {
+        "startLine": 42,
+        "startChar": 63,
+        "endLine": 42,
+        "endChar": 80
+      },
+      "revId": "e83298fd7d4dc7a33672ab4a78faee61fc4d2813",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "335ec58f_f337830c",
+        "filename": "README.markdown",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2017-08-08T16:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04cf7a45_9713c110",
       "range": {
         "startLine": 42,
         "startChar": 63,
