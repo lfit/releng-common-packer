@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e60747b_f2c4dcbc",
+        "filename": "README.markdown",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2017-08-08T16:04:38Z",
+      "side": 1,
+      "message": "According to here https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet\n\nWe don\u0027t need to indent by 4 spaces for using 3 backticks. We should probably list the language on the first line though \u0027bash\u0027",
+      "revId": "e83298fd7d4dc7a33672ab4a78faee61fc4d2813",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cf7a45_9713c110",
+        "filename": "README.markdown",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2017-08-08T16:04:38Z",
+      "side": 1,
+      "message": "common-packer\n\nTo keep things simple I think projects should always do the symlink method for new image types.",
+      "range": {
+        "startLine": 42,
+        "startChar": 63,
+        "endLine": 42,
+        "endChar": 80
+      },
+      "revId": "e83298fd7d4dc7a33672ab4a78faee61fc4d2813",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
