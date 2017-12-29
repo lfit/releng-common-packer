@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become_user: root
+  become_method: sudo
+
+  tasks:
+    - name: Setup SELINUX
+      become: yes
+      script: ../shell/selinux-setup.sh
+      register: out
+    - name: Install git
+      become: yes
+      package:
+        name: git
+        state: latest
