@@ -1,0 +1,18 @@
+---
+- name: Install Puppet Agent
+  block:
+    - name: Install puppetlabs-release-pc1
+      yum: name=https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm state=latest
+    - name: Install puppet-agent
+      yum: name=puppet-agent state=latest update_cache=yes
+    - name: Symlink facter
+      file:
+        src: /opt/puppetlabs/bin/facter
+        dest: /usr/bin/facter
+        state: link
+    - name: Symlink puppet
+      file:
+        src: /opt/puppetlabs/puppet/bin/facter
+        dest: /usr/bin/puppet
+        state: link
+  become: yes
