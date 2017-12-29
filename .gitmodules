@@ -1,0 +1,3 @@
+[submodule "lf-ansible"]
+	path = lf-ansible
+	url = ../lf-ansible
