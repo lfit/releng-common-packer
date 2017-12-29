@@ -1,0 +1,7 @@
+- name: Upgrade all packages
+  block:
+    - name: Install deltarpm
+      yum: name=deltarpm state=latest
+    - name: Update all packages
+      yum: name=* state=latest update_cache=yes
+  become: yes

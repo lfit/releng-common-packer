@@ -1,0 +1,92 @@
+---
+- hosts: all
+  become_user: root
+  become_method: sudo
+
+  tasks:
+    - include_vars: "{{item}}"
+      with_first_found:
+        - '../playbooks/package-names-{{ansible_distribution}}.yaml'
+        - '../playbooks/package-names-{{ansible_os_family}}.yaml'
+        - '../playbooks/package-names.yaml'
+
+    - name: Setup SELINUX
+      script: ../shell/selinux-setup.sh
+      when: ansible_os_family == 'RedHat'
+      become: yes
+
+    - name: Allow jenkins user ability to switch Java versions
+      copy:
+        dest: /etc/sudoers.d/89-jenkins-user-defaults
+        content: |
+          Defaults:jenkins !requiretty
+          jenkins ALL = NOPASSWD: /usr/sbin/alternatives
+        validate: /usr/sbin/visudo -cf %s
+      when: ansible_os_family == "RedHat"
+      become: yes
+
+    - name: Update all packages
+      include_tasks: '{{item}}'
+      with_first_found:
+        - '../playbooks/update-packages-{{ansible_distribution}}.yaml'
+        - '../playbooks/update-packages-{{ansible_os_family}}.yaml'
+
+    - name: Install base packages
+      yum:
+        name: '{{item}}'
+        state: latest
+      with_items:
+        - '@base'
+        - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      become: yes
+
+    - name: Install Tools
+      package:
+        name: '{{item}}'
+        state: latest
+      with_items:
+        - facter
+        - git
+        - git-review
+        - jq
+        - unzip
+        - xmlstarlet
+        - '{{pkg_gnu_parallel}}'
+        - '{{pkg_perl_xml_xpath}}'
+        - '{{pkg_xz}}'
+      become: yes
+
+    - name: Install facter (Puppetlabs)
+      # puppet4 install removes facter so use the version provided by puppet.
+      shell: |
+        rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+        yum -y install -y puppet-agent
+        ln -sf /opt/puppetlabs/bin/facter /usr/bin/facter
+        ln -sf /opt/puppetlabs/puppet/bin/puppet /usr/bin/puppet
+        export PATH="/opt/puppetlabs/bin/:$PATH"
+      when: ansible_os_family == "RedHat"
+      become: yes
+
+    - name: Install Java
+      include_tasks: '{{item}}'
+      with_first_found:
+        - '../playbooks/install-java-{{ansible_distribution}}.yaml'
+        - '../playbooks/install-java-{{ansible_os_family}}.yaml'
+
+    - name: Finalize System
+      block:
+        # Handle the prompt style that is expected all over the environment
+        # for robotframework make sure prompt is consistent for any of the
+        # users that are created during dynamic spin ups
+        - name: Set new user prompt style
+          lineinfile:
+            path: /etc/skel/.bashrcox
+            regexp: '^PS1='
+            line: 'PS1="[\u@\h \W]> "'
+            create: yes
+        # Update /etc/nss-switch.conf to map hostname with IP instead of using `localhost`
+        # from /etc/hosts which is required by some of the Java API's to avoid
+        # Java UnknownHostException: "Name or service not known" error.
+        - name: Update /etc/nss-switch.conf to map hostname with IP
+          shell: sed -i "/^hosts:/s/$/ myhostname/" /etc/nsswitch.conf
+      become: yes

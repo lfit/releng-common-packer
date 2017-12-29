@@ -1,0 +1,6 @@
+- name: Install all available Java versions
+  yum: name=java-*-openjdk-devel state=latest
+  become: yes
+- name: Set Java 8 as default
+  shell: alternatives --set java_sdk_openjdk /usr/lib/jvm/java-1.8.0-openjdk.x86_64
+  become: yes
