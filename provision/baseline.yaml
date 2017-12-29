@@ -1,0 +1,78 @@
+---
+- hosts: all
+  become_user: root
+  become_method: sudo
+  gather_facts: False
+
+  # Ansible requires Python 2 installed which Ubuntu 16.04 does not have by
+  # default. So check if python is available and install.
+  tasks:
+    - name: Install Python 2
+      block:
+        - raw: test -e /usr/bin/python || command -v apt || (apt -y update && apt install -y python-minimal)
+      become: yes
+
+- hosts: all
+  become_user: root
+  become_method: sudo
+
+  pre_tasks:
+    - include_role: name=system-update
+
+    - name: Install base packages
+      include_tasks: '{{item}}'
+      with_first_found:
+        - 'install-base-pkgs-{{ansible_distribution}}.yaml'
+        - 'install-base-pkgs-{{ansible_os_family}}.yaml'
+
+    - name: Setup SELINUX
+      selinux:
+        policy: targeted
+        state: enforcing
+      when: ansible_os_family == 'RedHat'
+      become: yes
+
+    - name: Allow jenkins user sudo access
+      copy:
+        dest: /etc/sudoers.d/89-jenkins-user-defaults
+        content: |
+          Defaults:jenkins !requiretty
+          jenkins ALL = NOPASSWD: ALL
+        validate: /usr/sbin/visudo -cf %s
+      become: yes
+
+  roles:
+    - lf-recommended-tools
+    - haveged-install
+    - java-install
+    - puppet-install
+    - python-install
+    - shellcheck-install
+    - sysstat-install
+
+  post_tasks:
+    - name: Update /etc/nss-switch.conf to map hostname with IP
+      # Update /etc/nss-switch.conf to map hostname with IP instead of using `localhost`
+      # from /etc/hosts which is required by some of the Java API's to avoid
+      # Java UnknownHostException: "Name or service not known" error.
+      shell: sed -i "/^hosts:/s/$/ myhostname/" /etc/nsswitch.conf
+      become: yes
+
+    - name: Disable periodic updates
+      block:
+        - name: Set all periodic update options to 0
+          replace:
+            path: /etc/apt/apt.conf.d/10periodic
+            regexp: '1'
+            replace: '0'
+        - name: Disable unattended upgrades
+          lineinfile:
+            path: /etc/apt/apt.conf.d/10periodic
+            regexp: '^APT::Periodic::Unattended-Upgrade'
+            line: 'APT::Periodic::Unattended-Upgrade "0";'
+            create: yes
+      when: ansible_distribution == 'Ubuntu'
+      become: yes
+
+    - name: System Reseal
+      include_tasks: system-reseal.yaml
