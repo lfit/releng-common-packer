@@ -1,0 +1,17 @@
+- name: Finalize system
+  block:
+  # Handle the prompt style that is expected all over the environment
+  # for robotframework make sure prompt is consistent for any of the
+  # users that are created during dynamic spin ups
+  - name: Set new user prompt style
+    lineinfile:
+      path: /etc/skel/.bashrcox
+      regexp: '^PS1='
+      line: 'PS1="[\u@\h \W]> "'
+      create: yes
+  # Update /etc/nss-switch.conf to map hostname with IP instead of using `localhost`
+  # from /etc/hosts which is required by some of the Java API's to avoid
+  # Java UnknownHostException: "Name or service not known" error.
+  - name: Update /etc/nss-switch.conf to map hostname with IP
+    shell: sed -i "/^hosts:/s/$/ myhostname/" /etc/nsswitch.conf
+  become: yes
