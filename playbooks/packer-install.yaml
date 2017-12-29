@@ -1,0 +1,22 @@
+---
+- name: Install Hashicorp Packer
+  block:
+    - name: Fetch Packer
+      get_url:
+        url: https://releases.hashicorp.com/packer/{{packer_version}}/packer_{{packer_version}}_linux_amd64.zip
+        dest: /tmp/packer.zip
+        checksum: '{{packer_checksum}}'
+    - name: Unpack Packer
+      unarchive:
+        src: /tmp/packer.zip
+        dest: /tmp
+        list_files: yes
+        remote_src: yes
+    - name: Install Packer to /usr/local/bin/packer.io
+      copy:
+        src: /tmp/packer
+        dest: /usr/local/bin/packer
+        mode: 0755
+        owner: root
+        remote_src: yes
+      become: yes

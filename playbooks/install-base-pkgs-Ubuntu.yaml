@@ -1,0 +1,14 @@
+---
+- name: Install base packages
+  apt:
+    name: '{{pkg}}'
+    state: latest
+  with_items:
+    - build-essential
+    - devscripts
+    - dh-systemd
+    - equivs
+    - gdebi
+  loop_control:
+    loop_var: pkg
+  become: yes
