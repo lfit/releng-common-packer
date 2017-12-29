@@ -1,0 +1,4 @@
+---
+pkg_gnu_parallel:
+pkg_perl_xml_xpath: libxml-xpath-perl
+pkg_xz: xz-utils

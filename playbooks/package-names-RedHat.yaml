@@ -1,0 +1,4 @@
+---
+pkg_gnu_parallel: http://ftp.riken.jp/Linux/cern/centos/7/cern/x86_64/Packages/parallel-20150522-1.el7.cern.noarch.rpm
+pkg_perl_xml_xpath: perl-XML-XPath
+pkg_xz: xz
