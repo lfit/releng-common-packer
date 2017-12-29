@@ -1,0 +1,13 @@
+---
+- name: Install base packages
+  yum:
+    name: '{{pkg}}'
+    state: latest
+  with_items:
+    - '@base'
+    - '@development'
+    - yum-utils
+    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  loop_control:
+    loop_var: pkg
+  become: yes
