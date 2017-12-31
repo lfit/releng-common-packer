@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58a79c90_2648a249",
+        "filename": "templates/baseline.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2017-12-31T04:29:18Z",
+      "side": 1,
+      "message": "This should be an example file only. Consumers of common-packer should build out their own baseline image or symlink to this one if they want to use it with no modifications.",
+      "revId": "5faaca0333f5a4833e473b2070394d63810b7d21",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
