@@ -140,6 +140,30 @@
       "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d392b6f_7e0fffa7",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-01-02T15:21:29Z",
+      "side": 1,
+      "message": "I\u0027m fine with adding an lf-ansible repo. I\u0027ll note that at present we aren\u0027t installing any of the ansible bits onto the instances, just puppet, so if we\u0027re going to start transitioning jobs to having playbooks we\u0027re going to need to add that as a baseline requirement, just like we have puppet as one.",
+      "parentUuid": "1aa8e2bd_55be93cd",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 21
+      },
+      "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
