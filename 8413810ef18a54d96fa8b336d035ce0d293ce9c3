@@ -188,6 +188,30 @@
       "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5a7f6e4_bb6cffc6",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-01-02T15:25:06Z",
+      "side": 1,
+      "message": "There\u0027s and Ansible plugin for Jenkins which Hyperledger has installed. IIRC JJB supports it.",
+      "parentUuid": "659fad45_3284533f",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 21
+      },
+      "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
