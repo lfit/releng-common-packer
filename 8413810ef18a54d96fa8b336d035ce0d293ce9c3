@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8476d71e_03fa45b3",
+        "filename": "playbooks/finalize-system.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-01-02T15:18:36Z",
+      "side": 1,
+      "message": "Great! Less stuff to maintain.",
+      "parentUuid": "b99ec7a1_086ddc16",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0bec975_db5bf8d3",
         "filename": "provision/baseline.yaml",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8b6e50ac_af740c97",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-01-02T15:18:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0bec975_db5bf8d3",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9eb9549f_a14c1c70",
         "filename": "provision/baseline.yaml",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2018-01-02T14:28:49Z",
       "side": 1,
       "message": "I would rather we leave packer as an on the fly install, which the global-jjb job already handles. Otherwise, we end up having to respin images anytime we want to update packer since the job won\u0027t install a newer version if it detects a version installed.",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 21
+      },
+      "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa8e2bd_55be93cd",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-01-02T15:18:36Z",
+      "side": 1,
+      "message": "Sounds good. Although I think this block of code will still be useful if we convert the global-jjb job to ansible too. This makes me think we need a lf-ansible repo.",
+      "parentUuid": "9eb9549f_a14c1c70",
       "range": {
         "startLine": 91,
         "startChar": 0,
