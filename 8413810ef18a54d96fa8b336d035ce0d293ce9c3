@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b99ec7a1_086ddc16",
+        "filename": "playbooks/finalize-system.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-01-02T14:28:49Z",
+      "side": 1,
+      "message": "This is a hold-over for ODL _only_ last I knew the Integration team was willing to get rid of this. It\u0027s definitely not something that should be in the common scripts",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0bec975_db5bf8d3",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-01-02T14:28:49Z",
+      "side": 1,
+      "message": "We should just be granting Jenkins blanket sudo rights. We end up having to grant it on enough cases that it\u0027s sort of needed. Plus, any work we end up doing with sigul is going to require it",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9eb9549f_a14c1c70",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-01-02T14:28:49Z",
+      "side": 1,
+      "message": "I would rather we leave packer as an on the fly install, which the global-jjb job already handles. Otherwise, we end up having to respin images anytime we want to update packer since the job won\u0027t install a newer version if it detects a version installed.",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 21
+      },
+      "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
