@@ -164,6 +164,30 @@
       "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "659fad45_3284533f",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-01-02T15:24:03Z",
+      "side": 1,
+      "message": "Yep. I\u0027ll look into adding it into baseline, still need to figure out how to run it with Jenkins but that will be a task for later down the road. For now just focusing on getting it working with packer.",
+      "parentUuid": "2d392b6f_7e0fffa7",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 21
+      },
+      "revId": "8413810ef18a54d96fa8b336d035ce0d293ce9c3",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
