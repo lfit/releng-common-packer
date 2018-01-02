@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac9a15c1_224f2bb3",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-01-02T15:24:11Z",
+      "side": 1,
+      "message": "This shouldn\u0027t only happen on RedHat systems, but any system. Dropping things into /etc/sudoers.d is supported on RH, Ubuntu, and SuSE systems",
+      "revId": "87593861fddb6c2e53dcc7072e41df38cb94440e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
