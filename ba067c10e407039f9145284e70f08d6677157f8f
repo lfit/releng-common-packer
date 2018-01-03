@@ -22,6 +22,30 @@
       "revId": "ba067c10e407039f9145284e70f08d6677157f8f",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19685f50_1586b5a0",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 12
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-01-03T16:35:58Z",
+      "side": 1,
+      "message": "It doesn\u0027t. I\u0027m currently using the fact that the only other supported system centos already has python by default.\n\nI suppose I could add an if-statement and grep a file unique to Ubuntu.",
+      "parentUuid": "943a021d_7860244b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "ba067c10e407039f9145284e70f08d6677157f8f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
