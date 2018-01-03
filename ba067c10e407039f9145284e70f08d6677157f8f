@@ -46,6 +46,30 @@
       "revId": "ba067c10e407039f9145284e70f08d6677157f8f",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b11dfd79_d403191e",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 12
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-01-03T16:37:27Z",
+      "side": 1,
+      "message": "Given that we\u0027re going to need to support OpenSuSE and I don\u0027t know its default state for python, I think it would be best to do something like that",
+      "parentUuid": "19685f50_1586b5a0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "ba067c10e407039f9145284e70f08d6677157f8f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
