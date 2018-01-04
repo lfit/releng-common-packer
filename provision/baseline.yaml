@@ -30,6 +30,7 @@
 
   roles:
     - lf-recommended-tools
+    - docker-install
     - haveged-install
     - java-install
     - puppet-install
