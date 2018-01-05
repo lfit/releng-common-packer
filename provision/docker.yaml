@@ -1,0 +1,16 @@
+---
+- import_playbook: baseline.yaml
+
+- hosts: all
+  become_user: root
+  become_method: sudo
+
+  pre_tasks:
+    - include_role: name=system-update
+
+  roles:
+    - docker-install
+
+  post_tasks:
+    - name: System Reseal
+      include_tasks: system-reseal.yaml
