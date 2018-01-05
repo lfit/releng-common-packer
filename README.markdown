@@ -92,3 +92,10 @@ Steps 1-3 are actually all contained inside of the local playbook. Please refer
 to the docker template and provisioning script for an example of how it imports
 the existing baseline playbook into the local playbook to reduce duplication in
 code.
+
+## Local testing of common-packer
+
+For developers of common-packer who would like to be able to locally test from
+the common-packer repo. Clone both common-packer and lf-ansible in the same
+directory and the scripts will handle the relative paths to both itself
+(common-packer) and lf-ansible respectively.
