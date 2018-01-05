@@ -12,13 +12,6 @@
         - 'install-base-pkgs-{{ansible_distribution}}.yaml'
         - 'install-base-pkgs-{{ansible_os_family}}.yaml'
 
-    - name: Setup SELINUX
-      selinux:
-        policy: targeted
-        state: enforcing
-      when: ansible_os_family == 'RedHat'
-      become: yes
-
     - name: Allow jenkins user sudo access
       copy:
         dest: /etc/sudoers.d/89-jenkins-user-defaults
