@@ -18,12 +18,12 @@ ignore_length_regex = Signed-off-by,
 
 [all.MarkDown]
 bears = MarkdownBear,SpaceConsistencyBear,WriteGoodLintBear
-files = **.md, **.markdown
+files = *.md, *.markdown
 use_spaces = true
 
 [all.ShellCheck]
 bears = ShellCheckBear,SpaceConsistencyBear
-files = **.sh
+files = provision/**.sh
 shell = bash
 indent_size = 4
 use_spaces = yeah
