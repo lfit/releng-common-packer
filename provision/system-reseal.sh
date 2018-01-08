@@ -25,7 +25,7 @@ rm -rf ~/.viminfo \
     /root/initial-setup-ks.cfg \
     /root/install.log \
     /root/install.log.syslog \
-    /tmp/* \
+    /tmp/packer \
     /var/cache/fontconfig/* \
     /var/cache/gdm/* \
     /var/cache/man/* \
