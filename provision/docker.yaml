@@ -13,4 +13,4 @@
 
   post_tasks:
     - name: System Reseal
-      include_tasks: system-reseal.yaml
+      shell: system-reseal.sh
