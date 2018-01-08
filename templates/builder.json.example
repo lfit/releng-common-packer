@@ -50,6 +50,7 @@
       "ansible_env_vars": [
         "ANSIBLE_NOCOWS=1",
         "ANSIBLE_ROLES_PATH=../lf-ansible/roles",
+        "ANSIBLE_CALLBACK_WHITELIST=profile-tasks",
         "ANSIBLE_STDOUT_CALLBACK=debug"
       ]
     }
