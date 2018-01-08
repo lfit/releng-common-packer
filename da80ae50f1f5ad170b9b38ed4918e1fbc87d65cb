@@ -22,6 +22,30 @@
       "revId": "da80ae50f1f5ad170b9b38ed4918e1fbc87d65cb",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36db2112_fa20b4ea",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-01-08T16:36:01Z",
+      "side": 0,
+      "message": "The script was there because of badness on the part of RackSpace (and some other cloud providers we\u0027ve tested previously) with RHEL based systems. Their base images would have SELinux completely disabled instead of enabled or at a minimum in permissive mode.\n\nSince we\u0027re using official cloud images from the upstream distros we aren\u0027t running into this problem for anything now since they ship with SELinux fully enabled, if the distro ships with SELinux. We don\u0027t add it to distros that don\u0027t ship with it enabled by default.",
+      "parentUuid": "6451b832_2de2292f",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "da80ae50f1f5ad170b9b38ed4918e1fbc87d65cb",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
