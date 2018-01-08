@@ -63,3 +63,4 @@
 
     - name: System Reseal
       script: system-reseal.sh
+      become: true
