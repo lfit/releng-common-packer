@@ -51,7 +51,7 @@
         "ANSIBLE_NOCOWS=1",
         "ANSIBLE_PIPELINING=True",
         "ANSIBLE_ROLES_PATH=../lf-ansible/roles",
-        "ANSIBLE_CALLBACK_WHITELIST=profile-tasks",
+        "ANSIBLE_CALLBACK_WHITELIST=profile_tasks",
         "ANSIBLE_STDOUT_CALLBACK=debug"
       ]
     }
