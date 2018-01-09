@@ -23,6 +23,7 @@
 
   roles:
     - lf-recommended-tools
+    - lf-dev-libs
     - haveged-install
     - java-install
     - puppet-install
