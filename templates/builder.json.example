@@ -46,7 +46,7 @@
     },
     {
       "type": "ansible",
-      "playbook_file": "common-packer/provision/baseline.yaml",
+      "playbook_file": "provision/local-builder.yaml",
       "ansible_env_vars": [
         "ANSIBLE_NOCOWS=1",
         "ANSIBLE_PIPELINING=True",
