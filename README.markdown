@@ -69,8 +69,8 @@ most cases this is 'provision/$SCRIPT' which is will now be
 To use any of the provided templates, the template should have a symlink into
 the calling project's templates directory. This is because our common-packer
 job scripts operate on the templates available in this directory. Any template,
-except the 'builder', will also look for local customization out of the local
-repository's provisioning with both a directory as well as script exec.
+will also look for local customization out of the local repository's
+provisioning directory via local-$TEMPLATE.yaml playbook.
 
 Distro specific vars are now provided in 'common-packer/vars/$DISTRO'.
 Path to them as normal and they will already contain the correct strings. For
