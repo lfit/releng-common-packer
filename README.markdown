@@ -5,14 +5,16 @@ and even instance templates that projects may use.
 
 ## Installing lf-ansible
 
-common-packer requires an lf-ansible installation into the ci-management root.
-To install lf-ansible load it into the root of the ci-management repository as
-a submodule. Versioned git tags for lf-ansible is available allowing easy
-updates and rollback if necessary.
+common-packer requires an lf-ansible installation into the
+ci-management root.  To install lf-ansible, load it into the root of
+the ci-management repository as a submodule. Versioned git tags for
+lf-ansible are not yet available.  When they are, they will allow easy
+updates and rollback if necessary.  In the meantime, use the master
+branch.
 
 ```bash
 # Choose a lf-ansible version to install
-LF_ANSIBLE_VERSION=v0.1.0
+LF_ANSIBLE_VERSION=master
 
 # Add the new submodule to ci-management's packer directory.
 # Note: Perform once per ci-management repo.
@@ -33,13 +35,14 @@ git review
 
 ## Installing common-packer
 
-Deploy common-packer in the ci-management repository's packer directory as a
-submodule. Installing, upgrading, and rolling back changes is simple via the
-versioned git tags.
+Deploy common-packer in the ci-management repository's packer
+directory as a submodule. Again, versioned git tags for common-packer
+are not yet available.  When they are, they will allow easy updates
+and rollback if necessary.  In the meantime, use the master branch.
 
 ```bash
 # Choose a common-packer version to install
-COMMON_PACKER_VERSION=v0.1.0
+COMMON_PACKER_VERSION=master
 
 # Add the new submodule to ci-management's packer directory.
 # Note: Perform once per ci-management repo.
@@ -63,7 +66,7 @@ git review
 
 To use any provisioning script available from the common-packer repository, the
 calling template must appropriately reference the full path to the script.  In
-most cases this is 'provision/$SCRIPT' which is will now be
+most cases this is 'provision/$SCRIPT' which will now become
 'common-packer/provision/$SCRIPT'
 
 To use any of the provided templates, the template should have a symlink into
@@ -80,7 +83,7 @@ a new project make sure the base_image name is available in the cloud system.
 
 In most cases the 'builder' template unmodified is all that the project should
 need to run their code builds. If a project has a custom packages that they
-must build into a custom builder type then design the new template with the
+must build into a custom builder type, then design the new template with the
 following parameters.
 
 0. Execute the common-packer/provision/install-python.sh script
@@ -96,6 +99,6 @@ code.
 ## Local testing of common-packer
 
 For developers of common-packer who would like to be able to locally test from
-the common-packer repo. Clone both common-packer and lf-ansible in the same
-directory and the scripts will handle the relative paths to both itself
+the common-packer repo: Clone both common-packer and lf-ansible in the same
+directory, and the scripts will handle the relative paths to both itself
 (common-packer) and lf-ansible respectively.
