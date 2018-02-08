@@ -99,3 +99,27 @@ For developers of common-packer who would like to be able to locally test from
 the common-packer repo. Clone both common-packer and lf-ansible in the same
 directory and the scripts will handle the relative paths to both itself
 (common-packer) and lf-ansible respectively.
+
+If you are trying to bootstrap an image inside the LF network follow the next
+step.
+
+## Getting through the LF network
+
+0. Connect to the VPN
+1. Configure ~/.ssh/config to proxy through a known server (such as Jenkins Sandbox)
+
+For example:
+
+```
+Host 10.30.18*
+  ProxyCommand ssh vex-yul-acumos-jenkins-2.ci.codeaurora.org nc %h 22
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+```
+
+2. Set `ssh_proxy_host` to **127.0.0.1** in vars/cloud-env.json
+3. Create a SOCKS 5 proxy on port 1080
+
+   ssh -fND 1080 vex-yul-odl-jenkins-2.ci.codeaurora.org
+
+4. Run packer as usual
