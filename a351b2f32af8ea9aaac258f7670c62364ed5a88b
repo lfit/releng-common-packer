@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6368c555_ffe57bd0",
+        "filename": "README.markdown",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 24
+      },
+      "writtenOn": "2018-02-12T23:47:07Z",
+      "side": 1,
+      "message": "Add 127.0.0.1 to ssh_proxy_host in vars/cloud-env.json",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 118,
+        "endChar": 65
+      },
+      "revId": "a351b2f32af8ea9aaac258f7670c62364ed5a88b",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3a25a6a_7b1739be",
         "filename": "README.markdown",
         "patchSetId": 1
