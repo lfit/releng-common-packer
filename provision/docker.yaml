@@ -9,7 +9,7 @@
     - include_role: name=system-update
 
   roles:
-    - docker-install
+    - { role: docker-install, mtu: 1458 }
 
   post_tasks:
     - name: System Reseal
