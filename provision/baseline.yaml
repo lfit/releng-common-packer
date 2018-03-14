@@ -4,7 +4,7 @@
   become_method: sudo
 
   pre_tasks:
-    - include_role: name=system-update
+    - include_role: name=lfit.system-update
 
     - name: Install base packages
       include_tasks: '{{item}}'
@@ -22,14 +22,14 @@
       become: yes
 
   roles:
-    - lf-recommended-tools
-    - lf-dev-libs
-    - haveged-install
-    - java-install
-    - puppet-install
-    - python-install
-    - shellcheck-install
-    - sysstat-install
+    - lfit.lf-recommended-tools
+    - lfit.lf-dev-libs
+    - lfit.haveged-install
+    - lfit.java-install
+    - lfit.puppet-install
+    - lfit.python-install
+    - lfit.shellcheck-install
+    - lfit.sysstat-install
 
   post_tasks:
     - name: Update /etc/nss-switch.conf to map hostname with IP
