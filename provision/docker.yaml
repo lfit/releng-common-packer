@@ -6,10 +6,10 @@
   become_method: sudo
 
   pre_tasks:
-    - include_role: name=system-update
+    - include_role: name=lfit.system-update
 
   roles:
-    - { role: docker-install, mtu: 1458 }
+    - { role: lfit.docker-install, mtu: 1458 }
 
   post_tasks:
     - name: System Reseal

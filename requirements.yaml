@@ -1,0 +1,14 @@
+---
+- src: lfit.docker-install
+- src: lfit.haveged-install
+- src: lfit.java-install
+- src: lfit.lf-dev-libs
+- src: lfit.lf-recommended-tools
+- src: lfit.mono-install
+- src: lfit.packer-install
+- src: lfit.protobuf-install
+- src: lfit.puppet-install
+- src: lfit.python-install
+- src: lfit.shellcheck-install
+- src: lfit.sysstat-install
+- src: lfit.system-update

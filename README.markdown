@@ -93,6 +93,14 @@ to the docker template and provisioning script for an example of how it imports
 the existing baseline playbook into the local playbook to reduce duplication in
 code.
 
+## Installing Roles from Ansible Galaxy
+
+Common-packer contains a script `ansible-galaxy.sh` which runs
+`ansible-galaxy install -r requirements.yaml` from the common-packer repo to
+install common-packer role dependencies. In the local
+ci-management/packer directory a project can provide it's own requirements.yaml
+to pull in roles before running a Packer build.
+
 ## Local testing of common-packer
 
 For developers of common-packer who would like to be able to locally test from

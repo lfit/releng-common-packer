@@ -1,3 +1,4 @@
+.galaxy/
 .tox/
 cloud-env.json
 *.retry
