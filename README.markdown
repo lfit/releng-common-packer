@@ -16,7 +16,7 @@ LF_ANSIBLE_VERSION=v0.1.0
 
 # Add the new submodule to ci-management's packer directory.
 # Note: Perform once per ci-management repo.
-git submodule add https://github.com/lfit/lf-ansible
+git submodule add https://github.com/lfit/releng-lf-ansible lf-ansible
 
 # Checkout the version of lf-ansible you wish to deploy
 cd lf-ansible
@@ -44,7 +44,7 @@ COMMON_PACKER_VERSION=v0.1.0
 # Add the new submodule to ci-management's packer directory.
 # Note: Perform once per ci-management repo.
 cd packer/
-git submodule add https://github.com/lfit/common-packer
+git submodule add https://github.com/lfit/releng-common-packer common-packer
 
 # Checkout the version of common-packer you wish to deploy
 cd common-packer
