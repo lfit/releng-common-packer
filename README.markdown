@@ -16,16 +16,16 @@ LF_ANSIBLE_VERSION=v0.1.0
 
 # Add the new submodule to ci-management's packer directory.
 # Note: Perform once per ci-management repo.
-git submodule add https://github.com/lfit/lf-ansible
+git submodule add https://github.com/lfit/releng-lf-ansible
 
 # Checkout the version of lf-ansible you wish to deploy
-cd lf-ansible
+cd releng-lf-ansible
 git checkout $LF_ANSIBLE_VERSION
 
-# Commit lf-ansible version to the ci-managment repo
+# Commit releng-lf-ansible version to the ci-managment repo
 cd ..
-git add lf-ansible
-git commit -sm "Install lf-ansible $LF_ANSIBLE_VERSION"
+git add releng-lf-ansible
+git commit -sm "Install releng-lf-ansible $LF_ANSIBLE_VERSION"
 
 # Push the patch to ci-management for review
 git review
@@ -104,9 +104,9 @@ to pull in roles before running a Packer build.
 ## Local testing of common-packer
 
 For developers of common-packer who would like to be able to locally test from
-the common-packer repo. Clone both common-packer and lf-ansible in the same
+the common-packer repo. Clone both common-packer and releng-lf-ansible in the same
 directory and the scripts will handle the relative paths to both itself
-(common-packer) and lf-ansible respectively.
+(common-packer) and releng-lf-ansible respectively.
 
 If you are trying to bootstrap an image inside the LF network follow the next
 step.
