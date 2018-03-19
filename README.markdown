@@ -16,10 +16,10 @@ LF_ANSIBLE_VERSION=v0.1.0
 
 # Add the new submodule to ci-management's packer directory.
 # Note: Perform once per ci-management repo.
-git submodule add https://github.com/lfit/lf-ansible
+git submodule add https://github.com/lfit/releng-lf-ansible lf-ansible
 
 # Checkout the version of lf-ansible you wish to deploy
-cd lf-ansible
+cd releng-lf-ansible
 git checkout $LF_ANSIBLE_VERSION
 
 # Commit lf-ansible version to the ci-managment repo
