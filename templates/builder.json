@@ -1,5 +1,6 @@
 {
   "variables": {
+    "ansible_roles_path": ".galaxy",
     "base_image": null,
     "distro": null,
     "cloud_auth_url": null,
@@ -45,12 +46,16 @@
       "execute_command": "chmod +x {{ .Path }}; if [ \"$UID\" == \"0\" ]; then {{ .Vars }} '{{ .Path }}'; else {{ .Vars }} sudo -E '{{ .Path }}'; fi"
     },
     {
+      "type": "shell-local",
+      "command": "./common-packer/ansible-galaxy.sh {{user `ansible_roles_path`}}"
+    },
+    {
       "type": "ansible",
       "playbook_file": "provision/local-builder.yaml",
       "ansible_env_vars": [
         "ANSIBLE_NOCOWS=1",
         "ANSIBLE_PIPELINING=True",
-        "ANSIBLE_ROLES_PATH=../lf-ansible/roles",
+        "ANSIBLE_ROLES_PATH={{user `ansible_roles_path`}}",
         "ANSIBLE_CALLBACK_WHITELIST=profile_tasks",
         "ANSIBLE_STDOUT_CALLBACK=debug"
       ]
