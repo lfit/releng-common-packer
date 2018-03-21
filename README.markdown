@@ -3,34 +3,6 @@
 The purpose of this repo is to store commonly used packer provisioning scripts
 and even instance templates that projects may use.
 
-## Installing lf-ansible
-
-common-packer requires an lf-ansible installation into the ci-management root.
-To install lf-ansible load it into the root of the ci-management repository as
-a submodule. Versioned git tags for lf-ansible is available allowing easy
-updates and rollback if necessary.
-
-```bash
-# Choose a lf-ansible version to install
-LF_ANSIBLE_VERSION=v0.1.0
-
-# Add the new submodule to ci-management's packer directory.
-# Note: Perform once per ci-management repo.
-git submodule add https://github.com/lfit/releng-lf-ansible lf-ansible
-
-# Checkout the version of lf-ansible you wish to deploy
-cd lf-ansible
-git checkout $LF_ANSIBLE_VERSION
-
-# Commit lf-ansible version to the ci-managment repo
-cd ..
-git add lf-ansible
-git commit -sm "Install lf-ansible $LF_ANSIBLE_VERSION"
-
-# Push the patch to ci-management for review
-git review
-```
-
 ## Installing common-packer
 
 Deploy common-packer in the ci-management repository's packer directory as a
