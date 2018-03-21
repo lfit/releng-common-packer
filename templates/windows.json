@@ -1,0 +1,92 @@
+{
+  "variables": {
+    "base_image": null,
+    "distro": null,
+    "cloud_auth_url": null,
+    "cloud_user": null,
+    "cloud_pass": null,
+    "cloud_network": null,
+    "cloud_tenant": null,
+    "cloud_user_data": null,
+    "arch": null,
+    "toolchain": null
+  },
+  "builders": [
+    {
+      "name": "vexxhost",
+      "image_name": "ZZCI - {{user `distro`}} - {{user `toolchain`}} - {{isotime \"20060102-1504\"}}",
+      "source_image_name": "{{user `base_image`}}",
+      "type": "openstack",
+      "identity_endpoint": "{{user `cloud_auth_url`}}",
+      "username": "{{user `cloud_user`}}",
+      "password": "{{user `cloud_pass`}}",
+      "tenant_name": "{{user `cloud_tenant`}}",
+      "domain_name": "Default",
+      "region": "ca-ymq-1",
+      "availability_zone": "ca-ymq-2",
+      "networks": [
+        "{{user `cloud_network`}}"
+      ],
+      "user_data_file": "{{user `cloud_user_data`}}",
+      "winrm_username": "admin"
+      "communicator": "winrm",
+      "flavor": "v1-standard-4",
+      "metadata": {
+        "ci_managed": "yes"
+      }
+      "winrm_timeout": "10000s",
+    }
+  ],
+  "provisioners": [
+    { "type": "file",
+      "source": "provision/basebuild/",
+      "destination": "c:\\packer"
+    },
+    { "type": "powershell",
+      "scripts": [
+        "provision/resize_partition.ps1"
+      ]
+    },
+    { "type": "windows-shell",
+      "scripts": [
+        "provision/basebuild/unlimited-password-expiration.bat",
+        "provision/basebuild/enable-rdp.bat",
+        "provision/basebuild/disablewinupdate.bat",
+        "provision/basebuild/uac-disable.bat",
+        "provision/basebuild/disable-hibernate.bat",
+        "provision/basebuild/firewall-open-ping.bat",
+        "provision/basebuild/firewall-open-rdp.bat"
+      ]
+    },
+    { "type": "windows-restart" },
+    { "type": "powershell",
+      "inline": [
+        "Set-ExecutionPolicy Bypass -Force; & C:\\packer\\install-chocolatey.ps1"
+      ]
+    },
+    { "type": "powershell",
+      "inline": [
+        "choco install -y puppet-agent"
+      ]
+    },
+    { "type": "windows-restart" },
+    { "type": "powershell",
+      "inline": [
+        "puppet module install chocolatey-chocolatey",
+        "puppet module install puppetlabs-dsc",
+        "puppet module install noma4i-windows_updates",
+        "puppet module install puppetlabs-reboot"
+      ]
+    },
+    { "type": "powershell",
+      "valid_exit_codes": [0, 3010],
+      "inline": [ "puppet apply C:\\packer\\iotivity-build-minion.pp" ]
+    },
+    { "type": "powershell",
+      "scripts": [
+        "provision/basebuild/install-python-pkgs.ps1",
+        "provision/basebuild.ps1"
+      ]
+    }
+  ]
+}
