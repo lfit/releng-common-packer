@@ -8,6 +8,8 @@ VM configuration.
 .. toctree::
    :maxdepth: 1
 
+   install
+
 Indices and tables
 ==================
 
