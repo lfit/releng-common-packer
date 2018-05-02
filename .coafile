@@ -8,6 +8,11 @@ ignore = .tox/**,
     **.sw?,
     **.orig
 
+[all.Documentation]
+bears = SpaceConsistencyBear,WriteGoodLintBear
+files = docs/**.rst
+use_spaces = true
+
 [all.GitCommit]
 bears = GitCommitBear
 ignore_length_regex = Signed-off-by,
