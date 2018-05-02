@@ -9,6 +9,7 @@ VM configuration.
    :maxdepth: 1
 
    install
+   user-guide
 
 Indices and tables
 ==================
