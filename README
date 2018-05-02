@@ -1,0 +1,5 @@
+A collection of common packer scripts and baseline used by Linux Foundation
+projects as a central way to maintain and manage common VM configuration.
+
+Documentation for common packer is available at this link
+https://lf-releng-docs.readthedocs.io/projects/common-packer
