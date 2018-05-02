@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebeb4a4e_e48d2689",
+        "filename": "docs/lf-network.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2018-05-02T20:29:33Z",
+      "side": 1,
+      "message": "Get",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 7
+      },
+      "revId": "38b0a1a559b6a35038a8113e40871cbf6291d266",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5895aeb_af916be2",
+        "filename": "docs/lf-network.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2018-05-02T20:29:33Z",
+      "side": 1,
+      "message": "Can we turn these into numbered steps too?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 32
+      },
+      "revId": "38b0a1a559b6a35038a8113e40871cbf6291d266",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
