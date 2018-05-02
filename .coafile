@@ -16,15 +16,9 @@ ignore_length_regex = Signed-off-by,
     http://,
     https://
 
-[all.MarkDown]
-bears = MarkdownBear,SpaceConsistencyBear,WriteGoodLintBear
-files = *.md, *.markdown
-use_spaces = true
-
 [all.ShellCheck]
 bears = ShellCheckBear,SpaceConsistencyBear
 files = provision/**.sh
 shell = bash
 indent_size = 4
 use_spaces = yeah
-
