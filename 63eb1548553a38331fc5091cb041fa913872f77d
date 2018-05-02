@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "72f0d4d5_d7cdffcc",
+        "filename": "docs/usage.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2018-05-02T21:28:02Z",
+      "side": 1,
+      "message": "This sounds a little bit repetitive with the \"See\" at the start of the sentence.\n\nMaybe we can say something like  \"The following examplease...show how they import..",
+      "range": {
+        "startLine": 34,
+        "startChar": 67,
+        "endLine": 34,
+        "endChar": 73
+      },
+      "revId": "63eb1548553a38331fc5091cb041fa913872f77d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb6beb31_c1213e08",
         "filename": "docs/usage.rst",
         "patchSetId": 2
