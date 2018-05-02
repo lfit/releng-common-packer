@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d003380_9c6438bd",
+        "filename": "docs/usage.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-05-02T21:08:15Z",
+      "side": 1,
+      "message": "Done. Examples are now linked in below.",
+      "parentUuid": "a6396d64_f9e60f9c",
+      "range": {
+        "startLine": 26,
+        "startChar": 20,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "746bc176bb7559a4ae7a32a64e67446bc76e253a",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b0c065b_6abfbe17",
         "filename": "docs/usage.rst",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6d9a1440_b794c4af",
+        "filename": "docs/usage.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-05-02T21:08:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b0c065b_6abfbe17",
+      "range": {
+        "startLine": 33,
+        "startChar": 67,
+        "endLine": 34,
+        "endChar": 46
+      },
+      "revId": "746bc176bb7559a4ae7a32a64e67446bc76e253a",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "552f6d0e_23695419",
         "filename": "docs/usage.rst",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2018-05-02T20:26:30Z",
       "side": 1,
       "message": "This sounds like an incomplete sentence, shall we use \",\" instead of finishing the sentence?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 23
+      },
+      "revId": "746bc176bb7559a4ae7a32a64e67446bc76e253a",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6e4189c_469957c8",
+        "filename": "docs/usage.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-05-02T21:08:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "552f6d0e_23695419",
       "range": {
         "startLine": 50,
         "startChar": 0,
