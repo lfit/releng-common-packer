@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb6beb31_c1213e08",
+        "filename": "docs/usage.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2018-05-02T21:25:17Z",
+      "side": 1,
+      "message": "uncapitalize",
+      "range": {
+        "startLine": 61,
+        "startChar": 24,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "63eb1548553a38331fc5091cb041fa913872f77d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef92e0cf_0b61f2f2",
+        "filename": "docs/usage.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2018-05-02T21:25:17Z",
+      "side": 1,
+      "message": "this will sound better like this (i think):\n\"itself which allows...\"",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 12
+      },
+      "revId": "63eb1548553a38331fc5091cb041fa913872f77d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
