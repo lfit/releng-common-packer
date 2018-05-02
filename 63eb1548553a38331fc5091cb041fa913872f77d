@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "037b33ee_34d227e9",
+        "filename": "docs/usage.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-05-02T21:40:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72f0d4d5_d7cdffcc",
+      "range": {
+        "startLine": 34,
+        "startChar": 67,
+        "endLine": 34,
+        "endChar": 73
+      },
+      "revId": "63eb1548553a38331fc5091cb041fa913872f77d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb6beb31_c1213e08",
         "filename": "docs/usage.rst",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f0051e23_fcc01e99",
+        "filename": "docs/usage.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-05-02T21:40:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb6beb31_c1213e08",
+      "range": {
+        "startLine": 61,
+        "startChar": 24,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "63eb1548553a38331fc5091cb041fa913872f77d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef92e0cf_0b61f2f2",
         "filename": "docs/usage.rst",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2018-05-02T21:25:17Z",
       "side": 1,
       "message": "this will sound better like this (i think):\n\"itself which allows...\"",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 12
+      },
+      "revId": "63eb1548553a38331fc5091cb041fa913872f77d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50ebbde1_e3cf51d8",
+        "filename": "docs/usage.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-05-02T21:40:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef92e0cf_0b61f2f2",
       "range": {
         "startLine": 62,
         "startChar": 0,
