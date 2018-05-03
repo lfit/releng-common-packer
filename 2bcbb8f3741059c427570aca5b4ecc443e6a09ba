@@ -16,6 +16,24 @@
       "revId": "2bcbb8f3741059c427570aca5b4ecc443e6a09ba",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85821c04_75cf65d7",
+        "filename": "docs/lf-network.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2018-05-03T00:23:42Z",
+      "side": 1,
+      "message": "Agree,,, maybe copying line 38 and 39 here too?",
+      "parentUuid": "21e49f74_e8fa4442",
+      "revId": "2bcbb8f3741059c427570aca5b4ecc443e6a09ba",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
