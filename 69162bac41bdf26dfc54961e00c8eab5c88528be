@@ -1,0 +1,8 @@
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Code-Review+2: Andrew Grimberg <agrimberg@linuxfoundation.org>
+Code-Review+2: Jessica Wagantall <jwagantall@linuxfoundation.org>
+Submitted-by: Andrew Grimberg <agrimberg@linuxfoundation.org>
+Submitted-at: Thu, 03 May 2018 00:15:10 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/10381
+Project: releng/common-packer
+Branch: refs/heads/master
