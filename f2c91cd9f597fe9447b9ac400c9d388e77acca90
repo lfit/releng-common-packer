@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb6a4510_940dcdb7",
+        "filename": "docs/usage.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2018-05-03T00:13:31Z",
+      "side": 1,
+      "message": "Distribution",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 6
+      },
+      "revId": "f2c91cd9f597fe9447b9ac400c9d388e77acca90",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25035e0f_aa651c89",
+        "filename": "docs/usage.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2018-05-03T00:13:31Z",
+      "side": 1,
+      "message": "repository",
+      "range": {
+        "startLine": 61,
+        "startChar": 42,
+        "endLine": 61,
+        "endChar": 46
+      },
+      "revId": "f2c91cd9f597fe9447b9ac400c9d388e77acca90",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
