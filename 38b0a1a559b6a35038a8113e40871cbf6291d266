@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "022203e7_49e6c10c",
+        "filename": "docs/lf-network.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-05-03T00:26:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebeb4a4e_e48d2689",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 7
+      },
+      "revId": "38b0a1a559b6a35038a8113e40871cbf6291d266",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5895aeb_af916be2",
         "filename": "docs/lf-network.rst",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-05-02T20:29:33Z",
       "side": 1,
       "message": "Can we turn these into numbered steps too?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 32
+      },
+      "revId": "38b0a1a559b6a35038a8113e40871cbf6291d266",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1a8ab87_e6b79746",
+        "filename": "docs/lf-network.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-05-03T00:26:19Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s necessary here. It\u0027s a bonus detail and isn\u0027t necessary at all for the packer part.\n\nIt should probably be put elsewhere but we don\u0027t have another doc related to lf-network right now.",
+      "parentUuid": "f5895aeb_af916be2",
       "range": {
         "startLine": 28,
         "startChar": 0,
