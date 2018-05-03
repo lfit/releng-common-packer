@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5867e1ae_212c9381",
+        "filename": "docs/usage.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-05-03T00:15:06Z",
+      "side": 1,
+      "message": "This is unclear wording. This should be \u0027which is now\u0027",
+      "range": {
+        "startLine": 7,
+        "startChar": 39,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "f2c91cd9f597fe9447b9ac400c9d388e77acca90",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb6a4510_940dcdb7",
         "filename": "docs/usage.rst",
         "patchSetId": 3
@@ -18,6 +41,29 @@
         "startChar": 0,
         "endLine": 16,
         "endChar": 6
+      },
+      "revId": "f2c91cd9f597fe9447b9ac400c9d388e77acca90",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d70d36fb_4ef0c5c9",
+        "filename": "docs/usage.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-05-03T00:15:06Z",
+      "side": 1,
+      "message": "Make this singular \u0027package\u0027",
+      "range": {
+        "startLine": 24,
+        "startChar": 57,
+        "endLine": 24,
+        "endChar": 65
       },
       "revId": "f2c91cd9f597fe9447b9ac400c9d388e77acca90",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
