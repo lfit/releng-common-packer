@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aee44169_7cc28424",
+        "filename": "docs/lf-network.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2018-05-08T07:20:01Z",
+      "side": 1,
+      "message": "ws causing verify failures",
+      "revId": "d8d4a24f6342cd78e650a79118087e52028fe4ea",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6475f5e6_07c42ce0",
+        "filename": "docs/lf-network.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2018-05-08T07:20:01Z",
+      "side": 1,
+      "message": "ws causing verify failures",
+      "revId": "d8d4a24f6342cd78e650a79118087e52028fe4ea",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
