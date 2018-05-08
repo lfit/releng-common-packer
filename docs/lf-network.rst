@@ -26,6 +26,17 @@ Connect through the LF network
 
 #. Run packer as usual
 
+.. note::
+
+    If forwarding your ssh-agent and you have more than one ssh key, you may
+    see this error message:
+
+    .. literalinclude:: lf-network-ssh-multi-key-fail.txt
+       :language: bash
+
+    To resolve this start the ssh SOCKS proxy with your agent first, stop your
+    agent, then run packer.
+
 **Bonus**
 
 If you would like to be able to ssh directly to a dynamic system inside of the

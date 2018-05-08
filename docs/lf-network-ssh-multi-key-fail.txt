@@ -1,0 +1,7 @@
+Failed to connect to the host via ssh: Warning: Permanently
+  added '[127.0.0.1]:44502' (RSA) to the list of known hosts.
+Received disconnect from 127.0.0.1 port 44502:2: too many
+  authentication failures
+packet_write_wait: Connection to 127.0.0.1 port 44502: Broken pipe
+muxclient: master hello exchange failed
+Failed to connect to new control master
