@@ -26,6 +26,24 @@ Connect through the LF network
 
 #. Run packer as usual
 
+.. note::
+
+    If you see the following error message it's most likely because your
+    ssh-agent has been forwarded and includes too many ssh keys.
+
+    .. code-block:: bash
+    
+        Failed to connect to the host via ssh: Warning: Permanently
+          added '[127.0.0.1]:44502' (RSA) to the list of known hosts.
+        Received disconnect from 127.0.0.1 port 44502:2: too many
+          authentication failures
+        packet_write_wait: Connection to 127.0.0.1 port 44502: Broken pipe
+        muxclient: master hello exchange failed
+        Failed to connect to new control master
+   
+    To resolve this start the ssh SOCKS proxy with your agent first, stop your
+    agent, then run packer.
+
 **Bonus**
 
 If you would like to be able to ssh directly to a dynamic system inside of the
