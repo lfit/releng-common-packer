@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "887bac20_bd1d70d1",
+        "filename": "templates/amazon.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-05-08T23:17:19Z",
+      "side": 1,
+      "message": "I think this file should be named builder-aws.json not amazon.json",
+      "revId": "2c2a052585d73fbcc7c478a004ab79de78a0d222",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1a7ae40_2bb9ae61",
+        "filename": "templates/amazon.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-05-08T23:17:19Z",
+      "side": 1,
+      "message": "This needs to match whatever the file basename ends up being",
+      "range": {
+        "startLine": 23,
+        "startChar": 39,
+        "endLine": 23,
+        "endChar": 48
+      },
+      "revId": "2c2a052585d73fbcc7c478a004ab79de78a0d222",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
