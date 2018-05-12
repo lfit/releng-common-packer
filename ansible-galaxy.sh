@@ -16,5 +16,5 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ansible-galaxy install -p "$ANSIBLE_ROLES_PATH" -r "$SCRIPT_DIR/requirements.yaml"
 
 if [ -f "$ANSIBLE_REQUIREMENTS_FILE" ]; then
-    ansible-galaxy install -p "$ANSIBLE_ROLES_PATH" -r "requirements.yaml"
+    ansible-galaxy install -p "$ANSIBLE_ROLES_PATH" -r "$ANSIBLE_REQUIREMENTS_FILE"
 fi
