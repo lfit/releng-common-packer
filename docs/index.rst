@@ -8,7 +8,7 @@ projects as a central way to maintain and manage common VM configuration.
    :maxdepth: 1
 
    install
-   user-guide
+   usage
 
 Indices and tables
 ==================

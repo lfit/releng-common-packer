@@ -17,6 +17,24 @@ Distribution specific vars are now provided in 'common-packer/vars/$DISTRO'.
 Path to them as normal and they will already contain the correct strings. For
 a new project make sure the base_image name is available in the cloud system.
 
+.. _setup-template:
+
+Setup packer template
+=====================
+
+This setups up a builder image for use in a project. Repeat for any other
+templates provided by common-packer as necessary.
+
+.. code-block:: bash
+
+   # Instructions assume the working directory is the ci-management repo root
+   cd packer
+   mkdir provision templates
+   ln -rs common-packer/templates/builder.json templates/builder.json
+   cp common-packer/provision/local-builder.yaml provision/local-builder.yaml
+
+.. _custom-template:
+
 Example template design and run
 ===============================
 
@@ -45,6 +63,8 @@ Example provisioning script:
 .. literalinclude:: ../provision/docker.yaml
    :language: yaml
 
+.. _install-from-ansible-galaxy:
+
 Install Roles from Ansible Galaxy
 =================================
 
@@ -53,6 +73,8 @@ Common-packer contains a script `ansible-galaxy.sh` which runs
 install common-packer role dependencies. In the local
 ci-management/packer directory a project can provide it's own requirements.yaml
 to pull in roles before running a Packer build.
+
+.. _local-testing:
 
 Local testing of common-packer
 ==============================
