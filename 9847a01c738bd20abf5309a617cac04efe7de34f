@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0f825912_428db029",
+        "filename": "templates/builder.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2018-06-05T21:56:02Z",
+      "side": 1,
+      "message": "ah, the format has a typo should be `-150405.000`",
+      "range": {
+        "startLine": 18,
+        "startChar": 79,
+        "endLine": 18,
+        "endChar": 87
+      },
+      "revId": "9847a01c738bd20abf5309a617cac04efe7de34f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b25d04cc_116c60f6",
         "filename": "templates/builder.json",
         "patchSetId": 1
