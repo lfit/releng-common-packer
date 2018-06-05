@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b25d04cc_116c60f6",
+        "filename": "templates/builder.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-06-05T04:13:18Z",
+      "side": 1,
+      "message": "Can we use uuid instead of timestamp here. The instance_name  doesn\u0027t need to be human readable.",
+      "range": {
+        "startLine": 19,
+        "startChar": 52,
+        "endLine": 19,
+        "endChar": 61
+      },
+      "revId": "9847a01c738bd20abf5309a617cac04efe7de34f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0531621_37923e92",
+        "filename": "templates/docker.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-06-05T04:13:18Z",
+      "side": 1,
+      "message": "Can we use uuid instead of timestamp here. The instance_name  doesn\u0027t need to be human readable.",
+      "range": {
+        "startLine": 19,
+        "startChar": 51,
+        "endLine": 19,
+        "endChar": 60
+      },
+      "revId": "9847a01c738bd20abf5309a617cac04efe7de34f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
