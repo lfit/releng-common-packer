@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a191db66_eaa37fa0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2018-06-06T23:16:38Z",
+      "side": 1,
+      "message": "milliseconds",
+      "range": {
+        "startLine": 9,
+        "startChar": 54,
+        "endLine": 9,
+        "endChar": 66
+      },
+      "revId": "84c1cd7b12732c3a489dd6c8538fa47e88974067",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d7822d0_df5f0e59",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2018-06-06T23:16:38Z",
+      "side": 1,
+      "message": "initial",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "84c1cd7b12732c3a489dd6c8538fa47e88974067",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b78ac8a_c0556ecb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2018-06-06T23:16:38Z",
+      "side": 1,
+      "message": "duplicated word",
+      "range": {
+        "startLine": 14,
+        "startChar": 59,
+        "endLine": 14,
+        "endChar": 62
+      },
+      "revId": "84c1cd7b12732c3a489dd6c8538fa47e88974067",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ae0efbd_96c0774e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2018-06-06T23:16:38Z",
+      "side": 1,
+      "message": "parameter",
+      "range": {
+        "startLine": 19,
+        "startChar": 50,
+        "endLine": 19,
+        "endChar": 58
+      },
+      "revId": "84c1cd7b12732c3a489dd6c8538fa47e88974067",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
