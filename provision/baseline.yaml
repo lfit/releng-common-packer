@@ -12,6 +12,11 @@
         - 'install-base-pkgs-{{ansible_distribution}}.yaml'
         - 'install-base-pkgs-{{ansible_os_family}}.yaml'
 
+    - name: Switch to git2u
+      shell: yum -y replace git --replace-with git2u
+      when: ansible_os_family == 'RedHat'
+      become: yes
+
     - name: Allow jenkins user sudo access
       copy:
         dest: /etc/sudoers.d/89-jenkins-user-defaults

@@ -7,7 +7,9 @@
     - '@base'
     - '@development'
     - yum-utils
+    - yum-plugin-replace
     - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    - https://centos7.iuscommunity.org/ius-release.rpm
   loop_control:
     loop_var: pkg
   become: yes
