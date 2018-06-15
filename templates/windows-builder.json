@@ -1,0 +1,54 @@
+{
+  "variables": {
+    "ansible_roles_path": ".galaxy",
+    "base_image": null,
+    "distro": null,
+    "cloud_auth_url": null,
+    "cloud_user": null,
+    "cloud_pass": null,
+    "cloud_network": null,
+    "cloud_tenant": null,
+    "cloud_user_data": null
+  },
+  "builders": [
+    {
+      "name": "vexxhost",
+      "image_name": "{{user `distro`}} - win-builder - {{isotime \"20060102-150405.000\"}}",
+      "instance_name": "{{user `distro`}}-win-builder-{{uuid}}",
+      "source_image_name": "{{user `base_image`}}",
+      "type": "openstack",
+      "identity_endpoint": "{{user `cloud_auth_url`}}",
+      "username": "{{user `cloud_user`}}",
+      "password": "{{user `cloud_pass`}}",
+      "tenant_name": "{{user `cloud_tenant`}}",
+      "domain_name": "Default",
+      "region": "ca-ymq-1",
+      "availability_zone": "ca-ymq-2",
+      "networks": [
+        "{{user `cloud_network`}}"
+      ],
+      "user_data_file": "{{user `cloud_user_data`}}",
+      "flavor": "v1-standard-4",
+      "communicator": "winrm",
+      "winrm_timeout": "3600s",
+      "winrm_username": "Administrator",
+      "winrm_password": "W!nRMB00tStrap."
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "powershell",
+      "inline": [
+        "dir c:\\"
+      ]
+    },
+    {
+      "type":  "ansible",
+      "playbook_file": "provision/windows-builder.yaml",
+      "extra_arguments": [
+        "--connection", "packer",
+        "--extra-vars", "ansible_shell_type=powershell ansible_shell_executable=None"
+      ]
+    }
+  ]
+}
