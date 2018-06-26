@@ -1,0 +1,20 @@
+---
+
+- hosts: all
+
+  tasks:
+    - name: Install 7zip
+      win_chocolatey:
+        name: '{{pkg}}'
+        state: present
+      with_items:
+        - 7zip
+        - curl
+        - git
+        - openssh
+        - python2
+        - python3
+        - vim
+        - wget
+      loop_control:
+        loop_var: pkg
