@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a88368da_bf51299d",
+        "filename": "provision/windows-user_data.ps1",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-06-26T22:36:03Z",
+      "side": 1,
+      "message": "Is there a reason that this is hardcoded?",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "81632830b20740518f9b55ffb887b1565bb2af5d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec93b8b_3fbf2929",
+        "filename": "templates/windows-builder.json",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-06-26T22:36:03Z",
+      "side": 1,
+      "message": "Is there a reason that this is hardcoded?",
+      "range": {
+        "startLine": 37,
+        "startChar": 25,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "81632830b20740518f9b55ffb887b1565bb2af5d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
