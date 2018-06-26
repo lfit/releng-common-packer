@@ -13,7 +13,7 @@
   "builders": [
     {
       "name": "vexxhost",
-      "image_name": "{{user `distro`}} - win-builder - {{isotime \"20060102-150405.000\"}}",
+      "image_name": "ZZCI - {{user `distro`}} - win-builder - {{isotime \"20060102-150405.000\"}}",
       "instance_name": "{{user `distro`}}-win-builder-{{uuid}}",
       "source_image_name": "{{user `base_image`}}",
       "type": "openstack",
@@ -39,9 +39,11 @@
   ],
   "provisioners": [
     {
-      "type": "powershell",
-      "inline": [
-        "dir c:\\"
+      "type":  "ansible",
+      "playbook_file": "provision/windows-builder.yaml",
+      "extra_arguments": [
+        "--connection", "packer",
+        "--extra-vars", "ansible_shell_type=powershell ansible_shell_executable=None"
       ]
     }
   ]
