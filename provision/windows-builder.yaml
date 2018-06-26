@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+
+  tasks:
+    - name: Install Tools
+      win_chocolatey:
+        name: '{{pkg}}'
+        state: present
+      with_items:
+        - curl
+        - git
+        - openssh
+        - python2
+        - python3
+        - vim
+        - wget
+      loop_control:
+        loop_var: pkg

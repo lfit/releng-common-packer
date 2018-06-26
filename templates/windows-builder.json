@@ -39,9 +39,11 @@
   ],
   "provisioners": [
     {
-      "type": "powershell",
-      "inline": [
-        "dir c:\\"
+      "type":  "ansible",
+      "playbook_file": "provision/windows-builder.yaml",
+      "extra_arguments": [
+        "--connection", "packer",
+        "--extra-vars", "ansible_shell_type=powershell ansible_shell_executable=None"
       ]
     }
   ]
