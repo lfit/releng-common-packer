@@ -28,4 +28,9 @@ Stop-Service -Name WinRM
 Set-Service -Name WinRM -StartupType Automatic
 netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" new action=allow localip=any remoteip=any
 Start-Service -Name WinRM
+
+# Resize first partition of first disk to maximum size
+Get-Partition -DiskNumber 0 -PartitionNumber 1
+$size = (Get-PartitionSupportedSize -DiskNumber 0 -PartitionNumber 1)
+Resize-Partition -DiskNumber 0 -PartitionNumber 1 -Size $size.SizeMax
 </powershell>
