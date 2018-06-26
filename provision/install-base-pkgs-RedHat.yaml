@@ -1,16 +1,24 @@
 ---
 - name: Install base packages
   yum:
-    name: '{{pkg}}'
+    name:
+      - '@base'
+      - '@development'
+      - yum-utils
+      - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      - https://centos7.iuscommunity.org/ius-release.rpm
     state: latest
-  with_items:
-    - '@base'
-    - '@development'
-    - yum-utils
-    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-    - https://centos7.iuscommunity.org/ius-release.rpm
-    # yum-plugin-replace comes from ius
-    - yum-plugin-replace
-  loop_control:
-    loop_var: pkg
+  become: yes
+
+# yum-plugin-replace comes from ius and therefore must be a separate step
+- name: Install yum-plugin-replace
+  yum:
+    name: yum-plugin-replace
+    state: latest
+    update_cache: yes
+  become: yes
+
+# calling yum replace is not possible via standard ansible
+- name: Switch to git2u
+  shell: yum -y replace git --replace-with git2u
   become: yes
