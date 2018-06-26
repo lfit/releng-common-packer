@@ -1,0 +1,32 @@
+---
+
+- hosts: all
+
+  tasks:
+    - name: Install Tools
+      win_chocolatey:
+        name: '{{item}}'
+        state: present
+      with_items:
+        - cmake
+        - curl
+        - git
+        - openssh
+        - python2
+        - python3
+        - vim
+        - wget
+        - zulu8
+
+    - name: Install CMake
+      win_chocolatey:
+        name: cmake
+        state: present
+        install_args: ADD_CMAKE_TO_PATH=System
+
+    - name: Install Visual Studio Community Edition
+      win_chocolatey:
+        name: '{{item}}'
+      with_items:
+        - visualstudio2017community
+        - visualstudio2017-workload-nativedesktop
