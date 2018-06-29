@@ -1,4 +1,6 @@
 {
+  "source_ami_filter_name": "",
+  "source_ami_filter_owner": "",
   "base_image": "Windows Server Standard 2016 [2017-02-20]",
   "distro": "Windows 2016",
   "ssh_user": "admin",
