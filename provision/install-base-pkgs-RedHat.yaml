@@ -1,24 +1,50 @@
 ---
+- name: Install EPEL release Repository
+  yum:
+    name: epel-release
+    state: latest
+  when: ansible_os_family == 'RedHat'
+  become: true
+
+# From ius' automation repo:
+# https://github.com/iuscommunity/automation-examples/blob/ansible/enable-ius.yml
+- set_fact:
+    # yamllint disable rule:line-length
+    ius_distribution_abbrev: "{{ (ansible_distribution == 'CentOS') | ternary('centos', 'rhel') }}"
+    # yamllint enable rule:line-length
+
+# Must be state: present due to deficiency in ansible. See:
+# https://github.com/ansible/ansible-modules-core/issues/948
+- name: Install IUS release package
+  yum:
+    # yamllint disable rule:line-length
+    name: "https://{{ ius_distribution_abbrev }}{{ ansible_distribution_major_version }}.iuscommunity.org/ius-release.rpm"
+    # yamllint enable rule:line-length
+    state: present
+  when: ansible_os_family == 'RedHat'
+  become: true
+
 - name: Install base packages
   yum:
     name:
       - '@base'
       - '@development'
       - yum-utils
-      - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-      - https://centos7.iuscommunity.org/ius-release.rpm
+      - yum-plugin-replace
     state: latest
-  become: yes
+  become: true
 
-# yum-plugin-replace comes from ius and therefore must be a separate step
-- name: Install yum-plugin-replace
-  yum:
-    name: yum-plugin-replace
-    state: latest
-    update_cache: yes
-  become: yes
+- name: Check if git2u is Installed
+  command: rpm -q git2u
+  args:
+    warn: false
+  register: git2u_check
+  ignore_errors: true
+  become: true
 
 # calling yum replace is not possible via standard ansible
 - name: Switch to git2u
   shell: yum -y replace git --replace-with git2u
-  become: yes
+  become: true
+  warn: false
+  when: git2u_check.rc != 0

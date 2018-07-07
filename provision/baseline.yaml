@@ -2,9 +2,11 @@
 - hosts: all
   become_user: root
   become_method: sudo
+  become: true
 
   pre_tasks:
-    - include_role: name=lfit.system-update
+    - name: Include System Updates
+      include_role: name=lfit.system-update
 
     - name: Install base packages
       include_tasks: '{{item}}'
@@ -19,7 +21,7 @@
           Defaults:jenkins !requiretty
           jenkins ALL = NOPASSWD: ALL
         validate: /usr/sbin/visudo -cf %s
-      become: yes
+      become: true
 
   roles:
     - lfit.lf-recommended-tools
@@ -33,11 +35,15 @@
 
   post_tasks:
     - name: Update /etc/nss-switch.conf to map hostname with IP
-      # Update /etc/nss-switch.conf to map hostname with IP instead of using `localhost`
-      # from /etc/hosts which is required by some of the Java API's to avoid
-      # Java UnknownHostException: "Name or service not known" error.
-      shell: sed -i "/^hosts:/s/$/ myhostname/" /etc/nsswitch.conf
-      become: yes
+      # Update /etc/nss-switch.conf to map hostname with IP instead of
+      # using `localhost` from /etc/hosts which is required by some of
+      # the Java API's to avoid Java UnknownHostException: "Name or
+      # service not known" error.
+      lineinfile:
+        path: /etc/nsswitch.conf
+        regexp: "^hosts:"
+        line: "hosts:      files dns myhostname"
+      become: true
 
     - name: Disable periodic updates
       block:
@@ -51,13 +57,13 @@
             path: /etc/apt/apt.conf.d/10periodic
             regexp: '^APT::Periodic::Unattended-Upgrade'
             line: 'APT::Periodic::Unattended-Upgrade "0";'
-            create: yes
+            create: true
         - name: Uninstall unattended upgrades
           apt:
             name: unattended-upgrades
             state: absent
       when: ansible_distribution == 'Ubuntu'
-      become: yes
+      become: true
 
     - name: System Reseal
       script: system-reseal.sh

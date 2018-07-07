@@ -11,4 +11,4 @@
     - gdebi
   loop_control:
     loop_var: pkg
-  become: yes
+  become: true
