@@ -10,12 +10,13 @@
     "cloud_tenant": null,
     "cloud_user_data": null,
     "ssh_user": null,
-    "ssh_proxy_host": ""
+    "ssh_proxy_host": "",
+    "arch": "x86_64"
   },
   "builders": [
     {
       "name": "vexxhost",
-      "image_name": "ZZCI - {{user `distro`}} - docker - {{isotime \"20060102-150405.000\"}}",
+      "image_name": "ZZCI - {{user `distro`}} - docker - {{user `arch`}} - {{isotime \"20060102-150405.000\"}}",
       "instance_name": "{{user `distro`}}-docker-{{uuid}}",
       "source_image_name": "{{user `base_image`}}",
       "type": "openstack",

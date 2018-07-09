@@ -14,13 +14,14 @@
     "ssh_user": null,
     "distro": null,
     "cloud_user_data": null,
-    "ssh_proxy_host": ""
+    "ssh_proxy_host": "",
+    "arch": "x86_64"
   },
   "builders": [
     {
       "name": "aws",
       "access_key": "{{user `aws_access_key`}}",
-      "ami_name": "ZZCI - {{user `distro`}} - builder-aws - {{isotime \"20060102-150405.000\"}}",
+      "ami_name": "ZZCI - {{user `distro`}} - builder-aws - {{user `arch`}} - {{isotime \"20060102-150405.000\"}}",
       "instance_name": "{{user `distro`}}-builder-aws-{{uuid}}",
       "instance_type": "{{user `aws_instance_type`}}",
       "region": "{{user `aws_region`}}",

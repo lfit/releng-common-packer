@@ -8,12 +8,13 @@
     "cloud_pass": null,
     "cloud_network": null,
     "cloud_tenant": null,
-    "cloud_user_data": null
+    "cloud_user_data": null,
+    "arch": "x86_64"
   },
   "builders": [
     {
       "name": "vexxhost",
-      "image_name": "{{user `distro`}} - win-builder - {{isotime \"20060102-150405.000\"}}",
+      "image_name": "{{user `distro`}} - win-builder - {{user `arch`}} - {{isotime \"20060102-150405.000\"}}",
       "instance_name": "{{user `distro`}}-win-builder-{{uuid}}",
       "source_image_name": "{{user `base_image`}}",
       "type": "openstack",
