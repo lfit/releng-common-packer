@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1720088b_d96213a9",
+        "filename": "templates/builder-aws.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-07-09T23:46:37Z",
+      "side": 1,
+      "message": "I think by default we\u0027re x86_64 right? usually x86 by itself refers to 32bit system.",
+      "range": {
+        "startLine": 18,
+        "startChar": 13,
+        "endLine": 18,
+        "endChar": 16
+      },
+      "revId": "43c639acd28d456152c4d2f66b6edae1c5a1a2f6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
