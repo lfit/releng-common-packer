@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73d3fd4c_ebd6b8e2",
+        "filename": "templates/builder-arm64.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 15
+      },
+      "writtenOn": "2018-07-09T19:47:59Z",
+      "side": 1,
+      "message": "Instead of creating new builders, which are no different (as far as I can tell) from the current ones beyond the image_name, I think it would make more sense to add a \u0027arch\u0027 variable (defaulted to x86) that can be overridden in the OS variable definitions",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 103
+      },
+      "revId": "582d358344d8c8b70f55276b3a3afb5b51aa8804",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
