@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "502b234e_1ad861f8",
+        "filename": "provision/connection_plugins/packer.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 15
+      },
+      "writtenOn": "2018-07-10T16:07:47Z",
+      "side": 1,
+      "message": "Did this file come from somewhere else?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 58
+      },
+      "revId": "4e95fcb7a52f19925f982a1190c1c7a6b411916f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbb80271_ada471bf",
+        "filename": "provision/connection_plugins/packer.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 15
+      },
+      "writtenOn": "2018-07-10T16:07:47Z",
+      "side": 1,
+      "message": "Will this forever be required? Seems this is something that may get resolved upstream in the future, and we should add a note to remove it (and point to the issue).",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "4e95fcb7a52f19925f982a1190c1c7a6b411916f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "806d7799_e0a950f7",
+        "filename": "provision/windows-builder.yaml",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 15
+      },
+      "writtenOn": "2018-07-10T16:07:47Z",
+      "side": 1,
+      "message": "What\u0027s wrong with \u0027{{ item }}\u0027 ?",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 21
+      },
+      "revId": "4e95fcb7a52f19925f982a1190c1c7a6b411916f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60eda66c_a1c1ec35",
         "filename": "templates/windows-builder.json",
         "patchSetId": 11
