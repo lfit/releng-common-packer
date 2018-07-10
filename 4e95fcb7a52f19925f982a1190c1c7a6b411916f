@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8e5fed06_e2e1c850",
+        "filename": "provision/connection_plugins/packer.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-07-10T17:31:54Z",
+      "side": 1,
+      "message": "It comes from packer\u0027s documentation. I used this license because that\u0027s the license of the packer project.",
+      "parentUuid": "502b234e_1ad861f8",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 58
+      },
+      "revId": "4e95fcb7a52f19925f982a1190c1c7a6b411916f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbb80271_ada471bf",
         "filename": "provision/connection_plugins/packer.py",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2018-07-10T16:07:47Z",
       "side": 1,
       "message": "Will this forever be required? Seems this is something that may get resolved upstream in the future, and we should add a note to remove it (and point to the issue).",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "4e95fcb7a52f19925f982a1190c1c7a6b411916f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82778c56_a1228487",
+        "filename": "provision/connection_plugins/packer.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-07-10T17:31:54Z",
+      "side": 1,
+      "message": "Yes, this is required for the for seeable future. Basically Ansible now requires DOCUMENTATION strings in it\u0027s connector plugins and will purposely fail to execute if code is missing the documentation string since v2.4.1",
+      "parentUuid": "cbb80271_ada471bf",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "57156034_98afec85",
+        "filename": "provision/windows-builder.yaml",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-07-10T17:31:54Z",
+      "side": 1,
+      "message": "Item doesn\u0027t work when you have nested tasks. So I started setting appropriate names for them.",
+      "parentUuid": "806d7799_e0a950f7",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 21
+      },
+      "revId": "4e95fcb7a52f19925f982a1190c1c7a6b411916f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60eda66c_a1c1ec35",
         "filename": "templates/windows-builder.json",
         "patchSetId": 11
@@ -82,6 +154,24 @@
       "writtenOn": "2018-07-10T15:27:44Z",
       "side": 1,
       "message": "This file needs to be rebased onto the latest master since we now encode the arch into the image names",
+      "revId": "4e95fcb7a52f19925f982a1190c1c7a6b411916f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4364ff75_1d7ceba4",
+        "filename": "templates/windows-builder.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-07-10T17:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60eda66c_a1c1ec35",
       "revId": "4e95fcb7a52f19925f982a1190c1c7a6b411916f",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
