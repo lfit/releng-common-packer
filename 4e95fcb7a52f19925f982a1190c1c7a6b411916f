@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60eda66c_a1c1ec35",
+        "filename": "templates/windows-builder.json",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-07-10T15:27:44Z",
+      "side": 1,
+      "message": "This file needs to be rebased onto the latest master since we now encode the arch into the image names",
+      "revId": "4e95fcb7a52f19925f982a1190c1c7a6b411916f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
