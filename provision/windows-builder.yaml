@@ -11,12 +11,17 @@
         - cmake
         - curl
         - git
-        - openssh
         - python2
         - python3
         - vim
         - wget
         - zulu8
+
+    - name: Install OpenSSH
+      win_chocolatey:
+        name: openssh
+        state: present
+        params: /SSHAgentFeature
 
     - name: Install CMake
       win_chocolatey:
