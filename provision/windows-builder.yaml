@@ -37,3 +37,6 @@
       with_items:
         - visualstudio2017community
         - visualstudio2017-workload-nativedesktop
+
+    - name: Build and Install zlib
+      script: windows/install-zlib.ps1
