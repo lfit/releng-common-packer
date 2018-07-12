@@ -37,3 +37,16 @@
       with_items:
         - visualstudio2017community
         - visualstudio2017-workload-nativedesktop
+
+    - name: Build and Install zlib
+      block:
+        - name: Copy install-zlib.ps1 script
+          win_copy:
+            src: windows/install-zlib.ps1
+            dest: C:\install-zlib.ps1
+        - name: Build and Install zlib
+          win_shell: C:\install-zlib.ps1
+        - name: Cleanup
+          win_file:
+            path: C:\install-zlib.ps1
+            state: absent
