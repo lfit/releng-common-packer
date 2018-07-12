@@ -37,3 +37,31 @@
       with_items:
         - visualstudio2017community
         - visualstudio2017-workload-nativedesktop
+
+    - name: Build and Install zlib
+      block:
+        - name: Ensure C:\temp exists
+          win_file:
+            path: C:\temp
+            state: directory
+        - name: Download zlib
+          win_get_url:
+            url: https://zlib.net/zlib1211.zip
+            dest: C:\temp\zlib.zip
+        - name: Unzip zlib
+          win_unzip:
+            src: C:\temp\zlib.zip
+            dest: C:\temp
+        - name: CMake
+          win_command: '"C:\Program Files\CMake\Bin\cmake" -DCMAKE_INSTALL_PREFIX=C:\lib\zlib -G "Visual Studio 15 Win64"'
+            chdir: C:\temp\zlib-1.2.11
+        - name: msbuild
+          win_command: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild" zlib.sln'
+            chdir: C:\temp\zlib-1.2.11
+        - name: msbuild install
+          win_command: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild" INSTALL.vcxproj'
+            chdir: C:\temp\zlib-1.2.11
+        - name: Cleanup
+          win_file:
+            path: C:\temp
+            state: absent
