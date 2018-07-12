@@ -13,8 +13,10 @@
         - git
         - python2
         - python3
+        - unzip
         - vim
         - wget
+        - zip
         - zulu8
 
     - name: Install OpenSSH
