@@ -1,0 +1,8 @@
+Code-Review+2: Thanh Ha <thanh.ha@linuxfoundation.org>
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Code-Review+2: Andrew Grimberg <agrimberg@linuxfoundation.org>
+Submitted-by: Andrew Grimberg <agrimberg@linuxfoundation.org>
+Submitted-at: Fri, 13 Jul 2018 15:24:46 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/11770
+Project: releng/common-packer
+Branch: refs/heads/master
