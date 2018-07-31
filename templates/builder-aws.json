@@ -2,20 +2,20 @@
   "description": "Build an AMI for use as a CI builder",
   "variables": {
     "ansible_roles_path": ".galaxy",
+    "arch": "x86_64",
+    "aws_instance_type": "t2.micro",
+    "aws_region": "us-west-2",
     "aws_access_key": null,
     "aws_secret_key": null,
+    "cloud_user_data": null,
+    "distro": null,
     "security_group_id": null,
     "source_ami_filter_name": null,
     "source_ami_filter_owner": null,
-    "aws_instance_type": "t2.micro",
-    "aws_region": "us-west-2",
-    "vpc_id": null,
     "subnet_id": null,
     "ssh_user": null,
-    "distro": null,
-    "cloud_user_data": null,
     "ssh_proxy_host": "",
-    "arch": "x86_64"
+    "vpc_id": null
   },
   "builders": [
     {

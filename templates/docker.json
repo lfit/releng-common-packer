@@ -1,17 +1,18 @@
 {
   "variables": {
     "ansible_roles_path": ".galaxy",
+    "arch": "x86_64",
     "base_image": null,
-    "distro": null,
     "cloud_auth_url": null,
     "cloud_user": null,
     "cloud_pass": null,
     "cloud_network": null,
     "cloud_tenant": null,
     "cloud_user_data": null,
+    "distro": null,
+    "flavor": "v1-standard-1",
     "ssh_user": null,
-    "ssh_proxy_host": "",
-    "arch": "x86_64"
+    "ssh_proxy_host": ""
   },
   "builders": [
     {
@@ -33,7 +34,7 @@
       "user_data_file": "{{user `cloud_user_data`}}",
       "ssh_username": "{{user `ssh_user`}}",
       "ssh_proxy_host": "{{user `ssh_proxy_host`}}",
-      "flavor": "v1-standard-1",
+      "flavor": "{{user `flavor`}}",
       "metadata": {
         "ci_managed": "yes"
       }
