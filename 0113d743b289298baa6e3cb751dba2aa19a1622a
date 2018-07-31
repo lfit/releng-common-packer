@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb5fcc11_3a18c90b",
+        "filename": "templates/builder.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-07-31T20:22:22Z",
+      "side": 1,
+      "message": "This is an alphabetical ordered dictionary of variables.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "0113d743b289298baa6e3cb751dba2aa19a1622a",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
