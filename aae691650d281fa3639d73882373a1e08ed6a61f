@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c584a323_8fd2d3a3",
+        "filename": "templates/builder.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-08-01T15:26:59Z",
+      "side": 1,
+      "message": "What happens if we set this to \"null\" by default, does it use the default ephemeral storage?\n\nBecause we want to use the default ephemeral storage from the v1-standard-1 systems unless it\u0027s explicitly overrided. This saves us the cost of the extra volume storage as well as we have a limited number of volume restriction on most projects.",
+      "revId": "aae691650d281fa3639d73882373a1e08ed6a61f",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
