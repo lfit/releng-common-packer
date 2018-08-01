@@ -9,6 +9,7 @@
     "cloud_network": null,
     "cloud_tenant": null,
     "cloud_user_data": null,
+    "disk_gb": null,
     "distro": null,
     "flavor": "v1-standard-1",
     "ssh_user": null,
@@ -35,6 +36,7 @@
       "ssh_username": "{{user `ssh_user`}}",
       "ssh_proxy_host": "{{user `ssh_proxy_host`}}",
       "flavor": "{{user `flavor`}}",
+      "disk_gb": "{{user `disk_db`}}",
       "metadata": {
         "ci_managed": "yes"
       }

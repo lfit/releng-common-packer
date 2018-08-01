@@ -2,6 +2,7 @@
   "arch": "arm64",
   "base_image": "CentOS 7 aarch64 (2018-07-12) - LF upload",
   "cloud_user_data": "common-packer/provision/rh-user_data.sh",
+  "disk_gb": "40",
   "distro": "CentOS 7",
   "flavor": "v2-standard-1",
   "source_ami_filter_name": "*CentOS Linux 7*HVM*",

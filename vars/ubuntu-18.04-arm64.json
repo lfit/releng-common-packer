@@ -2,6 +2,7 @@
   "arch": "arm64",
   "base_image": "Ubuntu 18.04 LTS (arm64) [2018-04-29]",
   "cloud_user_data": "common-packer/provision/ubuntu-user_data.sh",
+  "disk_gb": "40",
   "distro": "Ubuntu 18.04",
   "flavor": "v2-standard-1",
   "source_ami_filter_name": "*ubuntu*16.04*",
