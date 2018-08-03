@@ -33,3 +33,9 @@ files = provision/**.sh
 shell = bash
 indent_size = 4
 use_spaces = yeah
+
+[YAML]
+bears = YAMLLintBear
+files = provision/**.yaml
+document_start = True
+yamllint_config = .yamllint.conf
