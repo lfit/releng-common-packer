@@ -41,11 +41,13 @@
   ],
   "provisioners": [
     {
-      "type":  "ansible",
+      "type": "ansible",
       "playbook_file": "provision/local-windows-builder.yaml",
       "extra_arguments": [
-        "--connection", "packer",
-        "--extra-vars", "ansible_shell_type=powershell ansible_shell_executable=None"
+        "--connection",
+        "packer",
+        "--extra-vars",
+        "ansible_shell_type=powershell ansible_shell_executable=None"
       ]
     }
   ]

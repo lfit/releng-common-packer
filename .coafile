@@ -21,6 +21,12 @@ ignore_length_regex = Signed-off-by,
     http://,
     https://
 
+[JSON]
+bears = JSONFormatBear
+files = templates/**.json,
+    vars/**.json
+indent_size = 2
+
 [all.ShellCheck]
 bears = ShellCheckBear,SpaceConsistencyBear
 files = provision/**.sh
