@@ -7,8 +7,10 @@ projects as a central way to maintain and manage common VM configuration.
 .. toctree::
    :maxdepth: 1
 
+   requirements
    install
    usage
+   lf-network
 
 Indices and tables
 ==================
