@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98b9fb43_17fcc5bd",
+        "filename": "docs/requirements.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-08-18T06:02:34Z",
+      "side": 1,
+      "message": "Bullet points should never be long paragraphs of information. They should be short and sweet. No need to use a numbered list unless order matters either.\n\nI think it would be better to list the requirements like this:\n\n * Ansible 2.4.1 or later\n * Packer 1.2.3 or later\n \n Ansible can be installed via pip in a virtualenv if the \n minimum version is not available via your local package \n manager.\n\n .. code-block:: bash\n  \n    virtualenv ansible\n    source ansible/bin/activate\n    pip install ansible~\u003d2.4.1",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 11
+      },
+      "revId": "63b9f246b24963c6e15eae3a3389076169ed4523",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
