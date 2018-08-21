@@ -13,6 +13,8 @@ ANSIBLE_ROLES_PATH="${1:-.galaxy}"
 ANSIBLE_REQUIREMENTS_FILE="${2:-requirements.yaml}"
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+set -eux -o pipefail
+
 ansible-galaxy install -p "$ANSIBLE_ROLES_PATH" -r "$SCRIPT_DIR/requirements.yaml"
 
 if [ -f "$ANSIBLE_REQUIREMENTS_FILE" ]; then
