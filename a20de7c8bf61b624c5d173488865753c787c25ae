@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4390bfc3_69190b76",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2018-08-21T23:29:52Z",
+      "side": 1,
+      "message": "It could be any number of reasons but yes this is one of them.",
+      "revId": "a20de7c8bf61b624c5d173488865753c787c25ae",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
