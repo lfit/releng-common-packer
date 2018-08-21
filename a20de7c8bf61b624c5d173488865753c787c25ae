@@ -1,0 +1,7 @@
+Code-Review+2: Thanh Ha (zxiiro) <thanh.ha@linuxfoundation.org>
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Submitted-by: Thanh Ha (zxiiro) <thanh.ha@linuxfoundation.org>
+Submitted-at: Tue, 21 Aug 2018 23:36:14 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/12355
+Project: releng/common-packer
+Branch: refs/heads/master
