@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "feb96572_c241e37d",
+        "filename": "vars/ubuntu-18.04.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2018-09-06T15:17:23Z",
+      "side": 1,
+      "message": "Where did this base image come from? For Vexxhost we should be uploading a base cloud image from Ubuntu and not using their base image. The reason being that we want to tell our communities that the base images are available just by downloading from the upstream.\n\nOn the AMI side we\u0027re actually clamping to the upstream project in the search already so we\u0027re good there.",
+      "range": {
+        "startLine": 4,
+        "startChar": 17,
+        "endLine": 4,
+        "endChar": 55
+      },
+      "revId": "ba8c7029fcc59c28f88b48c8a8616973578c50a6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
