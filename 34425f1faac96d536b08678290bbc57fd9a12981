@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50c0e3f6_b39fd8e7",
+        "filename": "templates/builder.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 15
+      },
+      "writtenOn": "2018-09-18T20:17:31Z",
+      "side": 1,
+      "message": "Where does this come from? I don\u0027t see it documented here: https://www.packer.io/docs/builders/openstack.html\n\nI think you want `use_blockstorage_volume`?\nhttps://www.packer.io/docs/builders/openstack.html#use_blockstorage_volume",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "34425f1faac96d536b08678290bbc57fd9a12981",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
