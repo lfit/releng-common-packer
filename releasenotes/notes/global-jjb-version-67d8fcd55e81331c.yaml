@@ -1,0 +1,4 @@
+---
+upgrade:
+  - |
+    Requires Global JJB v0.26.0 minimum.
