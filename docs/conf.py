@@ -18,4 +18,31 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 
+import subprocess
+
 from docs_conf.conf import *
+
+def format_version(version):
+    fmt = '{tag}.dev{commitcount}+{gitsha}'
+    parts = version.split('-')
+    assert len(parts) in (3, 4)
+    dirty = len(parts) == 4
+    tag, count, sha = parts[:3]
+    if count == '0' and not dirty:
+        return tag
+    return fmt.format(tag=tag, commitcount=count, gitsha=sha.lstrip('g'))
+
+# The version info for the project you're documenting, acts as replacement for
+# |version| and |release|, also used in various other places throughout the
+# built documents.
+#
+# The short X.Y version.
+command = 'git describe --tags --long --dirty'
+try:
+    git_version = format_version(
+        subprocess.check_output(command.split()).decode('utf-8').strip())
+except subprocess.CalledProcessError:  # Handle docs builds from tarball
+    git_version = "v0.0.9999-local"
+version = git_version
+# The full version, including alpha/beta/rc tags.
+release = version
