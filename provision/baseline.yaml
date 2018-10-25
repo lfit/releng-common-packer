@@ -56,6 +56,10 @@
           apt:
             name: unattended-upgrades
             state: absent
+        - name: Prevent unattended upgrades from being installed
+          dpkg_selections:
+            name: unattended-upgrades
+            selection: hold
       when: ansible_distribution == 'Ubuntu'
       become: yes
 
