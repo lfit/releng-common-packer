@@ -46,6 +46,11 @@
             path: /etc/apt/apt.conf.d/10periodic
             regexp: '1'
             replace: '0'
+        - name: Set all auto update options to 0
+          replace:
+            path: /etc/apt/apt.conf.d/20auto-upgrades
+            regexp: '1'
+            replace: '0'
         - name: Disable unattended upgrades
           lineinfile:
             path: /etc/apt/apt.conf.d/10periodic
@@ -60,6 +65,18 @@
           dpkg_selections:
             name: unattended-upgrades
             selection: hold
+        - name: Disable apt-daily.* systemd services
+          systemd:
+            name: '{{service}}'
+            enabled: yes
+            masked: no
+          with_items:
+            - apt-daily.service
+            - apt-daily.timer
+            - apt-daily-upgrade.service
+            - apt-daily-upgrade.timer
+          loop_control:
+            loop_var: service
       when: ansible_distribution == 'Ubuntu'
       become: yes
 
