@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5130c57a_afcdbd8f",
+        "filename": "provision/baseline.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 12
+      },
+      "writtenOn": "2018-11-01T19:40:16Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be \u0027no\u0027",
+      "range": {
+        "startLine": 71,
+        "startChar": 12,
+        "endLine": 71,
+        "endChar": 24
+      },
+      "revId": "26498bd4bedaaa0b69d0ba4604f9cbf110050a0e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
