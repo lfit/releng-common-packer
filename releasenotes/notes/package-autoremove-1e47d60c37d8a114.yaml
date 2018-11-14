@@ -1,4 +1,0 @@
----
-upgrade:
-  - |
-    Requires Ansible >= 2.7.0
