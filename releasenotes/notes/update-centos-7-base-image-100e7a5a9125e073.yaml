@@ -1,0 +1,5 @@
+---
+upgrade:
+  - |
+    The CentOS 7.6 1811 base image is uploaded on the cloud provider. Switch
+    the packer var files to build from the latest CentOS 7.6 1811 base image.
