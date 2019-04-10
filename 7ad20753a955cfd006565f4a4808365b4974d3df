@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1909ada_597cf090",
+        "filename": "vars/ubuntu-16.04-arm64.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 266
+      },
+      "writtenOn": "2019-04-10T14:22:46Z",
+      "side": 1,
+      "message": "Where does this date come from?  I see on http://cdimage.ubuntu.com/ubuntu/releases/16.04/release/ that the newest 16.04 release has a date of 2019-02-27",
+      "revId": "7ad20753a955cfd006565f4a4808365b4974d3df",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
