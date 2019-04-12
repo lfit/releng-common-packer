@@ -16,6 +16,24 @@
       "revId": "7ad20753a955cfd006565f4a4808365b4974d3df",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6082c2af_5c56a4cd",
+        "filename": "vars/ubuntu-16.04-arm64.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2019-04-12T20:56:18Z",
+      "side": 1,
+      "message": "My understanding is that we use the vendor provided image for ARM because there were problems getting the upstream cloud image to properly boot on the cloud. I\u0027m not a big fan of that and we should probably revisit if the upstream images can work now and switch if possible.",
+      "parentUuid": "e1909ada_597cf090",
+      "revId": "7ad20753a955cfd006565f4a4808365b4974d3df",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
