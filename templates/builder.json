@@ -7,8 +7,9 @@
     "cloud_user_data": null,
     "cloud_region": "ca-ymq-1",
     "cloud_availability_zone": "ca-ymq-2",
-    "vm_use_block_storage": false,
+    "vm_use_block_storage": "false",
     "vm_volume_size": "10",
+    "vm_image_disk_format": "",
     "distro": null,
     "flavor": "v1-standard-1",
     "ssh_user": null,
@@ -35,7 +36,7 @@
       },
       "use_blockstorage_volume": "{{user `vm_use_block_storage`}}",
       "volume_size": "{{user `vm_volume_size`}}",
-      "image_disk_format": "raw"
+      "image_disk_format": "{{user `vm_image_disk_format`}}"
     }
   ],
   "provisioners": [
