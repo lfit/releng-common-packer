@@ -1,0 +1,10 @@
+---
+features:
+  - |
+    More control over Openstack images is now allowed. This includes selection
+    of cloud, availability zone, if volumes should be created and at what size
+    and format.
+upgrade:
+  - |
+    Packer 1.3.2 is now required to support Openstack block storage and disk
+    format requirements
