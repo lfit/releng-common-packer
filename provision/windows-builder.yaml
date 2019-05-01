@@ -5,19 +5,18 @@
   tasks:
     - name: Install Tools
       win_chocolatey:
-        name: '{{item}}'
+        name:
+          - cmake
+          - curl
+          - git
+          - python2
+          - python3
+          - unzip
+          - vim
+          - wget
+          - zip
+          - zulu8
         state: present
-      with_items:
-        - cmake
-        - curl
-        - git
-        - python2
-        - python3
-        - unzip
-        - vim
-        - wget
-        - zip
-        - zulu8
 
     - name: Install OpenSSH
       win_chocolatey:
