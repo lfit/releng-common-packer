@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Ansible supports lists passed to package install that can avoid using
+    with_items. Using with_items makes multiple calls to the packages manager
+    slowing down the performance.
