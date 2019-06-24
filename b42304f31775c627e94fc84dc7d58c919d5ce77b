@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb22181e_5a71b51c",
+        "filename": "tox.ini",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2019-06-24T15:26:20Z",
+      "side": 1,
+      "message": "This should be in change Ib899bc6727ba961189e9aeb7ae43767150b768d9 not this one.",
+      "revId": "b42304f31775c627e94fc84dc7d58c919d5ce77b",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
