@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Pygments release 2.4.0 which added a python requires that excludes all
+    versions of Python < 3.5. The LFCI's default 3 version is 3.4 so causes
+    build failure.
