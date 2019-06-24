@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66cba2ff_0266b240",
+        "filename": "releasenotes/notes/pin-pygments-2.3.1-f7b615397b0398d6.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2019-06-24T23:47:31Z",
+      "side": 1,
+      "message": "I think the \u0027 might cause the docs to look funny, do you know if this is the case?  I see the rest of the line highlighted after that character.",
+      "range": {
+        "startLine": 5,
+        "startChar": 34,
+        "endLine": 5,
+        "endChar": 75
+      },
+      "revId": "4ecd70527e3aeba83b78fa2c92e8a72d45b6eaa7",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
