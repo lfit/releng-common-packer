@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "895dd561_06495b50",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2019-06-25T14:43:37Z",
+      "side": 1,
+      "message": "It\u0027s best practice to use:\n\n yum:\n   name: package\n   state: present\n   update_cache: true\n\ninstead of putting it all on 1 line.\n\n(Also I\u0027m not sure the missing name\u003dpackage will work in the proposed patch?)",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 60
+      },
+      "revId": "a4a727fe58ff06ec2cdfe60bf18a7c3621ac771d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
