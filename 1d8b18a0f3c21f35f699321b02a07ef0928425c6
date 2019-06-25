@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb891dc4_a9183bd8",
+        "filename": "vars/ubuntu-18.04-arm64.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2019-06-25T14:38:23Z",
+      "side": 1,
+      "message": "What about the AMI? seems like it\u0027s incorrectly pointing to 16.04",
+      "range": {
+        "startLine": 7,
+        "startChar": 3,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "1d8b18a0f3c21f35f699321b02a07ef0928425c6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
