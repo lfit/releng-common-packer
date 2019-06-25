@@ -8,17 +8,16 @@
       - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
       - https://centos7.iuscommunity.org/ius-release.rpm
     state: latest
-  become: yes
+  become: true
 
-# yum-plugin-replace comes from ius and therefore must be a separate step
-- name: Install yum-plugin-replace
-  yum:
-    name: yum-plugin-replace
-    state: latest
-    update_cache: yes
-  become: yes
-
-# calling yum replace is not possible via standard ansible
-- name: Switch to git2u
-  shell: yum -y replace git --replace-with git2u
-  become: yes
+- name: Swap to git2u
+  block:
+    - name: Install yum-plugin-replace
+      yum: yum-plugin-replace state=present update_cache=yes
+    - name: Gather rpm package facts
+      package_facts:
+        manager: auto
+    - name: Replace git with git2u
+      command: yum replace -y git --replace-with git2u
+      when: ansible_facts.packages['git'] is defined
+  become: true
