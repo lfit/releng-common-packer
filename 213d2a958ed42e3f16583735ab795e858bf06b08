@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "146ca2d8_0c47177e",
+        "filename": "tox.ini",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2019-06-25T14:45:50Z",
+      "side": 1,
+      "message": "According to the project https://pypi.org/project/requests/2.22.0/\n\"Requests officially supports Python 2.7 \u0026 3.4–3.7, and runs great on PyPy.\"\n\nThis tells me 3.4.9 would be supported. So what is broken exactly?",
+      "revId": "213d2a958ed42e3f16583735ab795e858bf06b08",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
