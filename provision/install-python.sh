@@ -10,11 +10,29 @@
 ##############################################################################
 # vi: ts=4 sw=4 sts=4 et :
 
+set -eu -o pipefail -o noglob
+
+echo "----> install-python.sh"
+
 # Ansible requires Python 2 so check availability and install as necessary.
-if ! command -v /usr/bin/python; then
-    # Ubuntu 16.04 does not come with Python 2 by default.
-    if command -v apt; then
-        apt -y update
-        apt install -y python-minimal
+# Ubuntu 16.04 does not come with Python 2 by default
+
+function is_ubuntu()
+{
+    # If the file exist and contains ubuntu entry return 0
+    if egrep -q "^ID=ubuntu" /etc/os-release 2> /dev/null; then
+        echo "Distro is Ubuntu"
+        return 0
     fi
+    echo "Distro is NOT Ubuntu"
+    return 1
+}
+
+if is_ubuntu; then
+    echo "Installing python-minimal..."
+    apt -y update
+    apt install -y python-minimal
 fi
+
+type python
+type sudo

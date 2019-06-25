@@ -28,11 +28,12 @@ files = templates/**.json,
 indent_size = 2
 
 [all.ShellCheck]
-bears = ShellCheckBear,SpaceConsistencyBear
-files = provision/**.sh
+bears = ShellCheckBear, SpaceConsistencyBear, LineLengthBear
+files = provision/**.sh, ansible-galaxy.sh
 shell = bash
 indent_size = 4
-use_spaces = yeah
+use_spaces = True
+max_line_length = 80
 
 [YAML]
 bears = YAMLLintBear

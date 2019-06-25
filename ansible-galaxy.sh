@@ -9,14 +9,23 @@
 # http://www.eclipse.org/legal/epl-v10.html
 ##############################################################################
 
-ANSIBLE_ROLES_PATH="${1:-.galaxy}"
-ANSIBLE_REQUIREMENTS_FILE="${2:-requirements.yaml}"
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+set -eu -o pipefail -o noglob
 
-set -eux -o pipefail
+echo "----> ansible-galaxy.sh"
 
-ansible-galaxy install -p "$ANSIBLE_ROLES_PATH" -r "$SCRIPT_DIR/requirements.yaml"
+ansible_roles_path=${1:-.galaxy}
+ansible_requirements_file=${2:-requirements.yaml}
+script_dir=$(dirname "$0")
 
-if [ -f "$ANSIBLE_REQUIREMENTS_FILE" ]; then
-    ansible-galaxy install -p "$ANSIBLE_ROLES_PATH" -r "$ANSIBLE_REQUIREMENTS_FILE"
+cmd="ansible-galaxy install -p $ansible_roles_path -r \
+         $script_dir/requirements.yaml"
+echo "Running: $cmd"
+$cmd
+
+# Check for local requirements file
+if [[ -f $ansible_requirements_file ]]; then
+    cmd="ansible-galaxy install -p $ansible_roles_path -r \
+             $ansible_requirements_file"
+    echo "Running: $cmd"
+    $cmd
 fi
