@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    The EC2 (aws) template had an extra configuration option that was added but
+    had not been properly tested. This option is removed allowing aws based
+    templates to properly validate and build.
