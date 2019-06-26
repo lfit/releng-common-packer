@@ -22,7 +22,6 @@
       "name": "aws",
       "access_key": "{{user `aws_access_key`}}",
       "ami_name": "ZZCI - {{user `distro`}} - builder-aws - {{user `arch`}} - {{isotime \"20060102-150405.000\"}}",
-      "instance_name": "{{user `distro`}}-builder-aws-{{uuid}}",
       "instance_type": "{{user `aws_instance_type`}}",
       "region": "{{user `aws_region`}}",
       "secret_key": "{{user `aws_secret_key`}}",
