@@ -93,6 +93,30 @@
       "revId": "64093f695be546861d28dafaad0d181c07590f88",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a98a1899_25cf0e97",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2019-06-28T15:19:25Z",
+      "side": 1,
+      "message": "We may no longer want to be executing on Python 2 anymore, but according to that comment Ansible requires Python 2. If we can determine for certain that Python 2 is not required by Ansible anymore then we can probably replace this script with an echo stating that it has been deprecated and will be removed in a future version of common-packer and also stating that any custom templates should be updated to remove any dependencies on it.\n\nNOTE: this seems to be really around making sure Python 2 gets installed on Ubuntu 16.04 systems so we also have to consider what version of Ansible we may be running into on the different distro flavors we\u0027re managing.",
+      "parentUuid": "39815c81_68767663",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 2
+      },
+      "revId": "64093f695be546861d28dafaad0d181c07590f88",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
     }
   ]
 }
