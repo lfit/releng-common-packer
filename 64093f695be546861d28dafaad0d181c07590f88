@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "020e6dda_530b11cb",
+        "filename": "ansible-galaxy.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2019-06-28T00:22:34Z",
+      "side": 1,
+      "message": "There was a specific reason `\"$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )\" \u0026\u0026 pwd )\"` was used. I dont remember what.\n\nmight not work, since this does not handle absolute path and with symlinks in common-packer? this needs to be tested properly.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 26
+      },
+      "revId": "64093f695be546861d28dafaad0d181c07590f88",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41dd52de_07a2844d",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2019-06-28T00:22:34Z",
+      "side": 1,
+      "message": "we are not supporting py2.x anymore, correct? this piece can be removed?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 2
+      },
+      "revId": "64093f695be546861d28dafaad0d181c07590f88",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    }
+  ]
+}
