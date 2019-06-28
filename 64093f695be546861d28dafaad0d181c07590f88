@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6c8cfede_360b36e8",
+        "filename": "ansible-galaxy.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 182
+      },
+      "writtenOn": "2019-06-28T15:10:17Z",
+      "side": 1,
+      "message": "The previous way does always return a full-path (no a physical path). But there is no need for a full-path. If you want a full-path the standard approach is $(readlink -f $(dirname $0)). Actually this is even better in that it generates the physical path.\n\nThe previous way does work when a script is being sourced instead of being executed. Don\u0027t even get me started on the evils of sourcing scripts.\n\nThe previous way is quite obfuscated, I have never seen it before and it took me a several minutes to figure out what was happening. The use of $0 is ubiquitous and you never think twice when you see it.\n\nBTW one thing that does cause problems with either approach is soft links. If the script is executed through a soft-link you will get the link dir. Using $(readlink -f $(dirname $0)) solves that problem.",
+      "parentUuid": "020e6dda_530b11cb",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 26
+      },
+      "revId": "64093f695be546861d28dafaad0d181c07590f88",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "41dd52de_07a2844d",
         "filename": "provision/install-python.sh",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "64093f695be546861d28dafaad0d181c07590f88",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39815c81_68767663",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 182
+      },
+      "writtenOn": "2019-06-28T15:10:17Z",
+      "side": 1,
+      "message": "If we are no long supporting py2 then this entire script can be deleted.\n\nIf the script goes away I would have to update templates/*.json. If a project has their owe \u0027template\u0027.json file they would still have ref to this script which would break their build.",
+      "parentUuid": "41dd52de_07a2844d",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 2
+      },
+      "revId": "64093f695be546861d28dafaad0d181c07590f88",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
     }
   ]
 }
