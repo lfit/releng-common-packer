@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f5797eb_ebdfef9b",
+        "filename": "templates/windows-builder.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2019-07-05T17:30:37Z",
+      "side": 1,
+      "message": "This needs to be \"true\" for v2 flavors",
+      "range": {
+        "startLine": 10,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "fcc2f0e8f36f3d7e0f22da96905c69dea58e1c85",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
