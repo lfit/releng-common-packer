@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f76331eb_2badb9da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 182
+      },
+      "writtenOn": "2019-07-05T17:08:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f2eea07_94b19fb7",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "151cebcf94af959265ab8b62aa9d67e4c4866a38",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1287a569_16c23927",
         "filename": "templates/builder.json",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-07-05T15:53:33Z",
       "side": 1,
       "message": "Do we really need 40? I would think we can get away with 10 for both C7 and Ubuntu",
+      "range": {
+        "startLine": 11,
+        "startChar": 23,
+        "endLine": 11,
+        "endChar": 24
+      },
+      "revId": "151cebcf94af959265ab8b62aa9d67e4c4866a38",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c63eec4f_4886529e",
+        "filename": "templates/builder.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 182
+      },
+      "writtenOn": "2019-07-05T17:08:58Z",
+      "side": 1,
+      "message": "When vm_use_block_storage\u003dfalse vm_volume_size appears to be ignored.\n\nFor: Ubuntu-16.04 v1-standard-1 volume_size\u003d10 vm_use_block_storage\u003dfalse\n     /dev/vda1      39G  1.1G   38G   3% /\n\nFor Ubuntu-16.04 v2-highcpu-1 vm_volume_size\u003d10 vm_use_block_storage\u003dfalse\n    /dev/vda1       2.1G  1.1G  1.1G  52% /\n\nv1-standard-1 \u0027defaults\u0027 to 39G, v2-highcpu-1 \u0027defaults\u0027 to 2.1G (obviously not enough) That is where the \u002740\u0027 comes from.\n\nI don\u0027t have the same data for the centos. I think we should keep some extra space, my testing for builder for the base builder image (local-builder.yaml was empty).",
+      "parentUuid": "1287a569_16c23927",
       "range": {
         "startLine": 11,
         "startChar": 23,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ab404eda_2bf4e26b",
+        "filename": "templates/docker.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 182
+      },
+      "writtenOn": "2019-07-05T17:08:58Z",
+      "side": 1,
+      "message": "Addressed in builder.json",
+      "parentUuid": "5d5f792b_b256b947",
+      "range": {
+        "startLine": 11,
+        "startChar": 23,
+        "endLine": 11,
+        "endChar": 24
+      },
+      "revId": "151cebcf94af959265ab8b62aa9d67e4c4866a38",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "311655df_4cd93b37",
         "filename": "templates/windows-builder.json",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2019-07-05T15:53:33Z",
       "side": 1,
       "message": "this is going to need to be true for a v2 flavor",
+      "range": {
+        "startLine": 10,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "151cebcf94af959265ab8b62aa9d67e4c4866a38",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "901ff118_d6bb471c",
+        "filename": "templates/windows-builder.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 182
+      },
+      "writtenOn": "2019-07-05T17:08:58Z",
+      "side": 1,
+      "message": "Not sure if that is needed or not, I am unable to generate an image for this. Maybe the right answer here is to leave this file unchanged. We would not someone to come along and assume that it was validated to work with v2-highcpu-4.",
+      "parentUuid": "311655df_4cd93b37",
       "range": {
         "startLine": 10,
         "startChar": 29,
