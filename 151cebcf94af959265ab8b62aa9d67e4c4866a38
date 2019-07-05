@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f2eea07_94b19fb7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2019-07-05T15:53:33Z",
+      "side": 1,
+      "message": "Stating what can be seen in the code isn\u0027t generally very useful. I would suggest stating why we\u0027re doing this instead.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "151cebcf94af959265ab8b62aa9d67e4c4866a38",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1287a569_16c23927",
+        "filename": "templates/builder.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2019-07-05T15:53:33Z",
+      "side": 1,
+      "message": "Do we really need 40? I would think we can get away with 10 for both C7 and Ubuntu",
+      "range": {
+        "startLine": 11,
+        "startChar": 23,
+        "endLine": 11,
+        "endChar": 24
+      },
+      "revId": "151cebcf94af959265ab8b62aa9d67e4c4866a38",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d5f792b_b256b947",
+        "filename": "templates/docker.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2019-07-05T15:53:33Z",
+      "side": 1,
+      "message": "Do we really need 40? I would think we can get away with 10 for both C7 and Ubuntu",
+      "range": {
+        "startLine": 11,
+        "startChar": 23,
+        "endLine": 11,
+        "endChar": 24
+      },
+      "revId": "151cebcf94af959265ab8b62aa9d67e4c4866a38",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "311655df_4cd93b37",
+        "filename": "templates/windows-builder.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2019-07-05T15:53:33Z",
+      "side": 1,
+      "message": "this is going to need to be true for a v2 flavor",
+      "range": {
+        "startLine": 10,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "151cebcf94af959265ab8b62aa9d67e4c4866a38",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
