@@ -1,11 +1,10 @@
 ---
-
 - hosts: all
 
   tasks:
     - name: Install Tools
       win_chocolatey:
-        name: '{{item}}'
+        name: "{{item}}"
         state: present
       with_items:
         - cmake
@@ -33,7 +32,7 @@
 
     - name: Install Visual Studio Community Edition
       win_chocolatey:
-        name: '{{item}}'
+        name: "{{item}}"
       with_items:
         - visualstudio2017community
         - visualstudio2017-workload-nativedesktop
@@ -54,21 +53,21 @@
             dest: C:\temp
         - name: CMake
           win_command: >
-              "C:\Program Files\CMake\Bin\cmake"
-              -DCMAKE_INSTALL_PREFIX=C:\lib\zlib
-              -G "Visual Studio 15 Win64"
+            "C:\Program Files\CMake\Bin\cmake"
+            -DCMAKE_INSTALL_PREFIX=C:\lib\zlib
+            -G "Visual Studio 15 Win64"
           args:
             chdir: C:\temp\zlib-1.2.11
         - name: msbuild
           win_command: >
-              "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild"
-              zlib.sln
+            "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild"
+            zlib.sln
           args:
             chdir: C:\temp\zlib-1.2.11
         - name: msbuild install
           win_command: >
-              "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild"
-              INSTALL.vcxproj
+            "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild"
+            INSTALL.vcxproj
           args:
             chdir: C:\temp\zlib-1.2.11
         - name: Cleanup

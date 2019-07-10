@@ -2,8 +2,8 @@
 - name: Install base packages
   yum:
     name:
-      - '@base'
-      - '@development'
+      - "@base"
+      - "@development"
       - yum-utils
       - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
       - https://centos7.iuscommunity.org/ius-release.rpm

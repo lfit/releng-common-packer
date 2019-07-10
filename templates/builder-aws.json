@@ -33,9 +33,7 @@
           "virtualization-type": "hvm"
         },
         "most_recent": true,
-        "owners": [
-          "{{user `source_ami_filter_owner`}}"
-        ]
+        "owners": ["{{user `source_ami_filter_owner`}}"]
       },
       "ssh_username": "{{user `ssh_user`}}",
       "ssh_proxy_host": "{{user `ssh_proxy_host`}}",
@@ -48,9 +46,7 @@
   "provisioners": [
     {
       "type": "shell",
-      "scripts": [
-        "common-packer/provision/install-python.sh"
-      ],
+      "scripts": ["common-packer/provision/install-python.sh"],
       "execute_command": "chmod +x {{ .Path }}; if [ \"$UID\" == \"0\" ]; then {{ .Vars }} '{{ .Path }}'; else {{ .Vars }} sudo -E '{{ .Path }}'; fi"
     },
     {
