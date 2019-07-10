@@ -22,6 +22,30 @@
       "revId": "c747a046775c08053ec51d4ab2f09579d8c0d667",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd37f54_ace77142",
+        "filename": "vars/ubuntu-16.04-arm64.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2019-07-10T21:34:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37a8c93b_650f1786",
+      "range": {
+        "startLine": 3,
+        "startChar": 2,
+        "endLine": 3,
+        "endChar": 56
+      },
+      "revId": "c747a046775c08053ec51d4ab2f09579d8c0d667",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
