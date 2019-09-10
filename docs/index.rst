@@ -12,6 +12,7 @@ projects as a central way to maintain and manage common VM configuration.
    install
    usage
    lf-network
+   update-images
 
 Indices and tables
 ==================
