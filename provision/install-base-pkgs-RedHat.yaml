@@ -7,11 +7,11 @@
     gpgkey: http://dl.iuscommunity.org/pub/ius/IUS-COMMUNITY-GPG-KEY
     enabled: "yes"
     gpgcheck: "yes"
-    priority: 15
     state: present
     includepkgs:
       - git2u*
       - yum-plugin-replace
+  become: true
 
 - name: Install base packages
   yum:
