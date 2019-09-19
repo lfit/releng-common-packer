@@ -10,6 +10,13 @@
     state: latest
   become: true
 
+- name: Only use IUS for git2u
+  lineinfile:
+    path: /etc/yum.repos.d/ius.repo
+    line: "includepkgs=git2u*,yum-plugin-replace"
+    insertafter: "gpgkey.*"
+  become: true
+
 - name: Swap to git2u
   block:
     - name: Install yum-plugin-replace
