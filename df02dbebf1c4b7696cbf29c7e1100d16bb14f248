@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f9308ab_5f906554",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2019-09-19T18:53:44Z",
+      "side": 1,
+      "message": "This step should be _before_ the Swap to git2u step",
+      "revId": "df02dbebf1c4b7696cbf29c7e1100d16bb14f248",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
