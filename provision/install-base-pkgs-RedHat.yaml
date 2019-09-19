@@ -24,3 +24,10 @@
       command: yum replace -y git --replace-with git2u
       when: ansible_facts.packages['git'] is defined
   become: true
+
+- name: Only use IUS for git2u
+  lineinfile:
+    path: /etc/yum.repos.d/ius.repo
+    line: "includepkgs=git2u*,yum-plugin-replace"
+    insertafter: gpgkey*.
+  become: true
