@@ -1,4 +1,18 @@
 ---
+- name: Add IUS repository to /etc/yum.repos.d/
+  yum_repository:
+    name: ius
+    description: IUS Community Packages for Enterprise Linux
+    mirrorlist: https://mirrors.iuscommunity.org/mirrorlist?repo=ius-{{ ansible_distribution|lower}}{{ ansible_distribution_major_version|lower }}&arch=$basearch&protocol=http
+    gpgkey: http://dl.iuscommunity.org/pub/ius/IUS-COMMUNITY-GPG-KEY
+    enabled: "yes"
+    gpgcheck: "yes"
+    priority: 15
+    state: present
+    includepkgs:
+      - git2u*
+      - yum-plugin-replace
+
 - name: Install base packages
   yum:
     name:
@@ -6,15 +20,7 @@
       - "@development"
       - yum-utils
       - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-      - https://centos7.iuscommunity.org/ius-release.rpm
     state: latest
-  become: true
-
-- name: Only use IUS for git2u
-  lineinfile:
-    path: /etc/yum.repos.d/ius.repo
-    line: "includepkgs=git2u*,yum-plugin-replace"
-    insertafter: "gpgkey.*"
   become: true
 
 - name: Swap to git2u
