@@ -1,0 +1,7 @@
+Code-Review+2: Vanessa Rene Valderrama <vvalderrama@linuxfoundation.org>
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Submitted-by: Aric Gardner <agardner@linuxfoundation.org>
+Submitted-at: Thu, 19 Sep 2019 22:44:51 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/releng/common-packer/+/61793
+Project: releng/common-packer
+Branch: refs/heads/master
