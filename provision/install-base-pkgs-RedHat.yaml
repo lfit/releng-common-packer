@@ -3,8 +3,8 @@
   yum_repository:
     name: ius
     description: IUS Community Packages for Enterprise Linux
-    mirrorlist: https://mirrors.iuscommunity.org/mirrorlist?repo=ius-{{ ansible_distribution|lower}}{{ ansible_distribution_major_version|lower }}&arch=$basearch&protocol=http
-    gpgkey: http://dl.iuscommunity.org/pub/ius/IUS-COMMUNITY-GPG-KEY
+    baseurl: https://repo.ius.io/{{ ansible_distribution_major_version|lower }}/$basearch/
+    gpgkey: https://repo.ius.io/RPM-GPG-KEY-IUS-{{ ansible_distribution_major_version|lower }}
     enabled: "yes"
     gpgcheck: "yes"
     state: present
