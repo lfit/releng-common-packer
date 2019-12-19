@@ -22,7 +22,9 @@
       "type": "openstack",
       "region": "{{user `cloud_region`}}",
       "availability_zone": "{{user `cloud_availability_zone`}}",
-      "networks": ["{{user `cloud_network`}}"],
+      "networks": [
+        "{{user `cloud_network`}}"
+      ],
       "user_data_file": "{{user `cloud_user_data`}}",
       "flavor": "{{user `flavor`}}",
       "metadata": {

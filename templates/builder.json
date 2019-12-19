@@ -24,7 +24,9 @@
       "type": "openstack",
       "region": "{{user `cloud_region`}}",
       "availability_zone": "{{user `cloud_availability_zone`}}",
-      "networks": ["{{user `cloud_network`}}"],
+      "networks": [
+        "{{user `cloud_network`}}"
+      ],
       "user_data_file": "{{user `cloud_user_data`}}",
       "ssh_username": "{{user `ssh_user`}}",
       "ssh_proxy_host": "{{user `ssh_proxy_host`}}",
@@ -40,7 +42,9 @@
   "provisioners": [
     {
       "type": "shell",
-      "scripts": ["common-packer/provision/install-python.sh"],
+      "scripts": [
+        "common-packer/provision/install-python.sh"
+      ],
       "execute_command": "chmod +x {{ .Path }}; if [ \"$UID\" == \"0\" ]; then {{ .Vars }} '{{ .Path }}'; else {{ .Vars }} sudo -E '{{ .Path }}'; fi"
     },
     {
