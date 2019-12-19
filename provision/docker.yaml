@@ -9,7 +9,9 @@
     - include_role: name=lfit.system-update
 
   roles:
-    - { role: lfit.docker-install, mtu: 1458 }
+    - role: lfit.docker-install
+      mtu:
+        - 1458
 
   post_tasks:
     - name: System Reseal
