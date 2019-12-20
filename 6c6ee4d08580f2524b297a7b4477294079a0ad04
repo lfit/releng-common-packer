@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25d01f14_15081d6d",
+        "filename": ".coafile",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2019-12-20T15:10:44Z",
+      "side": 0,
+      "message": "proselint takes care of this but has different sets of rules which might need to be handled.\n\nhttps://github.com/amperser/proselint",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 17
+      },
+      "revId": "6c6ee4d08580f2524b297a7b4477294079a0ad04",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b97cbbaf_55d29bd5",
+        "filename": ".coafile",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2019-12-20T15:10:44Z",
+      "side": 0,
+      "message": "pre-commit\u0027s equivalent to this is gitlint.\n\nhttp://jorisroovers.com/gitlint/#using-gitlint-through-pre-commit",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 12
+      },
+      "revId": "6c6ee4d08580f2524b297a7b4477294079a0ad04",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b308b4b0_1ecfdeda",
+        "filename": ".coafile",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2019-12-20T15:10:44Z",
+      "side": 0,
+      "message": "shellcheck is supported by pre-commit https://pre-commit.com/hooks.html",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 20
+      },
+      "revId": "6c6ee4d08580f2524b297a7b4477294079a0ad04",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
