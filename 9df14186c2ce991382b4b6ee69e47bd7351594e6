@@ -22,6 +22,30 @@
       "revId": "9df14186c2ce991382b4b6ee69e47bd7351594e6",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c52864a_bad18055",
+        "filename": "releasenotes/notes/add-shellcheck-pre-commit-0cae940cf2213bd6.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-01-16T08:10:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1bfb184_816dd383",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 8
+      },
+      "revId": "9df14186c2ce991382b4b6ee69e47bd7351594e6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
