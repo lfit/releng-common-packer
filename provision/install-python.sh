@@ -20,7 +20,7 @@ echo "----> install-python.sh"
 function is_ubuntu()
 {
     # If the file exist and contains ubuntu entry return 0
-    if egrep -q "^ID=ubuntu" /etc/os-release 2> /dev/null; then
+    if grep -Eq "^ID=ubuntu" /etc/os-release 2> /dev/null; then
         echo "Distro is Ubuntu"
         return 0
     fi
