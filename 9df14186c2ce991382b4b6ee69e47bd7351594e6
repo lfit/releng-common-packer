@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1bfb184_816dd383",
+        "filename": "releasenotes/notes/add-shellcheck-pre-commit-0cae940cf2213bd6.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-01-16T04:27:29Z",
+      "side": 1,
+      "message": "Running shellcheck in CI is not a user facing feature.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 8
+      },
+      "revId": "9df14186c2ce991382b4b6ee69e47bd7351594e6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
