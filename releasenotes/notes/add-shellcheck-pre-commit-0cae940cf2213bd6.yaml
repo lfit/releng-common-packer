@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Add pre-commit hook to run the shellcheck, since we are moving
+    away from coala.
