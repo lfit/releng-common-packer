@@ -29,9 +29,15 @@ function is_ubuntu()
 }
 
 if is_ubuntu; then
+    # TODO: Find out what is causing apt unable to refresh the package source
+    # which results in "E: Unable to locate package python-minimal" seen only
+    # on the Jenkins packer jobs and not local packer builds.
+    # This may have todo with apt overriding the package_mirrors variables
+    # (%availability_zone, %region) required in /etc/cloud/cloud.cfg.
     echo "Installing python-minimal..."
-    apt -y update
-    apt install -y python-minimal
+    apt-get clean all -y
+    apt-get -y update
+    apt-get install -y python-minimal
 fi
 
 type python
