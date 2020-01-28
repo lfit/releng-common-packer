@@ -1,0 +1,8 @@
+Code-Review+1: Thanh Ha (zxiiro) <zxiiro@gmail.com>
+Code-Review+2: Anil Belur <abelur@linuxfoundation.org>
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Submitted-by: Anil Belur <abelur@linuxfoundation.org>
+Submitted-at: Tue, 28 Jan 2020 21:31:25 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/releng/common-packer/+/62976
+Project: releng/common-packer
+Branch: refs/heads/master
