@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d5f1941_1b0425d2",
+        "filename": "tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-01-28T15:48:57Z",
+      "side": 0,
+      "message": "Removing this because you don\u0027t need to `pre-commit install` when running from tox as it just installs the .git/hooks file. Instead this should be deliberately used by the user who doesn\u0027t want to run tox and to have pre-commit run automatically on their local system.",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 0
+      },
+      "revId": "9eca5443d48cde7a5f16e16cb16d89e3cd3ab66c",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
