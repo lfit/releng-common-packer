@@ -1,0 +1,9 @@
+---
+fixes:
+  - |
+    Use netselect to choose a package mirror to install python-minimal in a
+    reliable manner.
+
+    apt{-get} does not refresh the package mirrors (for packer builds run
+    within Jenkins), therefore fails with "E: Unable to locate package
+    python-minimal" while installing python-minimal.
