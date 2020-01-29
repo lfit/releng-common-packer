@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2439a57b_18f144ef",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 182
+      },
+      "writtenOn": "2020-01-29T22:54:23Z",
+      "side": 1,
+      "message": "if netselect -s 20 -t 40 \"$(wget -qO - mirrors.ubuntu.com/mirrors.txt)\"; then\n    not sure what you want to do here, maybe exit 0, maybe echo \"Unable up refresh Mirrors\" or maybe just continue \u0027:\u0027\nfi\n\nI think you mean that it OK to to continue even if you were unable to refresh the packages on the mirror.",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 72
+      },
+      "revId": "d5fc82ea247c96744ac7610476f5df10614f3668",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
