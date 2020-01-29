@@ -38,7 +38,9 @@ if is_ubuntu; then
     apt install wget -y
     wget http://ftp.au.debian.org/debian/pool/main/n/netselect/netselect_0.3.ds1-26_amd64.deb
     dpkg -i netselect_0.3.ds1-26_amd64.deb
+    set +e # DO NOT cause build failure if any mirrors are not reachable.
     netselect -s 20 -t 40 "$(wget -qO - mirrors.ubuntu.com/mirrors.txt)"
+    set -e
     sed -i 's/http:\/\/us.archive.ubuntu.com\/ubuntu\//http:\/\/ubuntu.uberglobalmirror.com\/archive\//' /etc/apt/sources.list
 
     echo "Installing python-minimal..."
