@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4da229c_18572ab2",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-01-30T22:34:02Z",
+      "side": 1,
+      "message": "Tim thanks for this!\n\nWhy are you removing the \"set +e\", the script will start to fail with one of or the mirror are not available.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "037d5f1d9ed2b8bd698f66487c0b085e7475dd55",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
