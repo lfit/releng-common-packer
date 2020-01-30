@@ -22,6 +22,30 @@
       "revId": "d5fc82ea247c96744ac7610476f5df10614f3668",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73e506aa_3a85aa0c",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-01-30T00:14:41Z",
+      "side": 1,
+      "message": "Thanks, you were a little late. :-))\nPlease submit this change with you are free.",
+      "parentUuid": "2439a57b_18f144ef",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 72
+      },
+      "revId": "d5fc82ea247c96744ac7610476f5df10614f3668",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
     }
   ]
 }
