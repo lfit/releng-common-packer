@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3916463_46a9057e",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-02-19T02:25:59Z",
+      "side": 1,
+      "message": "I\u0027ve tested this earlier, and this does not work because netselect is not available by default.\n\n$ sudo apt install netselect -y\nReading package lists... Done\nBuilding dependency tree       \nReading state information... Done\nPackage netselect is not available, but is referred to by another package.\nThis may mean that the package is missing, has been obsoleted, or\nis only available from another source\n\nE: Package \u0027netselect\u0027 has no installation candidate",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 28
+      },
+      "revId": "7b695169d838fec0e107f0293dc67483ed0cfaee",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
