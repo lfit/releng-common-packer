@@ -34,10 +34,12 @@ if is_ubuntu; then
     # apt{-get} does not refresh the package mirrors (for packer builds run
     # within Jenkins), therefore fails with "E: Unable to locate package
     # python-minimal" while installing python-minimal.
-    echo "Install netselect to choose a mirror."
+    echo "Install latest netselect to choose a mirror."
     apt install wget -y
-    wget http://ftp.au.debian.org/debian/pool/main/n/netselect/netselect_0.3.ds1-26_amd64.deb
-    dpkg -i netselect_0.3.ds1-26_amd64.deb
+    # Remove pinned netselect version, since it do not work in 18.04
+    # wget http://ftp.au.debian.org/debian/pool/main/n/netselect/netselect_0.3.ds1-26_amd64.deb
+    # dpkg -i netselect_0.3.ds1-26_amd64.deb
+    apt install netselect -y
     if ! netselect -s 20 -t 40 "$(wget -qO - mirrors.ubuntu.com/mirrors.txt)"; then
         echo "NOTE: Unable to refresh 'sources.list'"
     fi
