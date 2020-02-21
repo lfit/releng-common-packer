@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "fd0107f2_93291bad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-02-21T06:30:57Z",
+      "side": 1,
+      "message": "This is not required here, since its not ONAP ;)",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "e86c6d1789931e5f0133f7b852ff2d35ac589970",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d1ea31b_8fe05759",
         "filename": "provision/install-python.sh",
         "patchSetId": 9
