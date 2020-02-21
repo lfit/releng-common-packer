@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d1ea31b_8fe05759",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-02-21T06:29:56Z",
+      "side": 1,
+      "message": "where are you handling arch \u003d\u003d arm64/amd64? we are using both these arch across projects both for 16.04 and 18.04.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 8
+      },
+      "revId": "e86c6d1789931e5f0133f7b852ff2d35ac589970",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
