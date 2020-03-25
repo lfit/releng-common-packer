@@ -1,0 +1,4 @@
+---
+upgrade:
+  - |
+    Add CentOS 8.x base image.
