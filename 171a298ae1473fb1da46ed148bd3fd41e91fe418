@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bede36a3_81ee10ef",
+        "filename": "vars/centos-8.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 114
+      },
+      "writtenOn": "2020-03-25T15:18:39Z",
+      "side": 1,
+      "message": "This base image name is wrong.",
+      "range": {
+        "startLine": 4,
+        "startChar": 17,
+        "endLine": 4,
+        "endChar": 48
+      },
+      "revId": "171a298ae1473fb1da46ed148bd3fd41e91fe418",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
