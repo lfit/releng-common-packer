@@ -12,6 +12,8 @@
       - git2u*
       - yum-plugin-replace
   become: true
+  when:
+    - ansible_distribution_major_version < 8
 
 - name: Install base packages
   yum:
@@ -37,3 +39,5 @@
       command: yum replace -y git --replace-with git2u
       when: ansible_facts.packages['git'] is defined
   become: true
+  when:
+    - ansible_distribution_major_version < 8

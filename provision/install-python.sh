@@ -28,6 +28,17 @@ function is_ubuntu()
     return 1
 }
 
+function is_centos8()
+{
+    # if the file exists and contains a centos:8 CPE_NAME, return 0
+    if grep -Eq "^CPE_NAME=.*centos:8" /etc/os-release 2> /dev/null; then
+        echo "Distro is CentOS 8"
+        return 0
+    fi
+    echo "Distro is NOT CentOS 8"
+    return 1
+}
+
 if is_ubuntu; then
     # Use netselect to choose a package mirror to install python-minimal in a
     # reliable manner.
@@ -67,5 +78,11 @@ if is_ubuntu; then
     apt install -y python-minimal
 fi
 
-type python
+if is_centos8; then
+    echo "Install python36"
+    dnf clean all
+    dnf install -y python36
+fi
+
+type python || type python3
 type sudo
