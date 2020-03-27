@@ -22,6 +22,30 @@
       "revId": "171a298ae1473fb1da46ed148bd3fd41e91fe418",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6681b5c_2f827f90",
+        "filename": "vars/centos-8.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2020-03-27T16:43:06Z",
+      "side": 1,
+      "message": "Correct image name (I just uploaded images yesterday):\n\nLF - CentOS 8.1.1991 (2020-03-26)\n\nAs for the AMI bits... well there is still no official CentOS 8 AMI that has been published :( \n\nIn any case, if you can update the base image name we can get this merged and then we can start testing to see how badly our current ansible fails on C8 :D",
+      "parentUuid": "bede36a3_81ee10ef",
+      "range": {
+        "startLine": 4,
+        "startChar": 17,
+        "endLine": 4,
+        "endChar": 48
+      },
+      "revId": "171a298ae1473fb1da46ed148bd3fd41e91fe418",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
     }
   ]
 }
