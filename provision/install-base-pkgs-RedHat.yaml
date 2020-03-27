@@ -12,6 +12,15 @@
       - git2u*
       - yum-plugin-replace
   become: true
+  when:
+    - ansible_distribution_major_version < 8
+
+- name: Enable PowerTools
+  command:
+    cmd: dnf config-manager --set-enabled PowerTools
+    warn: no
+  become: true
+  when: ansible_distribution_major_version >= 8
 
 - name: Install base packages
   yum:
@@ -19,7 +28,7 @@
       - "@base"
       - "@development"
       - yum-utils
-      - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      - https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
     state: latest
   become: true
 
@@ -37,3 +46,5 @@
       command: yum replace -y git --replace-with git2u
       when: ansible_facts.packages['git'] is defined
   become: true
+  when:
+    - ansible_distribution_major_version < 8
