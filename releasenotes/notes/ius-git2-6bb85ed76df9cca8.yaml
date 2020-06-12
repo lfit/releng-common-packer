@@ -1,0 +1,8 @@
+---
+fixes:
+  - |
+    Fix failure to install Git 2 from the IUS repo. While the patch
+    https://gerrit.linuxfoundation.org/infra/c/releng/common-packer/+/62244
+    sets up the IUS repo, it fails to replace git with git from the IUS repo
+    due to the selected package git2u being non-existant in the repo.
+    This update instead installs git224 from the IUS repo.
