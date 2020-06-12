@@ -9,7 +9,7 @@
     gpgcheck: "yes"
     state: present
     includepkgs:
-      - git2u*
+      - git2*
       - yum-plugin-replace
   become: true
   when:
@@ -32,7 +32,7 @@
     state: latest
   become: true
 
-- name: Swap to git2u
+- name: Swap to git224
   block:
     - name: Install yum-plugin-replace
       yum:
@@ -42,8 +42,8 @@
     - name: Gather rpm package facts
       package_facts:
         manager: auto
-    - name: Replace git with git2u
-      command: yum replace -y git --replace-with git2u
+    - name: Replace git with git224
+      command: yum replace -y git --replace-with git224
       when: ansible_facts.packages['git'] is defined
   become: true
   when:
