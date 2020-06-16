@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b1a8d7b_c2fe838a",
+        "filename": "releasenotes/notes/upadte-centos-7-base-image-111dd575c997c0bb.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-06-16T01:52:55Z",
+      "side": 1,
+      "message": "filename typo: update*",
+      "revId": "c3184fdbe4f3dde02a5b33b8373a31590c026a89",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
