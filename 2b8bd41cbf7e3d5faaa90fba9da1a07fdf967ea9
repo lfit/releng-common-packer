@@ -1,0 +1,8 @@
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Code-Review+2: Thanh Ha (zxiiro) <zxiiro@gmail.com>
+Code-Review+2: Jessica Wagantall <jwagantall@linuxfoundation.org>
+Submitted-by: Jessica Wagantall <jwagantall@linuxfoundation.org>
+Submitted-at: Tue, 16 Jun 2020 16:36:58 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/releng/common-packer/+/64277
+Project: releng/common-packer
+Branch: refs/heads/master
