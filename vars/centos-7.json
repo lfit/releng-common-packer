@@ -1,7 +1,7 @@
 {
   "source_ami_filter_name": "*CentOS Linux 7*HVM*",
   "source_ami_filter_owner": "679593333241",
-  "base_image": "LF - CentOS 7.1905 (2019-06-04)",
+  "base_image": "LF - CentOS 7.2003 (2020-04-22)",
   "distro": "CentOS 7",
   "ssh_user": "centos",
   "cloud_user_data": "common-packer/provision/rh-user_data.sh"

@@ -1,0 +1,7 @@
+---
+upgrade:
+  - |
+    The CentOS 7 2003 base image is uploaded on the cloud provider. Switch
+    the packer var files to build from the latest CentOS 7.6 2003 base image.
+
+    https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-2003.raw.tar.gz
