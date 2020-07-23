@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    CentOS 7 builds will now include the Sigul client by default. This package
+    is now in use by most projects, and is being downloaded whenever it is
+    needed. This has particularly been a problem due to frequent connection
+    issues with the kojipkgs servers that host the sigul package.
