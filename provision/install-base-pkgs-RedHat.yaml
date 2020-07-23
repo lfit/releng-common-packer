@@ -32,6 +32,15 @@
     state: latest
   become: true
 
+- name: Install sigul client
+  yum:
+    name:
+      - https://kojipkgs.fedoraproject.org/repos-dist/epel7-infra/latest/x86_64/Packages/s/sigul-0.207-1.el7.x86_64.rpm
+    state: latest
+  become: true
+  when:
+    - ansible_facts['distribution_major_version'] is version('8', '<')
+
 - name: Swap to git224
   block:
     - name: Install yum-plugin-replace
