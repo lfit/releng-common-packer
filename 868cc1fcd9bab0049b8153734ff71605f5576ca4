@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4228309_87cd0cdb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-07-28T19:42:10Z",
+      "side": 1,
+      "message": "Should be more explicit and say \"Update Ubuntu base image to 2020-07-28 snapshot\" or something. Otherwise it\u0027s possible to have the same commit message every couple of months.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "868cc1fcd9bab0049b8153734ff71605f5576ca4",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c11cec9_dce1a2e7",
+        "filename": "releasenotes/notes/update-ubuntu-1804-base-image-38bf3ad82c51d24e.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-07-28T19:42:10Z",
+      "side": 1,
+      "message": "casued -\u003e caused\n\nBut more importantly. Don\u0027t forget when reading the release notes (https://docs.releng.linuxfoundation.org/projects/common-packer/en/latest/release-notes.html) there is no context to the statements here so better to spend more time explaining what is fixing so that the release notes can be understood.\n\nBetter to state which base image in the explanation.",
+      "range": {
+        "startLine": 4,
+        "startChar": 4,
+        "endLine": 6,
+        "endChar": 31
+      },
+      "revId": "868cc1fcd9bab0049b8153734ff71605f5576ca4",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
