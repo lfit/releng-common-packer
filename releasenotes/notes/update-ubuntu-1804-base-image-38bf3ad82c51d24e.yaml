@@ -1,0 +1,11 @@
+---
+fixes:
+  - |
+    Updated Ubuntu 18.04 image as the previous base image
+    was uploaded in qcow2 format.
+    This caused timeouts in packer builds.
+    New image is in raw format.
+
+    Replaces: "LF - Ubuntu 18.04 LTS (2020-07-28)"
+
+    With: "LF - Ubuntu 18.04 LTS (2019-12-11)"
