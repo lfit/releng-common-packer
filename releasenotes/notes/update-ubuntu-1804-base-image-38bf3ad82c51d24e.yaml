@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Previous base image was uploaded in qcow2 format.
+    This casued timeout in packer builds.
+    new image is in raw format.
