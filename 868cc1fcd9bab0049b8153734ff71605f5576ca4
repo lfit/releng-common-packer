@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "73708e9e_4bfdec35",
+        "filename": "releasenotes/notes/update-ubuntu-1804-base-image-38bf3ad82c51d24e.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2020-07-28T19:43:02Z",
+      "side": 1,
+      "message": "Updated Ubuntu 18.04 image as the previous",
+      "range": {
+        "startLine": 4,
+        "startChar": 4,
+        "endLine": 4,
+        "endChar": 12
+      },
+      "revId": "868cc1fcd9bab0049b8153734ff71605f5576ca4",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0c11cec9_dce1a2e7",
         "filename": "releasenotes/notes/update-ubuntu-1804-base-image-38bf3ad82c51d24e.yaml",
         "patchSetId": 2
