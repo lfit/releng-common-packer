@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "92fc3912_2dc58e5b",
+        "filename": "docs/update-images.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-08-07T14:45:43Z",
+      "side": 1,
+      "message": "Good practice to put a blank line after a heading.",
+      "revId": "3029567c713a307446d632a995eb97d1d81e6915",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b188c987_216d6049",
+        "filename": "docs/update-images.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-08-07T14:45:43Z",
+      "side": 1,
+      "message": "No need to keep your columns this short you could use 80 characters of space (or even 120 I don\u0027t mind for RST files). The way this is worded though doesn\u0027t read well to me. Maybe something like would be better?:\n\n The following instructions provide details on how to update a base image in OpenStack cloud.\n \n 1. Fetch the image file in .img format\n 2. OpenStack requires images to be uploaded in RAW format so QCOW2 images need to be converted to RAW:\n \n    .. code-block:: bash\n \n        qemu-img ...\n \n ...\n\nI think it\u0027s better to have clearly defined ordered steps for folks to follow when you want them to do something as it\u0027s easier to the reader to follow numbered steps than to read paragraphs of information.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 0
+      },
+      "revId": "3029567c713a307446d632a995eb97d1d81e6915",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cc8b8bdb_91273f21",
         "filename": "docs/update-images.rst",
         "patchSetId": 9
