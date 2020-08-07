@@ -128,6 +128,30 @@
       "revId": "3029567c713a307446d632a995eb97d1d81e6915",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89b44df4_5734e306",
+        "filename": "docs/update-images.rst",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-08-07T23:20:16Z",
+      "side": 1,
+      "message": "Hey, here is the link: \n\nhttps://docs.releng.linuxfoundation.org/en/latest/infra/openstack.html?highlight\u003dshare",
+      "parentUuid": "b4d0b0ea_e8a41e2a",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "3029567c713a307446d632a995eb97d1d81e6915",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
     }
   ]
 }
