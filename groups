@@ -1,5 +1,5 @@
 # UUID                                                                                  	Group Name
 #
 d68d00a2419f8ff627fc120cf9dd9055ae422153                                                	GitHub Replication
-f92eb191119163eb0279588f3f8a98f264e2c48c                                                	saml/lfinfra-gerrit-releng-common-packer-committers
+f2cd6933ecb9fa3c2f390dd63a3070af69e9a2f6                                                	saml/lf-gerrit-releng-common-packer-committers
 ldap:cn=lfinfra-gerrit-releng-common-packer-committers,ou=Groups,dc=freestandards,dc=org	ldap/lfinfra-gerrit-releng-common-packer-committers
