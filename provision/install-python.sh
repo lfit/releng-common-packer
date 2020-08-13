@@ -10,12 +10,12 @@
 ##############################################################################
 # vi: ts=4 sw=4 sts=4 et :
 
+
 set -eu -o pipefail -o noglob
 
 echo "----> install-python.sh"
 
-# Ansible requires Python 2 so check availability and install as necessary.
-# Ubuntu 16.04 does not come with Python 2 by default
+# Ansible requires Python to be available so check availability and install as necessary.
 
 function is_ubuntu()
 {
@@ -39,6 +39,7 @@ function is_centos8()
     return 1
 }
 
+# Ubuntu does not come with Python by default so we need to install it
 if is_ubuntu; then
     # Use netselect to choose a package mirror to install python-minimal in a
     # reliable manner.
@@ -72,10 +73,16 @@ if is_ubuntu; then
     sed -i 's#http://us.archive.ubuntu.com/ubuntu#http://ubuntu.uberglobalmirror.com/archive#' \
         /etc/apt/sources.list
 
-    echo "Installing python-minimal..."
+    echo "Installing Python..."
     apt clean all -y
     apt -y update
-    apt install -y python-minimal
+
+    # Ubuntu 20.04 and newer can default to Python 3
+    if apt-cache show python-is-python3; then
+        apt-get install -y python-is-python3
+    else
+        apt-get install -y python-minimal
+    fi
 fi
 
 if is_centos8; then
