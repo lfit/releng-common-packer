@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d64ef69d_45d4c805",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-08-13T22:24:02Z",
+      "side": 1,
+      "message": "@tykeal since you added these lines I wanted to check, do we really need to install python36 here?\n\nSo my understanding is this install-python.sh file\u0027s purpose is to install the minimal configuration to get Ansible working and then the ansible scripts will do the real package installs.\n\nAnsible just needs the executable \"python\" to be available in the path, it doesn\u0027t really care if it\u0027s 2 or 3. I believe on CentOS / Fedora / RedHat systems because \"yum\" and \"dnf\" are written in Python that means python should already be available to the system so we might not need these install lines.\n\nI confirmed this with docker but maybe things are different with openstack?",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 0
+      },
+      "revId": "00618d9fe3ea5abeee13be56e942d233d4071d7e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
