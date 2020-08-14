@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "694faf7c_725d1209",
+        "filename": "releasenotes/notes/docker-support-c04bf0df10c15c00.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-08-14T14:32:50Z",
+      "side": 1,
+      "message": "We won\u0027t know this until a global-jjb version is released with the job update patch.",
+      "range": {
+        "startLine": 7,
+        "startChar": 51,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "8d6eddbfe1e204c1f19890c8e38238388ad55831",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
