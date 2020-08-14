@@ -85,4 +85,13 @@ if is_centos8; then
 fi
 
 type python || type python3
+
+# Ansible requires sudo so ensure it is available.
+if ! command -v sudo; then
+    if command -v apt-get; then
+        apt-get install -y sudo
+    elif command -v yum; then
+        yum install -y sudo
+    fi
+fi
 type sudo
