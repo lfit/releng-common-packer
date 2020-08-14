@@ -1,0 +1,10 @@
+---
+features:
+  - |
+    Docker image builds are now supported by the packer templates.
+upgrade:
+  - |
+    Requires first upgrading global-jjb to version _____ to pull in support for
+    selecting a packer-builder in the packer-merge jobs, otherwise existing
+    project packer-merge job builds *may* fail without the global-jjb updates
+    if builds are run on a Jenkins node that does not support Docker.
