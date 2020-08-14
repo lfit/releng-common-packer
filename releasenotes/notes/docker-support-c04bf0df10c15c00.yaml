@@ -1,0 +1,40 @@
+---
+features:
+  - |
+    Docker image builds are now supported by the packer templates.
+upgrade:
+  - |
+    Requires first upgrading global-jjb to version _____ to pull in support for
+    selecting a packer-builder in the packer-merge jobs, otherwise existing
+    project packer-merge job builds *may* fail without the global-jjb updates
+    if builds are run on a Jenkins node that does not support Docker.
+  - |
+    Projects using AWS must ensure that the packer-merge jobs are updated to
+    set *packer-builder* to aws.
+
+    Example:
+
+    .. code-block:: yaml
+        :emphasize-lines: 19
+
+        - project:
+            name: packer-builder-jobs
+            jobs:
+              - gerrit-packer-merge
+
+            project: releng/builder
+            project-name: builder
+            branch: master
+            archive-artifacts: "**/*.log"
+
+            build-node: centos7-builder-2c-1g
+            build-timeout: 90
+            cron: "00 H 1 * *"
+
+            platforms:
+              - centos-7
+              - centos-8
+
+            packer-builder: aws
+            templates: builder
+            update-cloud-image: true
