@@ -22,6 +22,30 @@
       "revId": "00618d9fe3ea5abeee13be56e942d233d4071d7e",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d1a0b31_04aa5b3a",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2020-08-18T17:13:20Z",
+      "side": 1,
+      "message": "It\u0027s needed because python is _not_ available by default on a C8 system. I\u0027m not certain how they\u0027re getting dnf to function on a new system but there is no python interpreter on the path with a minimal install, which the cloud images all are. I only added this because I could not get a C8 system to build without it as ansible was unable to find a python interpreter until I forced this.\n\nPersonally I would have preferred not to hard code in a specific version of python, but it\u0027s needed. Plus with C8 there is no \u0027python\u0027 executable it\u0027s going to be python3 (symlink to python alternatives) and it doesn\u0027t exist until the python3? package gets installed.\n\nMy poking around on a C8 system I\u0027ve got locally shows me that if I try to remove python36 then dnf still sticks around, so it\u0027s using some python libraries that aren\u0027t part of the python36 package itself, or that the package is dependent on in some transitive manner.\n\nTo be specific here\u0027s what I find:\n\ndnf requires python3-dnf, which has a requirement on /usr/lib/platform-python which comes from the platform-python package.\n\npython36 has a requirement on /usr/lib/platform-python as well. The info from platform-python states the following:\n\n\u003e This is the internal interpreter of the Python language for the system.\n\u003e To use Python yourself, please install one of the available Python 3\n\u003e packages, for example python36.\n\nSo, dnf doesn\u0027t care about the platform packages being installed, it\u0027s executing off of /usr/lib/platform-python which ansible doesn\u0027t use, ergo, we need this on a C8 system.",
+      "parentUuid": "d64ef69d_45d4c805",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 0
+      },
+      "revId": "00618d9fe3ea5abeee13be56e942d233d4071d7e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
