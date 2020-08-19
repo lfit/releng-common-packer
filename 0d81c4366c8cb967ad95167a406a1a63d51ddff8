@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05e2d8ce_2474c078",
+        "filename": "docs/update-images.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-08-19T04:28:46Z",
+      "side": 1,
+      "message": "\"Upload Linux cloud image for packer jobs\"",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 6
+      },
+      "revId": "0d81c4366c8cb967ad95167a406a1a63d51ddff8",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c827d102_13e88cfd",
+        "filename": "docs/update-images.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-08-19T04:28:46Z",
+      "side": 1,
+      "message": "this is not a openstack requirement, since the CLI supports both qcow|raw formats, this is recommendation from vexx, since raw format images load faster as compared to qcow.",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 102
+      },
+      "revId": "0d81c4366c8cb967ad95167a406a1a63d51ddff8",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "617c9180_aa92190f",
+        "filename": "docs/update-images.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-08-19T04:28:46Z",
+      "side": 1,
+      "message": "please add a prerequsites to install \n1. lftools\n2. qumu-img",
+      "range": {
+        "startLine": 13,
+        "startChar": 7,
+        "endLine": 13,
+        "endChar": 16
+      },
+      "revId": "0d81c4366c8cb967ad95167a406a1a63d51ddff8",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ad0ff65_4af680ff",
+        "filename": "docs/update-images.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-08-19T04:28:46Z",
+      "side": 1,
+      "message": "Using lftools for this is a better options since lftools will take care of all the required deps/requisites.\n\nlftools openstack --os-cloud odlci image upload --disk-format raw focal-server-cloudimg-arm64-raw.img \"Ubuntu 20.04 LTS (arm64) [2020-08-04]\"",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 128
+      },
+      "revId": "0d81c4366c8cb967ad95167a406a1a63d51ddff8",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9485fee_bc3fa08b",
+        "filename": "docs/update-images.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-08-19T04:28:46Z",
+      "side": 1,
+      "message": "Update common-packer",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 9
+      },
+      "revId": "0d81c4366c8cb967ad95167a406a1a63d51ddff8",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f51db82f_4f3435be",
+        "filename": "docs/update-images.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2020-08-19T04:28:46Z",
+      "side": 1,
+      "message": "\"LF ansible galaxy roles\"",
+      "range": {
+        "startLine": 42,
+        "startChar": 43,
+        "endLine": 42,
+        "endChar": 50
+      },
+      "revId": "0d81c4366c8cb967ad95167a406a1a63d51ddff8",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
