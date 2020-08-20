@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14efbb7c_07071c9d",
+        "filename": "releasenotes/notes/docker-support-c04bf0df10c15c00.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-08-20T14:05:09Z",
+      "side": 1,
+      "message": "This is a placeholder and assumption on what the next version of global-jjb will pull in Ib33a00f38a0005af69d52e7697322a2e84f6c674 so we should double check this before merging this patch once global-jjb is released.",
+      "range": {
+        "startLine": 7,
+        "startChar": 51,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "a045d3b7bb8e9f60ade5a58c879bef70c26cd0cd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": true
+    }
+  ]
+}
