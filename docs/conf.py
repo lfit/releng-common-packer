@@ -22,6 +22,12 @@ import subprocess
 
 from docs_conf.conf import *
 
+linkcheck_ignore = [
+              'http://localhost',
+              'https://jenkins.umbrella-name.org',
+]
+
+
 def format_version(version):
     fmt = '{tag}.dev{commitcount}+{gitsha}'
     parts = version.split('-')
