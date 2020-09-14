@@ -22,6 +22,30 @@
       "revId": "a045d3b7bb8e9f60ade5a58c879bef70c26cd0cd",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f8cf115_d69220c3",
+        "filename": "releasenotes/notes/docker-support-c04bf0df10c15c00.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2020-09-14T13:10:28Z",
+      "side": 1,
+      "message": "Confirmed release version is v0.57.0",
+      "parentUuid": "14efbb7c_07071c9d",
+      "range": {
+        "startLine": 7,
+        "startChar": 51,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "a045d3b7bb8e9f60ade5a58c879bef70c26cd0cd",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
+      "unresolved": false
     }
   ]
 }
