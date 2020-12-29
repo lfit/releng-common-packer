@@ -1,0 +1,5 @@
+---
+issues:
+  - |
+    Remove availability zone from Openstack templates. This was causing errors,
+    and is unnecessary (there is only one AZ for these images).
