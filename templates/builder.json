@@ -12,15 +12,16 @@
     "distro": null,
     "flavor": "v2-highcpu-1",
     "ssh_user": null,
-    "ssh_proxy_host": ""
+    "ssh_proxy_host": "",
+    "cloud_type": "{{env `PACKER_BUILDER`}}",
   },
   "builders": [
     {
-      "name": "openstack",
+      "name": "{{user `cloud_type`}}",
       "image_name": "ZZCI - {{user `distro`}} - builder - {{user `arch`}} - {{isotime \"20060102-150405.000\"}}",
       "instance_name": "{{user `distro`}}-builder-{{uuid}}",
       "source_image_name": "{{user `base_image`}}",
-      "type": "openstack",
+      "type": "{{user `cloud_type`}}",
       "region": "{{user `cloud_region`}}",
       "networks": ["{{user `cloud_network`}}"],
       "user_data_file": "{{user `cloud_user_data`}}",
