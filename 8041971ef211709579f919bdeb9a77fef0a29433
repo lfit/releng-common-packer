@@ -1,0 +1,7 @@
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Code-Review+2: Bengt Thuree <bthuree@linuxfoundation.org>
+Submitted-by: Anil Belur <abelur@linuxfoundation.org>
+Submitted-at: Thu, 21 Jan 2021 21:47:36 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/releng/common-packer/+/66559
+Project: releng/common-packer
+Branch: refs/heads/master
