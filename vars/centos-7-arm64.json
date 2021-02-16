@@ -3,7 +3,7 @@
   "base_image": "CentOS 7 aarch64 (2018-07-12) - LF upload",
   "cloud_user_data": "common-packer/provision/rh-user_data.sh",
   "distro": "CentOS 7",
-  "flavor": "lf-standard-1",
+  "flavor": "v3-standard-2",
   "source_ami_filter_name": "*CentOS Linux 7*HVM*",
   "source_ami_filter_owner": "679593333241",
   "ssh_user": "centos"

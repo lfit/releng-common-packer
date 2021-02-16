@@ -1,0 +1,7 @@
+---
+upgrade:
+  - |
+    Upgrade lf-standard-* flavors to v3
+
+    v3 flavors guarantees jobs spin on newer hardware that
+    are faster and cost-efficient than the v2 flavors.

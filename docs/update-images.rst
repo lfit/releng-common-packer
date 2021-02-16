@@ -109,7 +109,7 @@ centos7-builder-2c-1g.cfg
 
        IMAGE_NAME=ZZCI - CentOS 7 - builder - 20181115-0246
        LABELS=centos7-basebuild-4c-4g
-       HARDWARE_ID=v1-standard-4
+       HARDWARE_ID=v3-standard-4
 
 In this case you would also want to update
 centos7-builder-4c-4g.cfg
