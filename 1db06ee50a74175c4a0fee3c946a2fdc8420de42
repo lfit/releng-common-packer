@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83669957_849e8c76",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-03-18T15:27:01Z",
+      "side": 1,
+      "message": "Reflow these two lines. You should be holding to an 80 character wide line, but this is far too short and makes it harder to grok with how it\u0027s line broken.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 35
+      },
+      "revId": "1db06ee50a74175c4a0fee3c946a2fdc8420de42",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
