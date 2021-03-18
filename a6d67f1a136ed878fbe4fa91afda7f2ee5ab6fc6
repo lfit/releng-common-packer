@@ -18,6 +18,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff0738d_9b95f70e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 214
+      },
+      "writtenOn": "2021-03-18T15:19:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5c27ba3_1602a134",
+      "revId": "a6d67f1a136ed878fbe4fa91afda7f2ee5ab6fc6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81b439b0_f62ff0d4",
@@ -41,6 +59,30 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46dbe807_f1ad997c",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 214
+      },
+      "writtenOn": "2021-03-18T15:19:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81b439b0_f62ff0d4",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 1
+      },
+      "revId": "a6d67f1a136ed878fbe4fa91afda7f2ee5ab6fc6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0af0a573_38dff6e8",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-03-18T15:11:47Z",
       "side": 1,
       "message": "This is a tab and not spaces",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 1
+      },
+      "revId": "a6d67f1a136ed878fbe4fa91afda7f2ee5ab6fc6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48237f82_9f4fe7d1",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 214
+      },
+      "writtenOn": "2021-03-18T15:19:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0af0a573_38dff6e8",
       "range": {
         "startLine": 82,
         "startChar": 0,
