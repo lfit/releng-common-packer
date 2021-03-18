@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5f492b4_097816cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 214
+      },
+      "writtenOn": "2021-03-18T11:55:44Z",
+      "side": 1,
+      "message": "Testing in sandbox https://jenkins.onap.org/sandbox/job/ci-management-packer-merge-ubuntu-18.04-builder/3/console\n22:51:32     openstack: netselect is already the newest version (0.3.ds1-28+b1).\n22:51:32     openstack: The following package was automatically installed and is no longer required:\n22:51:32     openstack:   grub-pc-bin\n22:51:32     openstack: Use \u0027sudo apt autoremove\u0027 to remove it.\n22:51:32     openstack: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\n22:51:47     openstack: Old mirror : http://ca-ymq-2.clouds.archive.ubuntu.com/ubuntu/\n22:51:47     openstack: New mirror : http://ubuntu.mirror.globo.tech/\n22:51:47     openstack: Update and Remove unwanted packages...\n22:51:47 \u003d\u003d\u003e openstack:\n22:51:47 \u003d\u003d\u003e openstack: WARNING: apt does not have a stable CLI interface. Use with caution in scripts.\n\nOriginal script https://jenkins.onap.org/view/packer/job/ci-management-packer-merge-ubuntu-18.04-builder/43/console\n10:36:13     openstack: netselect is already the newest version (0.3.ds1-28+b1).\n10:36:13     openstack: The following package was automatically installed and is no longer required:\n10:36:13     openstack:   grub-pc-bin\n10:36:13     openstack: Use \u0027sudo apt autoremove\u0027 to remove it.\n10:36:13     openstack: 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\n10:36:14 \u003d\u003d\u003e openstack: netselect: unknown host gpl.savoirfairelinux.net/pub/mirrors/ubuntu/\n10:36:14 \u003d\u003d\u003e openstack: http\n10:36:15     openstack: NOTE: Unable to refresh \u0027sources.list\u0027\n10:36:15 \u003d\u003d\u003e openstack: Did not found any valid hosts (you requested 20)\n10:36:15     openstack: Installing Python...\n10:36:15 \u003d\u003d\u003e openstack:\n10:36:15 \u003d\u003d\u003e openstack: WARNING: apt does not have a stable CLI interface. Use with caution in scripts.\n",
+      "revId": "c144c044fee09c8891e9f3e66f250f364bbcdba6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
