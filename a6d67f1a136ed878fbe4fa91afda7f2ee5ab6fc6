@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5c27ba3_1602a134",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-03-18T15:10:37Z",
+      "side": 1,
+      "message": "If you need to disable SC2086 please do it the line just before it needs to be disabled. Doing it effectively just after the shebang turns it off for the entire script!\n\nWe don\u0027t want to be doing script wide check disables.",
+      "revId": "a6d67f1a136ed878fbe4fa91afda7f2ee5ab6fc6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
