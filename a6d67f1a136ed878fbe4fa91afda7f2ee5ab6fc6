@@ -16,6 +16,52 @@
       "message": "If you need to disable SC2086 please do it the line just before it needs to be disabled. Doing it effectively just after the shebang turns it off for the entire script!\n\nWe don\u0027t want to be doing script wide check disables.",
       "revId": "a6d67f1a136ed878fbe4fa91afda7f2ee5ab6fc6",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81b439b0_f62ff0d4",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-03-18T15:11:47Z",
+      "side": 1,
+      "message": "This is a tab and not spaces",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 1
+      },
+      "revId": "a6d67f1a136ed878fbe4fa91afda7f2ee5ab6fc6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0af0a573_38dff6e8",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-03-18T15:11:47Z",
+      "side": 1,
+      "message": "This is a tab and not spaces",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 1
+      },
+      "revId": "a6d67f1a136ed878fbe4fa91afda7f2ee5ab6fc6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
