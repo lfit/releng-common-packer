@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "522d7c14_9014e060",
+        "filename": "provision/install-python.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-03-18T15:19:05Z",
+      "side": 1,
+      "message": "Discussion on a disable needs to happen above it, not below. Otherwise the check disable doesn\u0027t work correctly for single-line disable.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 35
+      },
+      "revId": "1c8f0258cd96ef2c4ac8086bcdf670643445109c",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
