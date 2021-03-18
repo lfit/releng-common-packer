@@ -10,6 +10,10 @@
 ##############################################################################
 # vi: ts=4 sw=4 sts=4 et :
 
+# shellcheck disable=SC2086
+## SC2086 -- Double quote to prevent globbing
+## I can not have double quote around ${available_mirrors}
+##  since that breaks functionality
 
 set -eu -o pipefail -o noglob
 
@@ -67,16 +71,24 @@ if is_ubuntu; then
     wget http://ftp.au.debian.org/debian/pool/main/n/netselect/${NETSELECT_DEB}
     dpkg -i ${NETSELECT_DEB}
     apt install netselect -y
-    if ! netselect -s 20 -t 40 "$(wget -qO - mirrors.ubuntu.com/mirrors.txt)"; then
-        echo "NOTE: Unable to refresh 'sources.list'"
-    fi
-    sed -i 's#http://us.archive.ubuntu.com/ubuntu#http://ubuntu.uberglobalmirror.com/archive#' \
-        /etc/apt/sources.list
 
-    echo "Installing Python..."
+    available_mirrors=$(wget -qO - mirrors.ubuntu.com/mirrors.txt)
+    using_mirror=$(grep deb /etc/apt/sources.list | grep -v \# |head -1 | awk '{print $2}')
+    fastest_mirror=$(sudo netselect  -s 1 -t 40 ${available_mirrors}  2> /dev/null | awk '{print $2}')
+    RESULT=$?
+    if [ $RESULT -eq 0 ]; then
+        sed -i "s#${using_mirror}#${fastest_mirror}#" /etc/apt/sources.list
+	echo "Old mirror : ${using_mirror}"
+	echo "New mirror : ${fastest_mirror}"
+    else
+        echo "NOTE: Unable to select fastest mirror"
+    fi
+
+    echo "Update and Remove unwanted packages..."
     apt clean all -y
     apt -y update
 
+    echo "Installing Python..."
     # Ubuntu 20.04 and newer can default to Python 3
     if apt-cache show python-is-python3; then
         apt-get install -y python-is-python3
