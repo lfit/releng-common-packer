@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9259af8c_e180bcf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 8
+      },
+      "writtenOn": "2021-04-11T02:00:12Z",
+      "side": 1,
+      "message": "Looks like there\u0027s official CentOS 7 \u0026 8 images now according to Andy\u0027s link. I thought I\u0027d update this patch to add CentOS 8 now that there is one.",
+      "revId": "9c3afdc5b798819f0173421ca560c97a0a92f20d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
