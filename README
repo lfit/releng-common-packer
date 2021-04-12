@@ -1,5 +1,52 @@
+# Common Packer
+
 A collection of common packer scripts and baseline used by Linux Foundation
 projects as a central way to maintain and manage common VM configuration.
 
 Documentation for common packer is available at this link
 https://docs.releng.linuxfoundation.org/projects/common-packer
+
+## Finding source AMI images
+
+Source OS images published by upstream projects like Ubuntu and CentOS need to
+be well specified, so that the correct images are used. Anyone can list in
+the marketplace, so care should be taken to use the correct images.
+
+This is done in Packer using
+[source_ami_filter](https://packer.io/docs/builders/amazon-ebs.html#source_ami_filter)
+which is parameterized on the image `name`, `owner`, and `product-code` within
+the `packer/vars/<os_name>.json` files that define the source images.
+
+Upstream docs that specify AMIs:
+
+- [CentOS](https://wiki.centos.org/Cloud/AWS)
+- [Ubuntu](https://cloud-images.ubuntu.com/locator/ec2/)
+
+Unfortunately these filter parameters have conflicts - images with the official
+Ubuntu owner (`099720109477`) doesn't specify a `product-code` field.
+
+As an alternative, `aws-marketplace` owner is used, which also has the same
+images. To find the `product-code`, go to the [AWS
+Marketplace](https://aws.amazon.com/marketplace) and find the image you want,
+then click the button to launch the image. In the URL there will be a
+`productId` UUID parameter - find this, and then use it search for a product
+code using the [aws command
+line](https://docs.aws.amazon.com/cli/latest/index.html):
+
+    aws ec2 describe-images \
+        --owners aws-marketplace \
+        --filters "Name=name,Values=*aced0818-eef1-427a-9e04-8ba38bada306*"
+
+Then look at the output for the `ProductCodeId` - this is what should go in
+the OS json file in the `source_ami_filter_product_code` field.
+
+Once you've determined the correct settings, the Packer filter can be tested
+with this command:
+
+    aws ec2 describe-images \
+        --owners aws-marketplace \
+        --filters "Name=name,Values=*ubuntu*20.04*" \
+                  "Name=product-code,Values=a8jyynf4hjutohctm41o2z18m" \
+                  "Name=architecture,Values=x86_64" \
+                  "Name=virtualization-type,Values=hvm" \
+                  "Name=root-device-type,Values=ebs"

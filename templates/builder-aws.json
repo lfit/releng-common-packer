@@ -12,6 +12,7 @@
     "security_group_id": null,
     "source_ami_filter_name": null,
     "source_ami_filter_owner": null,
+    "source_ami_filter_product_code": null,
     "subnet_id": null,
     "ssh_user": null,
     "ssh_proxy_host": "",
@@ -29,6 +30,7 @@
       "source_ami_filter": {
         "filters": {
           "name": "{{user `source_ami_filter_name`}}",
+          "product-code": "{{user `source_ami_filter_product_code`}}",
           "root-device-type": "ebs",
           "virtualization-type": "hvm"
         },
