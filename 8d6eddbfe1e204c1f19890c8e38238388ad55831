@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "694faf7c_725d1209",
         "filename": "releasenotes/notes/docker-support-c04bf0df10c15c00.yaml",
@@ -20,8 +21,31 @@
         "endChar": 56
       },
       "revId": "8d6eddbfe1e204c1f19890c8e38238388ad55831",
-      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09",
-      "unresolved": true
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c04ba1c_c96bd64f",
+        "filename": "releasenotes/notes/docker-support-c04bf0df10c15c00.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-04-12T16:04:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "694faf7c_725d1209",
+      "range": {
+        "startLine": 7,
+        "startChar": 51,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "8d6eddbfe1e204c1f19890c8e38238388ad55831",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
