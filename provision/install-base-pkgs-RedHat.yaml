@@ -17,7 +17,7 @@
 
 - name: Enable PowerTools
   command:
-    cmd: dnf config-manager --set-enabled PowerTools
+    cmd: dnf config-manager --set-enabled powertools
     warn: no
   become: true
   when: ansible_facts['distribution_major_version'] is version('8', '>=')
