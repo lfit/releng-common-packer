@@ -15,10 +15,19 @@
   when:
     - ansible_facts['distribution_major_version'] is version('8', '<')
 
-- name: Enable PowerTools
-  command:
-    cmd: dnf config-manager --set-enabled PowerTools
-    warn: no
+
+- name: Enable Powertools
+  block:
+    - name: Enable powertools on version => 8.3
+      command:
+        cmd: dnf config-manager --set-enabled powertools
+        warn: no
+      when: ansible_facts['distribution_major_version'] is version('8.3', '>=')
+    - name: Enable Powertools on versions < 8.3
+      command:
+        cmd: dnf config-manager --set-enabled Powertools
+        warn: no
+      when: ansible_facts['distribution_major_version'] is version('8.3', '<')
   become: true
   when: ansible_facts['distribution_major_version'] is version('8', '>=')
 
