@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eabf2a67_7552ecfc",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2021-06-01T23:14:27Z",
+      "side": 1,
+      "message": "This extra newline needs to be removed.",
+      "revId": "6c1a1a35f9bb9c9700ada5c27b37264fcbe84767",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
