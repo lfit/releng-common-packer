@@ -24,6 +24,30 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f56ff07_955cac08",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-06-01T23:07:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48910a99_2939bc43",
+      "range": {
+        "startLine": 21,
+        "startChar": 41,
+        "endLine": 21,
+        "endChar": 43
+      },
+      "revId": "fb5b806bca5f129e9cd02c6559cded6869250d00",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfa7dd0f_9c4981d9",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-01T21:17:50Z",
       "side": 1,
       "message": "This should just be \"distribution_version\" to include minor version.",
+      "range": {
+        "startLine": 25,
+        "startChar": 27,
+        "endLine": 25,
+        "endChar": 53
+      },
+      "revId": "fb5b806bca5f129e9cd02c6559cded6869250d00",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3749bfa_608459fa",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-06-01T23:07:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfa7dd0f_9c4981d9",
       "range": {
         "startLine": 25,
         "startChar": 27,
@@ -70,6 +118,30 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9c84dcb_3ef0dfed",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-06-01T23:07:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfcba97e_4cdb0494",
+      "range": {
+        "startLine": 28,
+        "startChar": 46,
+        "endLine": 28,
+        "endChar": 56
+      },
+      "revId": "fb5b806bca5f129e9cd02c6559cded6869250d00",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5599b1f_10a91001",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-01T21:17:50Z",
       "side": 1,
       "message": "This should just be \"distribution_version\" to include minor version.",
+      "range": {
+        "startLine": 30,
+        "startChar": 27,
+        "endLine": 30,
+        "endChar": 53
+      },
+      "revId": "fb5b806bca5f129e9cd02c6559cded6869250d00",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30893658_69b4ad32",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-06-01T23:07:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5599b1f_10a91001",
       "range": {
         "startLine": 30,
         "startChar": 27,
