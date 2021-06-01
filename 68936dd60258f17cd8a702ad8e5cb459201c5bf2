@@ -16,6 +16,24 @@
       "message": "If the update came with CentOS 8.3, should we add a check for minor version \u003c 3 for \"PowerTools\", and then add \"powertools\" just for 8.3+?",
       "revId": "68936dd60258f17cd8a702ad8e5cb459201c5bf2",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c82a3ec0_77d00324",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-06-01T20:01:20Z",
+      "side": 1,
+      "message": "There are two separate repos that are available now Powertools for \u003c 8.2 and powertools \u003e\u003d 8.3.",
+      "parentUuid": "22fe9ead_7a333dd8",
+      "revId": "68936dd60258f17cd8a702ad8e5cb459201c5bf2",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
