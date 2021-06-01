@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48910a99_2939bc43",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2021-06-01T21:17:50Z",
+      "side": 1,
+      "message": "Tiny nit, but as long as you\u0027re making other changes, it would read better if this matched the \"\u003e\u003d\" format below, rather than being \"\u003d\u003e\".",
+      "range": {
+        "startLine": 21,
+        "startChar": 41,
+        "endLine": 21,
+        "endChar": 43
+      },
+      "revId": "fb5b806bca5f129e9cd02c6559cded6869250d00",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfa7dd0f_9c4981d9",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2021-06-01T21:17:50Z",
+      "side": 1,
+      "message": "This should just be \"distribution_version\" to include minor version.",
+      "range": {
+        "startLine": 25,
+        "startChar": 27,
+        "endLine": 25,
+        "endChar": 53
+      },
+      "revId": "fb5b806bca5f129e9cd02c6559cded6869250d00",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfcba97e_4cdb0494",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2021-06-01T21:17:50Z",
+      "side": 1,
+      "message": "\u0027T\u0027 in \"PowerTools\" needs to be capitalized.",
+      "range": {
+        "startLine": 28,
+        "startChar": 46,
+        "endLine": 28,
+        "endChar": 56
+      },
+      "revId": "fb5b806bca5f129e9cd02c6559cded6869250d00",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5599b1f_10a91001",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2021-06-01T21:17:50Z",
+      "side": 1,
+      "message": "This should just be \"distribution_version\" to include minor version.",
+      "range": {
+        "startLine": 30,
+        "startChar": 27,
+        "endLine": 30,
+        "endChar": 53
+      },
+      "revId": "fb5b806bca5f129e9cd02c6559cded6869250d00",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
