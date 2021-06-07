@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5dffb9d_3fd281cd",
+        "filename": "releasenotes/notes/docker-support-windows-4587eb31ef02e454.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2021-06-07T22:53:24Z",
+      "side": 1,
+      "message": "The release notes automatically add a header for \"Features\", so this isn\u0027t needed here.",
+      "range": {
+        "startLine": 4,
+        "startChar": 4,
+        "endLine": 4,
+        "endChar": 10
+      },
+      "revId": "326ca32806f19020415fbb449ccc29a9c980dc4b",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a5abdaa_b1411083",
+        "filename": "releasenotes/notes/docker-support-windows-4587eb31ef02e454.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2021-06-07T22:53:24Z",
+      "side": 1,
+      "message": "In the commit message, this is \"Windows\", which makes more sense for this change. Should it be Windows here too?",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "326ca32806f19020415fbb449ccc29a9c980dc4b",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
