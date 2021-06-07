@@ -1,0 +1,12 @@
+---
+features:
+  - |
+    Feat: Add support for Docker builder on Windows
+
+    The original change e24c07369afd514abdf3efb0f596f772261412ed
+    missed updating arm64 var files, while the builder templates were
+    updated. This breaks the packer verify jobs.
+
+    Error:
+
+        required variable not set: docker_source_image'
