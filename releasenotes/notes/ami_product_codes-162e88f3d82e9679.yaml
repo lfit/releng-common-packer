@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    All vars files have been updated to properly include the AMI product code
+    filter. This is needed to properly pass global-jjb verification.
