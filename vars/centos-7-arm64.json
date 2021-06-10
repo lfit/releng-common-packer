@@ -5,7 +5,8 @@
   "distro": "CentOS 7",
   "docker_source_image": "arm64v8/centos:7",
   "flavor": "v3-standard-2",
-  "source_ami_filter_name": "*CentOS Linux 7*HVM*",
-  "source_ami_filter_owner": "679593333241",
+  "source_ami_filter_name": "*CentOS 7*aarch64*",
+  "source_ami_filter_owner": "aws-marketplace",
+  "source_ami_filter_product_code": "6zber5dti4jyo9khb62tg49o8",
   "ssh_user": "centos"
 }
