@@ -15,20 +15,48 @@
   when:
     - ansible_facts['distribution_major_version'] is version('8', '<')
 
-- name: Enable Powertools
+# Note: Using ansible_facts does not match/return the minor versions of the
+# Repoid (for CentOS 8.2.2004 and earlier is 'PowerTools' and for CentOS 8.3.2011
+# and later the repo name is 'powertools'. To handle this check the repo file path
+# and enable the correct repo.
+# Ref: https://wiki.centos.org/Manuals/ReleaseNotes/CentOS8.2011#Yum_repo_file_and_repoid_changes
+- name: Enable PowerTools repository for CentOS 8.{0,2,3}
   block:
-    - name: Enable powertools on version >= 8.3
-      command:
-        cmd: dnf config-manager --set-enabled powertools
-        warn: no
-      when: ansible_facts['distribution_version'] is version('8.3', '>=')
-    - name: Enable Powertools on versions < 8.3
-      command:
-        cmd: dnf config-manager --set-enabled PowerTools
-        warn: no
-      when: ansible_facts['distribution_version'] is version('8.3', '<')
-  become: true
-  when: ansible_facts['distribution_major_version'] is version('8', '>=')
+    - name: Check the file name in path '/etc/yum.repos.d/' for CentOS 8.{2.2004} or earlier versions
+      shell: grep -lE "^\[PowerTools\]" /etc/yum.repos.d/*.repo
+      register: repofile
+      changed_when: false
+      failed_when: false
+      check_mode: no
+
+    - name: Enable 'PowerTools' repo for CentOS 8.{2.2004} or earlier versions if the file exist
+      ini_file:
+        path: "{{ repofile.stdout }}"
+        section: "PowerTools"
+        option: enabled
+        value: "1"
+        no_extra_spaces: true
+      when: repofile.rc == 0
+      become: true
+
+    - name: Check the file name in path '/etc/yum.repos.d/' for CentOS 8.{3.2011} or later versions
+      shell: grep -lE "^\[powertools\]" /etc/yum.repos.d/*.repo
+      register: repofile
+      changed_when: false
+      failed_when: false
+      check_mode: no
+
+    - name: Enable 'powertools' repo for CentOS 8.{3.2011} or later versions if the file exist
+      ini_file:
+        path: "{{ repofile.stdout }}"
+        section: "powertools"
+        option: enabled
+        value: 1
+        no_extra_spaces: true
+      when: repofile.rc == 0
+      become: true
+  when:
+    - ansible_facts.distribution_major_version|int >= 8
 
 - name: Install base packages
   yum:
