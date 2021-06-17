@@ -1,0 +1,10 @@
+---
+fixes:
+  - |
+    Using ansible_facts does not match/return the minor versions of the
+    Repoid. For CentOS 8.2.2004 and earlier versions uses repoid as
+    'PowerTools' while CentOS 8.3.2011 and later versions uses repoid as
+    'powertools'. To handle this, check the repo file name under
+    /etc/yum.repos.d/ and enable the correct repository.
+
+    https://wiki.centos.org/Manuals/ReleaseNotes/CentOS8.2011#Yum_repo_file_and_repoid_changes
