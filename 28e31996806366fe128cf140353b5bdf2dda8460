@@ -16,6 +16,24 @@
       "message": "You\u0027ve got a double SOB, please remove one",
       "revId": "28e31996806366fe128cf140353b5bdf2dda8460",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a36e6fad_0b05c280",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-06-24T00:19:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0241ed43_47465d9d",
+      "revId": "28e31996806366fe128cf140353b5bdf2dda8460",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
