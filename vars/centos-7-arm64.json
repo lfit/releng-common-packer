@@ -1,6 +1,6 @@
 {
   "arch": "arm64",
-  "base_image": "CentOS 7 aarch64 (2018-07-12) - LF upload",
+  "base_image": "CentOS 7.8 (aarch64) [2020-04-22]",
   "cloud_user_data": "common-packer/provision/rh-user_data.sh",
   "distro": "CentOS 7",
   "docker_source_image": "arm64v8/centos:7",
