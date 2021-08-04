@@ -16,6 +16,24 @@
       "message": "This change requires renaming all the image names uploaded or shared on the cloud providers? Is that completed or would simply fail all the packer jobs. ",
       "revId": "5b1ad6b444688ada3311e1c9e2512413a756a431",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83ab6823_23264a4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-08-04T23:08:36Z",
+      "side": 1,
+      "message": "We\u0027re switching to the images that Vexxhost already provides. Essentially, we\u0027re simplifying since it means we don\u0027t have to keep carrying the base images ourselves.\n\nAdmittedly, anyone outside of our platform using common-packer may be impacted if they aren\u0027t on Vexxhost, but then again, they probably have their own overrides.",
+      "parentUuid": "f2405162_088a7277",
+      "revId": "5b1ad6b444688ada3311e1c9e2512413a756a431",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
