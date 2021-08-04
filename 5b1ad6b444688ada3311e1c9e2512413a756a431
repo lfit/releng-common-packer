@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2405162_088a7277",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-08-04T22:29:55Z",
+      "side": 1,
+      "message": "This change requires renaming all the image names uploaded or shared on the cloud providers? Is that completed or would simply fail all the packer jobs. ",
+      "revId": "5b1ad6b444688ada3311e1c9e2512413a756a431",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
