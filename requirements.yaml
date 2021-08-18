@@ -12,3 +12,4 @@
 - src: lfit.shellcheck-install
 - src: lfit.sysstat-install
 - src: lfit.system-update
+- src: community.general
