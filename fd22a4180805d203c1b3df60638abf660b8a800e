@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "65d63cf2_04125b6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-08-19T13:30:30Z",
+      "side": 1,
+      "message": "This type of change is adding functionality, therefore it\u0027s a Feat (as in feature).\n\nAdditionally, there\u0027s no major justification outside of \"as a requirement for magma\".",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "fd22a4180805d203c1b3df60638abf660b8a800e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "257d5e35_2b1147ee",
@@ -14,6 +37,23 @@
       "writtenOn": "2021-08-19T01:35:15Z",
       "side": 1,
       "message": "Thanks for adding this new role. I think it would be good to provide a detailed commit message (why this new requirement is being intorduce) along with a release notes.",
+      "revId": "fd22a4180805d203c1b3df60638abf660b8a800e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "568940e2_bc8c0250",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-08-19T13:30:30Z",
+      "side": 1,
+      "message": "Unfortunately this was merged before I got a chance to see and review it.\n\nSo, my comments related to the commit message are now pointless.\n\nI do, however, want a reno note as to the addition and _why_ it is being added. Not just because it\u0027s a \"requirement of magma\". Given that this is a base repo to many projects and adding something here should be meaningful to all of the projects that are based on it. Otherwise, changes to templates and requirements should be localized to the downstream project.",
       "revId": "fd22a4180805d203c1b3df60638abf660b8a800e",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
