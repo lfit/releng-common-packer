@@ -24,6 +24,30 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d12b0a6e_d2b1c077",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 583
+      },
+      "writtenOn": "2021-08-19T15:24:41Z",
+      "side": 1,
+      "message": "This new ansible galaxy collection permits to use the module modprobe which permits managing kernel module. This module is helpful as we are enabling  virtualization kernel modules in the packer image.",
+      "parentUuid": "65d63cf2_04125b6d",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "fd22a4180805d203c1b3df60638abf660b8a800e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "257d5e35_2b1147ee",
