@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Add community.general as part of the required collections.
+    Required for tasks defined in local-docker specific to Magma.
