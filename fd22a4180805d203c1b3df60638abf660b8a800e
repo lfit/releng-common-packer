@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "257d5e35_2b1147ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-08-19T01:35:15Z",
+      "side": 1,
+      "message": "Thanks for adding this new role. I think it would be good to provide a detailed commit message (why this new requirement is being intorduce) along with a release notes.",
+      "revId": "fd22a4180805d203c1b3df60638abf660b8a800e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
