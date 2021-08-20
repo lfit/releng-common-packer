@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a222b9ea_6321db1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2021-08-20T01:51:01Z",
+      "side": 1,
+      "message": "Still does not say, why we are adding `community.general` in common-packer? If we look at this release notes sometime in the future, we cant really know why this was introduce. ",
+      "revId": "4ec82dc87d0ecb9e8428d009e348debcaa22d04d",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
