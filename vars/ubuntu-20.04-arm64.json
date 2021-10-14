@@ -1,6 +1,6 @@
 {
   "arch": "arm64",
-  "base_image": "Ubuntu 20.04.1 LTS (aarch64) [2020-11-02]",
+  "base_image": "Ubuntu 20.04.3 LTS (aarch64) [2021-10-04]",
   "cloud_user_data": "common-packer/provision/ubuntu-user_data.sh",
   "distro": "Ubuntu 20.04",
   "docker_source_image": "arm64v8/ubuntu:20.04",
