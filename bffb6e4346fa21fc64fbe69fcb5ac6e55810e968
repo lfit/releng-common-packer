@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "bffb6e4346fa21fc64fbe69fcb5ac6e55810e968",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d9674df_0da04dd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2021-11-04T15:32:24Z",
+      "side": 1,
+      "message": "Before this can be merged, please verify that ANSIBLE_CALLBACK_ALLOWLIST is an acceptable Ansible environment variable. That is, does Ansible accept it as a synonym environment variable to ANSIBLE_CALLBACK_WHITELIST?",
+      "revId": "bffb6e4346fa21fc64fbe69fcb5ac6e55810e968",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
