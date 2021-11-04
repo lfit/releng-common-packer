@@ -1,0 +1,8 @@
+---
+prelude: >
+  Improve common-packer code to minimize non-inclusivity.
+
+  https://developers.google.com/style/inclusive-documentation
+other:
+  - |
+    Rename 'whitelist' to 'allowlist'
