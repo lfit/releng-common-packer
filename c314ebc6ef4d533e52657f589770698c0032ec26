@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "642eeb6a_1c669f48",
+        "filename": "vars/centos-CS-8.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2022-03-04T14:37:46Z",
+      "side": 1,
+      "message": "Did you actually look this AMI information up somewhere?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 55
+      },
+      "revId": "c314ebc6ef4d533e52657f589770698c0032ec26",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
