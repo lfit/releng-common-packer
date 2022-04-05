@@ -96,12 +96,12 @@ if is_ubuntu; then
 fi
 
 if is_centos8; then
-    echo "Install python36"
+    echo "Install python38"
     dnf clean all
-    dnf install -y python36
+    dnf install -y python38
 fi
 
-type python || type python3
+type python3
 
 # Ansible requires sudo so ensure it is available.
 if ! command -v sudo; then
