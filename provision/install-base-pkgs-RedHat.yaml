@@ -68,7 +68,24 @@
     state: latest
   become: true
 
-- name: Install sigul client
+# Note: Ansible dnf module does not support modules install,enable. Once this
+# is supported in the new version update the code to use dnf module through
+# Ansible.
+- name: Enable CentOS stream 8 dependent modules
+  block:
+    - name: Enable pki-core
+      command:
+        cmd: dnf module enable pki-core -y
+        warn: no
+      become: true
+    - name: Enable pki-deps
+      command:
+        cmd: dnf module enable pki-deps -y
+        warn: no
+      become: true
+  when: ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
+
+- name: Install sigul client for EL 7
   yum:
     name:
       - https://kojipkgs.fedoraproject.org/repos-dist/epel7-infra/latest/x86_64/Packages/s/sigul-0.207-1.el7.x86_64.rpm
@@ -76,6 +93,15 @@
   become: true
   when:
     - ansible_facts['distribution_major_version'] is version('8', '<')
+
+- name: Install sigul client for EL 8 (Streams)
+  yum:
+    name:
+      - https://kojipkgs.fedoraproject.org/repos-dist/epel8-infra/latest/x86_64/Packages/s/sigul-1.1-1.el8.infra.x86_64.rpm
+    state: latest
+  become: true
+  when:
+    - ansible_facts['distribution_major_version'] is version('8', '>=')
 
 - name: Swap to git224
   block:
