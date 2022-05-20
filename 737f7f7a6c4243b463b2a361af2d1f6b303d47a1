@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b2886d4_f63a4d52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2022-05-20T17:46:08Z",
+      "side": 1,
+      "message": "We\u0027re going to have to rework the AMI bits. Unless I\u0027m doing things wrong, I can\u0027t find any C8 or C9 images that are aws-marketplace with the listed product code.\n\nHowever, that\u0027s a broader issue and I\u0027m going to ignore it for the moment.",
+      "revId": "737f7f7a6c4243b463b2a361af2d1f6b303d47a1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
