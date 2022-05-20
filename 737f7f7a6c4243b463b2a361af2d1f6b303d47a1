@@ -16,6 +16,24 @@
       "message": "We\u0027re going to have to rework the AMI bits. Unless I\u0027m doing things wrong, I can\u0027t find any C8 or C9 images that are aws-marketplace with the listed product code.\n\nHowever, that\u0027s a broader issue and I\u0027m going to ignore it for the moment.",
       "revId": "737f7f7a6c4243b463b2a361af2d1f6b303d47a1",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "956edb0d_e717a288",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2022-05-20T22:14:09Z",
+      "side": 1,
+      "message": "The AMI bit are here for CentOS https://wiki.centos.org/Cloud/AWS.\nthanks for 2+",
+      "parentUuid": "2b2886d4_f63a4d52",
+      "revId": "737f7f7a6c4243b463b2a361af2d1f6b303d47a1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
