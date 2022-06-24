@@ -1,0 +1,11 @@
+---
+fixes:
+  - |
+    Import correct GPG keys for sigul and EL8
+
+    Sigul 1.1.1 is signed by the Fedora infrastructure GPG key
+    therefore import the Fedora infra key before installing
+    the updated version on Sigul for CentOS8.
+
+    Import the EL8 GPG keys without which would fail
+    while installing several dependencies.
