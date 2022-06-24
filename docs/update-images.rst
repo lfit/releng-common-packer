@@ -71,7 +71,7 @@ https://jenkins.umbrella-name.org/search/?q=packer-merge
 
 
 Trigger a merge job for each builder that we want to update.
-https://jenkins.acumos.org/job/ci-management-packer-merge-centos-7-builder/
+https://jenkins.onap.org/job/ci-management-packer-merge-centos-7-builder/
 
 Or if you dont have trigger:
 
@@ -79,7 +79,7 @@ you can run a remerge via comment on a change (anyone can do this) to for exampl
 umbrella-project/ci-management/packer/vars/centos-7.json
 
 example:
-https://gerrit.acumos.org/r/c/ci-management/+/5041/1/packer/vars/centos-7.json
+https://gerrit.onap.org/r/c/ci-management/+/89661/1/packer/vars/centos-7.json
 
 and that will trigger both builds:
 ci-management-packer-merge-centos-7-docker
