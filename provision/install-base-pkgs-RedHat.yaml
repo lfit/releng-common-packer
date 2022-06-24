@@ -58,6 +58,23 @@
   when:
     - ansible_facts.distribution_major_version|int >= 8
 
+- name: "Download the RPM GPG KEY for EPEL - {{ ansible_distribution_major_version }}"
+  get_url:
+    url: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+    dest: /tmp/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+    mode: 0600
+  become: true
+  when:
+    - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
+
+- name: Import RPM GPG KEY into the DB
+  rpm_key:
+    key: /tmp/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+    state: present
+  become: true
+  when:
+    - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
+
 - name: Install base packages
   yum:
     name:
@@ -93,6 +110,23 @@
   become: true
   when:
     - ansible_facts['distribution_major_version'] is version('8', '<')
+
+- name: "Download the RPM GPG KEY for CentOS 8 Sigul"
+  get_url:
+    url: https://infrastructure.fedoraproject.org/repo/infra/RPM-GPG-KEY-INFRA-TAGS
+    dest: /tmp/RPM-GPG-KEY-INFRA-TAGS
+    mode: 0600
+  become: true
+  when:
+    - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
+
+- name: Import RPM GPG KEY into the DB for Sigul on CentOS 8
+  rpm_key:
+    key: /tmp/RPM-GPG-KEY-INFRA-TAGS
+    state: present
+  become: true
+  when:
+    - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
 
 - name: Install sigul client for EL 8 (Streams)
   yum:
