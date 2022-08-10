@@ -1,0 +1,4 @@
+---
+upgrade:
+  - |
+    Upgrade git v2.36 on CentOS 7. 
