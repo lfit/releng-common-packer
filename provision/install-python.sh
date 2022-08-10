@@ -90,8 +90,10 @@ if is_ubuntu; then
     # Ubuntu 20.04 and newer can default to Python 3
     if apt-cache show python-is-python3; then
         apt-get install -y python-is-python3
+        type python3
     else
         apt-get install -y python-minimal
+        type python
     fi
 fi
 
@@ -99,9 +101,10 @@ if is_centos8; then
     echo "Install python38"
     dnf clean all
     dnf install -y python38
+    python3 -V
+    type python3
 fi
 
-type python3
 
 # Ansible requires sudo so ensure it is available.
 if ! command -v sudo; then
