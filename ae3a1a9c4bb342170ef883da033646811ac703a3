@@ -1,0 +1,8 @@
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Code-Review+1: Robert Varga <nite@hq.sk>
+Code-Review+2: Kevin Sandi <ksandi@contractor.linuxfoundation.org>
+Submitted-by: Kevin Sandi <ksandi@contractor.linuxfoundation.org>
+Submitted-at: Thu, 11 Aug 2022 05:18:50 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/releng/common-packer/+/70478
+Project: releng/common-packer
+Branch: refs/heads/master
