@@ -38,6 +38,32 @@ function is_centos8()
     return 1
 }
 
+# Select fastest mirror on Ubuntu systems
+function select_fastest()
+{
+  echo "Install netselect from debian to choose a mirror."
+  apt install wget -y
+  wget "http://ftp.au.debian.org/debian/pool/main/n/netselect/${NETSELECT_DEB}"
+  dpkg -i "${NETSELECT_DEB}"
+  apt install netselect -y
+
+  available_mirrors=$(wget -qO - mirrors.ubuntu.com/mirrors.txt)
+  using_mirror=$(grep deb /etc/apt/sources.list | grep -v \# |head -1 | awk '{print $2}')
+  # SC2086 -- Double quote to prevent globbing
+  # Do not double quote around ${available_mirrors} since that breaks
+  # functionality
+  # shellcheck disable=SC2086
+  fastest_mirror=$(sudo netselect  -s 1 -t 40 ${available_mirrors}  2> /dev/null | awk '{print $2}')
+  RESULT=$?
+  if [ $RESULT -eq 0 ]; then
+      sed -i "s#${using_mirror}#${fastest_mirror}#" /etc/apt/sources.list
+      echo "Old mirror : ${using_mirror}"
+      echo "New mirror : ${fastest_mirror}"
+  else
+      echo "NOTE: Unable to select fastest mirror"
+  fi
+}
+
 # Ubuntu does not come with Python by default so we need to install it
 if is_ubuntu; then
     # Use netselect to choose a package mirror to install python-minimal in a
@@ -50,37 +76,17 @@ if is_ubuntu; then
     case $_ARCH in
         x86_64)
            NETSELECT_DEB="netselect_0.3.ds1-28+b1_amd64.deb"
+           echo "NetSelect version to install is ${NETSELECT_DEB}"
+           select_fastest
            ;;
         aarch64)
-           NETSELECT_DEB="netselect_0.3.ds1-28+b1_arm64.deb"
+           #NETSELECT_DEB="netselect_0.3.ds1-28+b1_arm64.deb"
            ;;
         *)
            echo "Unknown arch ${_ARCH}. Exiting..."
            exit 1
     esac
 
-    echo "NetSelect version to install is ${NETSELECT_DEB}"
-
-    echo "Install netselect from debian to choose a mirror."
-    apt install wget -y
-    wget http://ftp.au.debian.org/debian/pool/main/n/netselect/${NETSELECT_DEB}
-    dpkg -i ${NETSELECT_DEB}
-    apt install netselect -y
-
-    available_mirrors=$(wget -qO - mirrors.ubuntu.com/mirrors.txt)
-    using_mirror=$(grep deb /etc/apt/sources.list | grep -v \# |head -1 | awk '{print $2}')
-## SC2086 -- Double quote to prevent globbing
-## I can not have double quote around ${available_mirrors} since that breaks functionality
-# shellcheck disable=SC2086
-    fastest_mirror=$(sudo netselect  -s 1 -t 40 ${available_mirrors}  2> /dev/null | awk '{print $2}')
-    RESULT=$?
-    if [ $RESULT -eq 0 ]; then
-        sed -i "s#${using_mirror}#${fastest_mirror}#" /etc/apt/sources.list
-        echo "Old mirror : ${using_mirror}"
-        echo "New mirror : ${fastest_mirror}"
-    else
-        echo "NOTE: Unable to select fastest mirror"
-    fi
 
     echo "Update and Remove unwanted packages..."
     apt clean all -y
