@@ -2,8 +2,8 @@
 Requirements
 ############
 
-* Ansible 2.4.1 or later
-* Packer 1.3.2 or later
+* Ansible 2.9.27 or later
+* Packer 1.8.2 or later
 
 Install Ansible via pip in a virtualenv if the version is not available via
 your local package manager.
@@ -12,4 +12,4 @@ your local package manager.
 
    virtualenv ansible
    source ansible/bin/activate
-   pip install ansible~=2.4.1
+   pip install ansible~=2.9.27
