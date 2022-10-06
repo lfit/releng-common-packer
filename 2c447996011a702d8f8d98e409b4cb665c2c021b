@@ -16,6 +16,24 @@
       "message": "Has this been tested on a sandbox? I see how you\u0027re installing via PyPI, but I don\u0027t see anything undoing the old way of installing. Is this relying on the package being found after pypi installation, and thereby skipping the system packages install?",
       "revId": "2c447996011a702d8f8d98e409b4cb665c2c021b",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e420da91_98726383",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2022-10-06T22:15:37Z",
+      "side": 1,
+      "message": "Undoing the old way is submitted through this change.\n\nhttps://gerrit.linuxfoundation.org/infra/c/ansible/roles/lf-recommended-tools/+/70826\n\nI\u0027ve tested this locally, but testing this on sandbox is not really easy since too many bits changed in multiple repos.",
+      "parentUuid": "c7e0cb00_5de3df36",
+      "revId": "2c447996011a702d8f8d98e409b4cb665c2c021b",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
