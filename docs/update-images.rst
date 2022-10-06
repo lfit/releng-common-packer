@@ -10,8 +10,8 @@ OpenStack cloud.
 
    .. code-block:: bash
 
-      pip install lftools[openstack]
-      yum/apt install qemu-img
+       pip install lftools[openstack]
+       yum/apt install qemu-img
 
 
 2. Fetch the image file in .img format

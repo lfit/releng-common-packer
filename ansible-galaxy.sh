@@ -13,6 +13,15 @@ set -eu -o pipefail -o noglob
 
 echo "----> ansible-galaxy.sh"
 
+wget -q https://raw.githubusercontent.com/lfit/releng-global-jjb/master/jenkins-init-scripts/lf-env.sh \
+    -O ~/lf-env.sh
+
+# shellcheck disable=SC1090
+. ~/lf-env.sh
+
+lf-activate-venv --python python3 --venv-file "/tmp/.ansible_venv" \
+    ansible~=2.9.27
+
 ansible_roles_path=${1:-.galaxy}
 ansible_requirements_file=${2:-requirements.yaml}
 script_dir=$(dirname "$0")
