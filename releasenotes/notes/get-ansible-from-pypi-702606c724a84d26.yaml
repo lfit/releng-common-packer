@@ -1,0 +1,14 @@
+---
+prelude: >
+    Install ansible and ansible-playbook using PyPI.
+issues:
+  - |
+    Error:
+      Problem: package ansible-5.4.0-3.el8.noarch requires
+      (ansible-core >= 2.12.2 with ansible-core < 2.13), but none
+      of the providers can be installed
+fixes:
+  - |
+    Install ansible through system packages causes dependencies
+    conflicts on CentOS 8 platform therefore update packer
+    templates to use ansible provisioner created through venv.
