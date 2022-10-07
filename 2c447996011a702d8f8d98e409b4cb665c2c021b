@@ -34,6 +34,23 @@
       "parentUuid": "c7e0cb00_5de3df36",
       "revId": "2c447996011a702d8f8d98e409b4cb665c2c021b",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "837a64c7_ae12ddc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2022-10-07T01:45:45Z",
+      "side": 1,
+      "message": "Tested to build these new images:\n\nZZCI - CentOS Stream 8 - builder - x86_64 - 20221006-022838.351\nZZCI - Ubuntu 20.04 - builder - x86_64 - 20221007-005406.181\nZZCI - Ubuntu 18.04 - builder - x86_64 - 20221007-002022.069\nZZCI - Ubuntu 18.04 - docker - x86_64 - 20221007-005229.346",
+      "revId": "2c447996011a702d8f8d98e409b4cb665c2c021b",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
