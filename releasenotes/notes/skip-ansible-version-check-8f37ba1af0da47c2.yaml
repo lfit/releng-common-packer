@@ -1,0 +1,9 @@
+---
+issues:
+  - |
+    Error running "./common-packer/ansible-playbook.sh --version": exit status 1
+fixes:
+  - |
+    Skip ansible provisioners version check. Packer provisioners invokes
+    the ansible version check, which can be skipped since the provisioner
+    is invoking a custom script.
