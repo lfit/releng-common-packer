@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    Add Nodesource repositories and NodeJS to baseline common-packer nodes.
+fixes:
+  - |
+    Addresses Sonarcloud CLI tool failures for certain repository content.

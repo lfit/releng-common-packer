@@ -3,6 +3,9 @@
   become_user: root
   become_method: sudo
 
+  vars:
+    nodejs_version: "16.x"
+
   pre_tasks:
     - include_role: name=lfit.system-update
 
