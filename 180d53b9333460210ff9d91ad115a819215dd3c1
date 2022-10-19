@@ -33,6 +33,23 @@
       "message": "Nodejs already added to local-builder.yaml and local-docker.yaml for ONAP\nhttps://github.com/onap/ci-management/blob/master/packer/provision/local-builder.yaml\n\nWhat I understand we need the LTS version of NodeJS, which is V16, while Ubuntu 22.04 only have V12\n\nProposal, one of the below options\n1) Modify the patch I provided for ONAP for local-builder/docker to use latest LTS nodejs\n2) Add latest LTS nodejs to the base image, and when there, remove nodejs from local-builder/docker",
       "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04e5b8a4_f4216374",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2022-10-19T11:26:31Z",
+      "side": 1,
+      "message": "The right place for this change is in the ansible lf-recommend-tools role.",
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
