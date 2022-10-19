@@ -50,6 +50,121 @@
       "message": "The right place for this change is in the ansible lf-recommend-tools role.",
       "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d20ffce1_82a0ec1d",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2022-10-19T11:39:02Z",
+      "side": 1,
+      "message": "when is used with condition is met. What is the valid condition here? ansible_distribution_major_version will always be something.",
+      "range": {
+        "startLine": 167,
+        "startChar": 1,
+        "endLine": 167,
+        "endChar": 42
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a206d6df_74db8ccc",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2022-10-19T11:39:02Z",
+      "side": 1,
+      "message": "Group all these sub-tasks under a single name.",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 18
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f41fda5_3a0e5a97",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2022-10-19T11:39:02Z",
+      "side": 1,
+      "message": "You\u0027ll need root permissions to do most of these.",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 0
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bbab8c2_35b5dd6a",
+        "filename": "provision/install-base-pkgs-Ubuntu.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2022-10-19T11:39:02Z",
+      "side": 1,
+      "message": "Is there a better way to install the repo/ppa, rather than hardcoding the key here? this might fail when the key is updated or changed in an year or two.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 18
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c13391a_e329803f",
+        "filename": "provision/install-base-pkgs-Ubuntu.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2022-10-19T11:39:02Z",
+      "side": 1,
+      "message": "we have jobs building {16,18,20}.04, may want to define the supported platforms clearly here.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
