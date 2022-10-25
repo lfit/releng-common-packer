@@ -75,6 +75,30 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "327c4896_1dfc3f99",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 605
+      },
+      "writtenOn": "2022-10-25T20:28:33Z",
+      "side": 1,
+      "message": "Yeah, I think this was perhaps supposed to be distribution specific, or something along those lines. It was a while ago I dug this out, so I better check again.",
+      "parentUuid": "d20ffce1_82a0ec1d",
+      "range": {
+        "startLine": 167,
+        "startChar": 1,
+        "endLine": 167,
+        "endChar": 42
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a206d6df_74db8ccc",
@@ -98,6 +122,30 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b6ef4be_42ee0ea1",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 605
+      },
+      "writtenOn": "2022-10-25T20:28:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a206d6df_74db8ccc",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 18
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f41fda5_3a0e5a97",
@@ -111,6 +159,30 @@
       "writtenOn": "2022-10-19T11:39:02Z",
       "side": 1,
       "message": "You\u0027ll need root permissions to do most of these.",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 0
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "604ac6bd_2d62150c",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 605
+      },
+      "writtenOn": "2022-10-25T20:28:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4f41fda5_3a0e5a97",
       "range": {
         "startLine": 163,
         "startChar": 0,
@@ -146,6 +218,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2540f2ca_a2a84501",
+        "filename": "provision/install-base-pkgs-Ubuntu.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 605
+      },
+      "writtenOn": "2022-10-25T20:28:33Z",
+      "side": 1,
+      "message": "I notice that you can search for the keys and get this page back here: https://keyserver.ubuntu.com/pks/lookup?search\u003dnodesource\u0026fingerprint\u003don\u0026op\u003dindex\nThe current Nodesource key dates back to 2014, and the others also seem to have had a decent lifespan. I\u0027ll have a think and see if I can find a way of fetching this programmatically in a way that would work, but it doesn\u0027t look like they get rotated regularly.",
+      "parentUuid": "4bbab8c2_35b5dd6a",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 18
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c13391a_e329803f",
         "filename": "provision/install-base-pkgs-Ubuntu.yaml",
         "patchSetId": 1
@@ -157,6 +253,30 @@
       "writtenOn": "2022-10-19T11:39:02Z",
       "side": 1,
       "message": "we have jobs building {16,18,20}.04, may want to define the supported platforms clearly here.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca1cf38f_4093349f",
+        "filename": "provision/install-base-pkgs-Ubuntu.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 605
+      },
+      "writtenOn": "2022-10-25T20:28:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3c13391a_e329803f",
       "range": {
         "startLine": 14,
         "startChar": 0,
