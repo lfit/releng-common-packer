@@ -146,6 +146,30 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf5edf0f_aa478a0a",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 605
+      },
+      "writtenOn": "2022-11-02T12:03:14Z",
+      "side": 1,
+      "message": "Will use something along the lines of:\n\n  - name: Enable Nodesource Repository for RedHat/CentOS/Fedora Distributions    \n      block:",
+      "parentUuid": "7b6ef4be_42ee0ea1",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 18
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f41fda5_3a0e5a97",
@@ -193,6 +217,30 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c759e396_3796268e",
+        "filename": "provision/install-base-pkgs-RedHat.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 605
+      },
+      "writtenOn": "2022-11-02T12:03:14Z",
+      "side": 1,
+      "message": "Will add the \"become: yes\" parameter under the block in next patch set",
+      "parentUuid": "604ac6bd_2d62150c",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 0
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bbab8c2_35b5dd6a",
@@ -230,6 +278,30 @@
       "side": 1,
       "message": "I notice that you can search for the keys and get this page back here: https://keyserver.ubuntu.com/pks/lookup?search\u003dnodesource\u0026fingerprint\u003don\u0026op\u003dindex\nThe current Nodesource key dates back to 2014, and the others also seem to have had a decent lifespan. I\u0027ll have a think and see if I can find a way of fetching this programmatically in a way that would work, but it doesn\u0027t look like they get rotated regularly.",
       "parentUuid": "4bbab8c2_35b5dd6a",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 18
+      },
+      "revId": "180d53b9333460210ff9d91ad115a819215dd3c1",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "841d58b6_4be468dc",
+        "filename": "provision/install-base-pkgs-Ubuntu.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 605
+      },
+      "writtenOn": "2022-11-02T12:03:14Z",
+      "side": 1,
+      "message": "This is the official documented method; I\u0027ve dug around and I can\u0027t see any other way of importing it on Ubuntu, as the way keys are installed from the Ubuntu repository requires you to specify an ID, you can\u0027t search using a more flexible query. On the positive side, from what I can tell, it doesn\u0027t look like the key has ever been rotated.",
+      "parentUuid": "2540f2ca_a2a84501",
       "range": {
         "startLine": 14,
         "startChar": 0,
