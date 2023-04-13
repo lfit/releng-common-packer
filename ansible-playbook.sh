@@ -10,6 +10,7 @@
 ##############################################################################
 
 if command -v "$(cat /tmp/.ansible_venv)/bin/ansible-playbook" &> /dev/null; then
+    # shellcheck source=/dev/null
     source "$(cat /tmp/.ansible_venv)/bin/activate" && ANSIBLE_FORCE_COLOR=1 \
         PYTHONUNBUFFERED=1 "$(cat /tmp/.ansible_venv)/bin/ansible-playbook" "$@"
 elif command -v "$(which ansible-playbook)"; then

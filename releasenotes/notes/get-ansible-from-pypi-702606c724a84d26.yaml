@@ -1,6 +1,6 @@
 ---
 prelude: >
-    Install ansible and ansible-playbook using PyPI.
+  Install ansible and ansible-playbook using PyPI.
 issues:
   - |
     Error:
