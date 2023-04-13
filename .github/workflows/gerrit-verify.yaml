@@ -89,6 +89,7 @@ jobs:
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           delay: "0s"
+          fetch-depth: "0"
       - name: Configure Python
         uses: actions/setup-python@v4
         id: setup-python
