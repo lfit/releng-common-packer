@@ -71,7 +71,7 @@ https://jenkins.umbrella-name.org/search/?q=packer-merge
 
 
 Trigger a merge job for each builder that we want to update.
-https://jenkins.onap.org/job/ci-management-packer-merge-centos-7-builder/
+https://jenkins.umbrella-name.org/view/ci-management/job/ci-management-packer-merge-centos-7-builder/
 
 Or if you dont have trigger:
 
