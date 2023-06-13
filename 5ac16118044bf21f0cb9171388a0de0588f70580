@@ -33,6 +33,24 @@
       "message": "These provisioning scripts are all named in a very generic way, but when you read through them you find that they are all CentOS / RedHat specific. They should be named in a way that indicates that they are only RH compatible scripts",
       "revId": "5ac16118044bf21f0cb9171388a0de0588f70580",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51e0046e_9c8cfebc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2023-06-13T13:36:33Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "1471ab95_990151be",
+      "revId": "5ac16118044bf21f0cb9171388a0de0588f70580",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
