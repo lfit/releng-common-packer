@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f0e0e7e_8539b0c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 605
+      },
+      "writtenOn": "2023-06-13T09:37:48Z",
+      "side": 1,
+      "message": "You\u0027ve taken a different approach to me on this, but yours looks better",
+      "revId": "5ac16118044bf21f0cb9171388a0de0588f70580",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
