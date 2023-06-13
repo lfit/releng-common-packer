@@ -16,6 +16,23 @@
       "message": "You\u0027ve taken a different approach to me on this, but yours looks better",
       "revId": "5ac16118044bf21f0cb9171388a0de0588f70580",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1471ab95_990151be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2023-06-13T12:39:31Z",
+      "side": 1,
+      "message": "These provisioning scripts are all named in a very generic way, but when you read through them you find that they are all CentOS / RedHat specific. They should be named in a way that indicates that they are only RH compatible scripts",
+      "revId": "5ac16118044bf21f0cb9171388a0de0588f70580",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
