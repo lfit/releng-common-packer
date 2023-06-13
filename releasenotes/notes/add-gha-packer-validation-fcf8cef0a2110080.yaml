@@ -1,0 +1,4 @@
+---
+features:
+  - |
+    Add GHA packer validation job to common-packer.
