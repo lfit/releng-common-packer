@@ -133,9 +133,9 @@ jobs:
               - '**'
       - if: steps.changes.outputs.src == 'true'
         run: |
-          cd packer
           varfiles=(vars/*.json common-packer/vars/*.json)
           templates=(templates/*.json)
+          PACKER_LOGS_DIR="/tmp"
 
           for varfile in "${varfiles[@]}"; do
               # cloud-env.json is a file containing credentials which is pulled in via
