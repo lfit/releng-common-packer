@@ -1,0 +1,4 @@
+---
+features:
+  - |
+    Add Openstack devstack templates and provisioner to common-packer.
