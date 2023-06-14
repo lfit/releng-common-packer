@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d154ee21_cd7dfbe1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2023-06-14T01:00:18Z",
+      "side": 1,
+      "message": "Temporary Verify override",
+      "revId": "19079cb5ccb8c0bc376a79c176d5a453a8c6ddb5",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
