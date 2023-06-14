@@ -133,8 +133,8 @@ jobs:
               - '**'
       - if: steps.changes.outputs.src == 'true'
         run: |
-          varfiles=(vars/*.json common-packer/vars/*.json)
-          templates=(templates/*.json)
+          varfiles=("$HOME"/vars/*.json)
+          templates=("$HOME"/templates/*.json)
           PACKER_LOGS_DIR="/tmp"
 
           for varfile in "${varfiles[@]}"; do
