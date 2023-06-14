@@ -18,6 +18,24 @@
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab0533bd_8bba9966",
+        "filename": ".github/workflows/gerrit-verify.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2023-06-14T06:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04dcc587_5f513d15",
+      "revId": "63bd0da0fe414357797d7d6f467ac3334094d5c6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6c06176_65e37a99",
