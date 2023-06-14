@@ -133,8 +133,8 @@ jobs:
               - '**'
       - if: steps.changes.outputs.src == 'true'
         run: |
-          varfiles=("$HOME"/vars/*.json)
-          templates=("$HOME"/templates/*.json)
+          varfiles=(${{ github.workslpace }}/vars/*.json)
+          templates=(${{ github.workslpace }}/templates/*.json)
           PACKER_LOGS_DIR="/tmp"
 
           for varfile in "${varfiles[@]}"; do
