@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04dcc587_5f513d15",
+        "filename": ".github/workflows/gerrit-verify.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 577
+      },
+      "writtenOn": "2023-06-14T05:05:06Z",
+      "side": 1,
+      "message": "typo here, but also I would recommend using the env var $GITHUB_WORKSPACE instead of the reading it from the context",
+      "revId": "63bd0da0fe414357797d7d6f467ac3334094d5c6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6c06176_65e37a99",
+        "filename": ".github/workflows/gerrit-verify.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 577
+      },
+      "writtenOn": "2023-06-14T05:05:06Z",
+      "side": 1,
+      "message": "typo here, but also I would recommend using the env var $GITHUB_WORKSPACE instead of the reading it from the context",
+      "revId": "63bd0da0fe414357797d7d6f467ac3334094d5c6",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
