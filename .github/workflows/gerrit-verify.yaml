@@ -160,7 +160,7 @@ jobs:
 
   vote:
     if: ${{ always() }}
-    needs: [prepare, pre-commit, tox, packer-validation]
+    needs: [prepare, pre-commit, tox]
     runs-on: ubuntu-latest
     steps:
       - name: Get workflow conclusion
