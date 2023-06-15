@@ -21,7 +21,6 @@
         - name: Installing non-baseline requirements
           yum:
             name:
-              - deltarpm
               - libxml2-devel
               - libxslt-devel
               - libffi-devel
