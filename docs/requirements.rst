@@ -3,7 +3,7 @@ Requirements
 ############
 
 * Ansible 2.9.27 or later
-* Packer 1.8.2 or later
+* Packer 1.9.1 or later
 
 Install Ansible via pip in a virtualenv to build images.
 
