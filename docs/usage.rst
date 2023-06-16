@@ -30,7 +30,7 @@ templates provided by common-packer as necessary.
    # Instructions assume the working directory is the ci-management repo root
    cd packer
    mkdir provision templates
-   ln -rs common-packer/templates/builder.json templates/builder.json
+   ln -rs common-packer/templates/builder.pkr.hcl templates/builder.pkr.hcl
    cp common-packer/provision/local-builder.yaml provision/local-builder.yaml
 
 .. _custom-template:
@@ -55,7 +55,7 @@ duplication in code.
 
 Example docker template:
 
-.. literalinclude:: ../templates/docker.json
+.. literalinclude:: ../templates/docker.pkr.hcl
    :language: json
 
 Example provisioning script:
