@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "bf978b3973075d1684498db13fc5bfa3d6e0b3d3",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f8a4299_24a2d3d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2023-06-16T12:52:34Z",
+      "side": 1,
+      "message": "Temporary verify override",
+      "revId": "bf978b3973075d1684498db13fc5bfa3d6e0b3d3",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
