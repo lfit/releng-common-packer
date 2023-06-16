@@ -1,0 +1,8 @@
+source_ami_filter_name = "*CentOS-8*"
+source_ami_filter_owner = "aws-marketplace"
+source_ami_filter_product_code = "47k9ia2igxpcce2bzo8u3kj03"
+base_image = "CentOS 8.2 (x86_64) [2020-06-11]"
+distro = "CentOS 8"
+docker_source_image = "centos:8"
+ssh_user = "centos"
+cloud_user_data = "common-packer/provision/rh-user_data.sh"
