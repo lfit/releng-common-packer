@@ -1,0 +1,6 @@
+aws_secret_key = "SECRETKEY"
+aws_access_key = "ACCESSKEY"
+subnet_id = "subnet-null"
+security_group_id = "sg-null"
+vpc_id = "vpc-null"
+ssh_proxy_host = ""
