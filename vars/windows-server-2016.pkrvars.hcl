@@ -1,0 +1,8 @@
+source_ami_filter_name = ""
+source_ami_filter_owner = ""
+source_ami_filter_product_code = ""
+base_image = "Windows Server Standard 2016 [2017-02-20]"
+distro = "Windows 2016"
+docker_source_image = "windows:2016"
+ssh_user = "admin"
+cloud_user_data = "common-packer/provision/windows-user_data.ps1"

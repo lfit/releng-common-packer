@@ -1,0 +1,46 @@
+---
+prelude: >
+  As of packer version 1.7.0 HCL2 is the preferred way to write Packer
+  templates. HCL2 preserves existing workflows while leveraging HCL2’s
+  advanced features like variable interpolation and configuration
+  composability.
+upgrade:
+  - |
+    Migrate packer templates from JSON to HCL2 format. JSON format templates
+    are deprecated and no longer works with packer version > 1.9.x.
+
+    Existing JSON templates can be converted to '.pkr.hcl' using:
+
+    .. code-block:: bash
+
+       packer hcl2_upgrade -with-anotations <folder|filename>
+
+    Packer version 1.9.1 will be minimum required version for packer jobs.
+    This version requires installing the cloud specific plugin through
+    packer config and needs to be initalize and download before running
+    `packer build`.
+
+    `<temmplate>.pkr.hcl` includes the sources and builds are defined.
+    `.auto.pkrvars.hcl` includes variables that are loaded automatically.
+    These variables load automatically from the same directory and are common
+    across templates. `variables.pkr.hcl` includes variable declarations that
+    are common across templates.
+
+    Reference:
+    https://developer.hashicorp.com/packer/guides/hcl/variables
+    https://developer.hashicorp.com/packer/docs/templates/hcl_templates
+    https://github.com/hashicorp/packer-plugin-openstack/blob/main/README.md
+issues:
+  - |
+    Add support for host key algorithms to work with local ssh proxy
+    without which packer builds results in "failed to handshake" error.
+    Workaround is to pass additional params with "extra_arguments".
+
+    Reference:
+    https://github.com/hashicorp/packer-plugin-ansible/issues/140
+deprecations:
+  - |
+    Support for '.json' templates will be removed from common-packer in
+    subsequent release to give enough time for projects consuming to upgrade.
+    All projects specific templates not available in this repository are
+    required to convert existing '.json' to '.pkr.hcl' format.
