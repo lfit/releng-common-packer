@@ -18,7 +18,7 @@
               - crudini
             state: present
           become: true
-        - name: Installing non-baseline requirements
+        - name: Installing non-baseline requirements (CentOS/RedHat)
           yum:
             name:
               - deltarpm
@@ -29,6 +29,17 @@
               - "@development"
             state: present
           become: true
+        - name: Installing non-baseline requirements (Ubuntu/Debian)
+          apt:
+            name:
+              - libxml2-dev
+              - libxslt-dev
+              - libffi-dev
+              - libssl-dev
+              - build-essential
+            state: present
+          become: true
+          when: ansible_distribution == "Ubuntu"  or ansible_distribution == "Debian"
         - name: check if net link setup exists
           stat:
             path: /etc/udev/rules.d/80-net-setup-link.rules
