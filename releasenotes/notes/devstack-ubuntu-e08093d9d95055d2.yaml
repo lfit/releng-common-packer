@@ -1,0 +1,4 @@
+---
+features:
+  - |
+    Modify devstack templates for Ubuntu/Debian distributions.

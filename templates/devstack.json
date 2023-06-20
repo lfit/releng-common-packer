@@ -55,7 +55,7 @@
     },
     {
       "type": "ansible",
-      "playbook_file": "provision/devstack-centos.yaml",
+      "playbook_file": "provision/devstack.yaml",
       "command": "./common-packer/ansible-playbook.sh",
       "skip_version_check": true,
       "ansible_env_vars": [
