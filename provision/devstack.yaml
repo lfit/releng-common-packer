@@ -11,13 +11,22 @@
   tasks:
     - name: "Install devstack dependencies"
       block:
-        - name: Install xpath dependencies
+        - name: Install xpath dependencies (CentOS/RedHat)
           yum:
             name:
               - perl-XML-XPath
               - crudini
             state: present
           become: true
+          when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+        - name: Install xpath dependencies (Ubuntu/Debian)
+          apt:
+            name:
+              - libxml-xpath-perl
+              - crudini
+            state: present
+          become: true
+          when: ansible_distribution == "Ubuntu"  or ansible_distribution == "Debian"
         - name: Installing non-baseline requirements (CentOS/RedHat)
           yum:
             name:
@@ -28,6 +37,7 @@
               - "@development"
             state: present
           become: true
+          when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
         - name: Installing non-baseline requirements (Ubuntu/Debian)
           apt:
             name:
