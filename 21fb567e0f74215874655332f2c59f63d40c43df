@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ad8b232_3dfb6311",
+        "filename": "provision/devstack.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2023-06-28T12:59:05Z",
+      "side": 1,
+      "message": "use `ansible_os_family \u003d\u003d \u0027RedHat\u0027` instead of declaring both distros explicitly",
+      "revId": "21fb567e0f74215874655332f2c59f63d40c43df",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ade7c63_6e77d12d",
+        "filename": "provision/devstack.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2023-06-28T12:59:05Z",
+      "side": 1,
+      "message": "use `ansible_os_family \u003d\u003d \u0027Debian\u0027` instead of declaring both distros explicitly",
+      "revId": "21fb567e0f74215874655332f2c59f63d40c43df",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "555a97a8_526a6659",
+        "filename": "provision/devstack.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1
+      },
+      "writtenOn": "2023-06-28T12:59:05Z",
+      "side": 1,
+      "message": "use `ansible_os_family \u003d\u003d \u0027RedHat\u0027` instead of declaring both distros explicitly",
+      "revId": "21fb567e0f74215874655332f2c59f63d40c43df",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
