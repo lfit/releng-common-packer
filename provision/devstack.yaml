@@ -11,13 +11,22 @@
   tasks:
     - name: "Install devstack dependencies"
       block:
-        - name: Install xpath dependencies
+        - name: Install xpath dependencies (CentOS/RedHat)
           yum:
             name:
               - perl-XML-XPath
               - crudini
             state: present
           become: true
+          when: ansible_os_family == 'RedHat'
+        - name: Install xpath dependencies (Ubuntu/Debian)
+          apt:
+            name:
+              - libxml-xpath-perl
+              - crudini
+            state: present
+          become: true
+          when: aansible_os_family == 'Debian'
         - name: Installing non-baseline requirements (CentOS/RedHat)
           yum:
             name:
@@ -28,6 +37,7 @@
               - "@development"
             state: present
           become: true
+          when: ansible_os_family == 'RedHat'
         - name: Installing non-baseline requirements (Ubuntu/Debian)
           apt:
             name:
@@ -38,7 +48,7 @@
               - build-essential
             state: present
           become: true
-          when: ansible_distribution == "Ubuntu"  or ansible_distribution == "Debian"
+          when: ansible_os_family == 'Debian'
         - name: check if net link setup exists
           stat:
             path: /etc/udev/rules.d/80-net-setup-link.rules
