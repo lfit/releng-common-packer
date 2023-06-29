@@ -1,0 +1,8 @@
+source_ami_filter_name = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server*"
+source_ami_filter_owner = "aws-marketplace"
+source_ami_filter_product_code = "csv6h7oyg29b7epjzg7qdr7no"
+base_image = "LF - Ubuntu 16.04 LTS (2019-12-11)"
+distro = "Ubuntu 16.04"
+docker_source_image = "ubuntu:16.04"
+ssh_user = "ubuntu"
+cloud_user_data = "common-packer/provision/ubuntu-user_data.sh"
