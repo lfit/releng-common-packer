@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "528d2374_eae506fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 65
+      },
+      "writtenOn": "2023-06-29T00:50:01Z",
+      "side": 1,
+      "message": "Has this been tested. I think I understand the change and where this is going, but I wonder if we need to make any global-jjb jobs adjustments.",
+      "revId": "6e2fdc9fb5be1d9843d14b6aa6f51356f9655459",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
