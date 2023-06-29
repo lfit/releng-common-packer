@@ -16,6 +16,24 @@
       "message": "Has this been tested. I think I understand the change and where this is going, but I wonder if we need to make any global-jjb jobs adjustments.",
       "revId": "6e2fdc9fb5be1d9843d14b6aa6f51356f9655459",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbfefcdb_b809bbab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2023-06-29T01:28:38Z",
+      "side": 1,
+      "message": "the latest change in global jjb addresses jobs update.",
+      "parentUuid": "528d2374_eae506fa",
+      "revId": "6e2fdc9fb5be1d9843d14b6aa6f51356f9655459",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
