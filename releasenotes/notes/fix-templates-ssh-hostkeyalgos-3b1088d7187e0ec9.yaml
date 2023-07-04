@@ -1,0 +1,13 @@
+---
+issues:
+  - |
+    RSA/SHA-1 was deprecated in the latest OpenSSH release 8.8
+    causing builds fail with the following error:
+
+    Data could not be sent to remote host "127.0.0.1". Make sure this host
+    can be reached over ssh: command-line: line 0: Bad configuration
+    option: pubkeyacceptedalgorithms
+fixes:
+  - |
+    Add workaroud and pass required HostKeyAlgorithms through ssh extra
+    argumements.
