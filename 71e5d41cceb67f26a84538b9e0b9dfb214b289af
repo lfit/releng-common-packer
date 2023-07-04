@@ -22,6 +22,30 @@
       },
       "revId": "71e5d41cceb67f26a84538b9e0b9dfb214b289af",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e021984b_7ed98f3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2023-07-04T12:05:21Z",
+      "side": 1,
+      "message": "Ack, \"rsa/sha1\" still remains deprecated with the latest release. I have updated the commit message. Note: We still support building older version of centos7 and ubuntu 18.04 images which requires these args.",
+      "parentUuid": "595d514d_c7bf49e3",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 9,
+        "endChar": 38
+      },
+      "revId": "71e5d41cceb67f26a84538b9e0b9dfb214b289af",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
