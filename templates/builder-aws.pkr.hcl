@@ -181,8 +181,7 @@ build {
     ]
     command            = "./common-packer/ansible-playbook.sh"
     extra_arguments    = [
-        "--scp-extra-args", "'-O'",
-        "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa"
+        "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa"
     ]
     playbook_file      = "provision/local-builder.yaml"
     skip_version_check = true
