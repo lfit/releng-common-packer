@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "595d514d_c7bf49e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 112
+      },
+      "writtenOn": "2023-07-04T10:04:35Z",
+      "side": 1,
+      "message": "this is not exactly accurate: OpenSSH 8.8 was released on 2021-09-26. Latest release right now is 9.3 released on 2023-03-15.",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 9,
+        "endChar": 38
+      },
+      "revId": "71e5d41cceb67f26a84538b9e0b9dfb214b289af",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
