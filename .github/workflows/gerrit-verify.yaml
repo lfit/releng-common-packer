@@ -120,7 +120,7 @@ jobs:
           cloud_network: ${{ secrets.cloud_network }}
           version: ${{ env.PACKER_VERSION }}
           cloud_pass: ${{ secrets.cloud_pass }}
-          dicrectory: packer
+          directory: packer
           file_name: cloud-env.json
           fail_on_empty: true
       - name: Clone git submodules
