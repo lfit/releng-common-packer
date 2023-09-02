@@ -63,104 +63,146 @@ jobs:
       - name: Allow replication
         run: sleep 10s
 
+  actionlint:
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lfit/checkout-gerrit-change-action@v0.4
+        with:
+          gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
+          delay: "0s"
+      - name: Download actionlint
+        id: get_actionlint
+        run: bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+        shell: bash
+      - name: Check workflow files
+        run: ${{ steps.get_actionlint.outputs.executable }} -color
+        shell: bash
+
   # run pre-commit tox env separately to get use of more parallel processing
   pre-commit:
     needs: prepare
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout change
-        uses: lfit/checkout-gerrit-change-action@v0.3
+      - uses: lfit/checkout-gerrit-change-action@v0.4
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           delay: "0s"
-      - name: Configure Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
       - name: Run static analysis and format checkers
-        run: pipx run tox -e pre-commit
+        run: pipx run pre-commit run --all-files --show-diff-on-failure
 
-  tox:
-    needs: prepare
+  packer-validator:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout change
-        uses: lfit/checkout-gerrit-change-action@v0.3
+      - name: Gerrit Checkout
+        # yamllint disable-line rule:line-length
+        uses: lfit/checkout-gerrit-change-action@70360ca2f8bee3e6a15224d8a03f8e017b1ac91f # v0.4
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           delay: "0s"
-          fetch-depth: "0"
-      - name: Configure Python
-        uses: actions/setup-python@v4
-        id: setup-python
-        with:
-          python-version: "3.11"
-      - name: Run tests
-        run: >-
-          TOX_SKIP_ENV=pre-commit pipx run tox
-
-  packer-validation:
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
-      - uses: lfit/checkout-gerrit-change-action@v0.3
-        with:
-          gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
-          delay: "0s"
-      - name: Setup packer
-        uses: hashicorp/setup-packer@main
-        id: setup
-        env:
-          AUTH_URL: ${{ secrets.cloud_auth_url }}
-          CLOUD_ENV: "packer/cloud-env.json"
-        with:
-          cloud_auth_url: "https://auth.vexxhost.net/v3/"
-          cloud_tenant: ${{ secrets.cloud_tenant }}
-          cloud_user: ${{ secrets.cloud_user }}
-          cloud_network: ${{ secrets.cloud_network }}
-          version: ${{ env.PACKER_VERSION }}
-          cloud_pass: ${{ secrets.cloud_pass }}
-          directory: packer
-          file_name: cloud-env.json
-          fail_on_empty: true
       - name: Clone git submodules
+        shell: bash
         run: git submodule update --init
-      - uses: dorny/paths-filter@v2
+      - name: Check for changes
+        # yamllint disable-line rule:line-length
+        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50 # v2.11.1
         id: changes
         with:
+          base: ${{ inputs.GERRIT_BRANCH }}
+          ref: ${{ inputs.GERRIT_PATCHSET_REVISION }}
           filters: |
             src:
-              - '**'
-      - if: steps.changes.outputs.src == 'true'
+              - 'packer/**'
+      - name: Setup packer
+        if: steps.changes.outputs.src == 'true'
+        uses: hashicorp/setup-packer@main
+        id: setup
+        with:
+          version: ${{ env.PACKER_VERSION }}
+      - name: Create cloud-env file required for packer
+        id: create-cloud-env-file
+        if: steps.changes.outputs.src == 'true'
+        shell: bash
         run: |
-          varfiles=("$GITHUB_WORKSPACE"/vars/*.json)
-          templates=("$GITHUB_WORKSPACE"/templates/*.json)
-          PACKER_LOGS_DIR="/tmp"
+          echo "${{ secrets.CLOUDS_ENV_B64 }}" | base64 --decode \
+                  > "${GITHUB_WORKSPACE}/cloud-env.pkrvars.hcl"
+      - name: Create cloud.yaml file for openstack client
+        id: create-cloud-yaml-file
+        if: steps.changes.outputs.src == 'true'
+        shell: bash
+        run: |
+          mkdir -p "$HOME/.config/openstack"
+          echo "${{ secrets.CLOUDS_YAML_B64 }}" | base64 --decode \
+                  > "$HOME/.config/openstack/clouds.yaml"
+      - name: Setup Python
+        if: steps.changes.outputs.src == 'true'
+        # yamllint disable-line rule:line-length
+        uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4.7.0
+        with:
+          python-version: "3.11"
+      - name: Install openstack deps
+        id: install-openstack-deps
+        if: steps.changes.outputs.src == 'true'
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          pip install python-openstackclient
+          pip freeze
+      - name: Verify packer files
+        if: steps.changes.outputs.src == 'true'
+        shell: bash
+        run: |
+          set -x
+
+          varfiles=(vars/*.pkrvars.hcl)
+          templates=(templates/*.pkr.hcl)
+
+          mkdir -p "${GITHUB_WORKSPACE}/logs"
+          PACKER_LOGS_DIR="${GITHUB_WORKSPACE}/logs"
 
           for varfile in "${varfiles[@]}"; do
-              # cloud-env.json is a file containing credentials which is pulled in via
-              # CLOUDENV variable so skip it here. Also handle the case where a project
-              # has not vars/*.json file.
-              if [[ "$varfile" == *"cloud-env.json"* ]] || [[ "$varfile" == 'vars/*.json' ]]; then
+              if [[ "$varfile" == *"cloud-env.json"* ]] || \
+                 [[ "$varfile" == "vars/*.json" ]] || \
+                 [[ "$varfile" == *"cloud-env.pkrvars.hcl"* ]] || \
+                 [[ "$varfile" == *"cloud-env-aws.pkrvars.hcl"* ]] || \
+                 [[ "$varfile" == "vars/*.pkrvars.hcl" ]]; then
                   continue
               fi
 
-              echo "-----> Testing varfile: $varfile"
+              echo "::group::$varfile"
+              echo "-----> Test var: $varfile"
               for template in "${templates[@]}"; do
+                  if [[ "$template" == *"variables.pkr.hcl"* ]] || \
+                     [[ "$template" == *"variables.auto.pkr.hcl"* ]]; then
+                      continue
+                  fi
+
+                  if [[ "${template#*.}" == "pkr.hcl" ]]; then
+                      echo "packer init $template ..."
+                      packer init "$template"
+                  fi
+
+                  LOG_FILE="packer-validate-${varfile##*/}-${template##*/}.log"
                   export PACKER_LOG="yes"
-                  export PACKER_LOG_PATH="$PACKER_LOGS_DIR/packer-validate-${varfile##*/}-${template##*/}.log"
-                  if output=$(packer validate -var-file="$CLOUDENV" -var-file="$varfile" "$template"); then
+                  export PACKER_LOG_PATH="$PACKER_LOGS_DIR/$LOG_FILE"
+                  if output=$(OS_CLOUD=${{ env.OS_CLOUD }} packer validate \
+                        -var-file="${GITHUB_WORKSPACE}/cloud-env.pkrvars.hcl" \
+                        -var-file="$varfile" "$template"); then
                       echo "$template: $output"
                   else
                       echo "$template: $output"
                       exit 1
                   fi
               done
+              echo "::endgroup::"
           done
 
   vote:
     if: ${{ always() }}
-    needs: [prepare, pre-commit, tox]
+    needs: [prepare, actionlint, pre-commit, packer-validator]
     runs-on: ubuntu-latest
     steps:
       - name: Get workflow conclusion
