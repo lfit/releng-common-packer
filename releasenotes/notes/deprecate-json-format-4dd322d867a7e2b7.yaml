@@ -1,0 +1,15 @@
+---
+deprecations:
+  - |
+    Deprecate JSON format var and templates
+
+    With the release of common-paker v0.14.0 (commit 6e2fdc9fb5be1d9843d14b6a)
+    the packer version v1.9.x supports only HCL format templates and var files.
+    These older JSON format files are no longer used with the packer
+    verify and merge jobs.
+
+    All  packer templates have been migrated from JSON to HCL2 format
+    with v0.14.X release.
+
+    JSON format templates are deprecated and no longer used with packer
+    version > 1.9.x. Therefore remove the deprecated files from the repository.
