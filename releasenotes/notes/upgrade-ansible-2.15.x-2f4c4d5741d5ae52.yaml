@@ -1,0 +1,4 @@
+---
+upgrade:
+  - |
+    Upgrade Ansible version to v2.15.9.

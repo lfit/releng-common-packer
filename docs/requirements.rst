@@ -2,7 +2,7 @@
 Requirements
 ############
 
-* Ansible 2.9.27 or later
+* Ansible 2.15.9 or later
 * Packer 1.9.1 or later
 
 Install Ansible via pip in a virtualenv to build images.
@@ -11,4 +11,4 @@ Install Ansible via pip in a virtualenv to build images.
 
     virtualenv -p $(which python3) ~/venv/.ansible
     source ~/venv/.ansible/bin/activate
-    pip3 install ansible~=2.9.27
+    pip3 install ansible~=2.15.9
