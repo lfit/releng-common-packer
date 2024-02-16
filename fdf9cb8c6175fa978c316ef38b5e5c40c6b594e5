@@ -70,6 +70,30 @@
       },
       "revId": "fdf9cb8c6175fa978c316ef38b5e5c40c6b594e5",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9402cdbf_87033b7e",
+        "filename": "ansible-galaxy.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2024-02-16T23:22:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07d26d98_6c45902e",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 11
+      },
+      "revId": "fdf9cb8c6175fa978c316ef38b5e5c40c6b594e5",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
