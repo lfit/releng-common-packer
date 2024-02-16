@@ -94,6 +94,30 @@
       },
       "revId": "fdf9cb8c6175fa978c316ef38b5e5c40c6b594e5",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "783acbb8_3ec82d31",
+        "filename": "ansible-galaxy.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2024-02-16T23:29:02Z",
+      "side": 1,
+      "message": "I think you are confused with the ansible community package release version which is 9x (latest) with the core version dependency that is being pulled by PyPI. \n\nSo with a pip upgrade, it pulls the ansible core version as 2.15.9, equivalent to 8.x.\n\nhttps://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html",
+      "parentUuid": "07d26d98_6c45902e",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 11
+      },
+      "revId": "fdf9cb8c6175fa978c316ef38b5e5c40c6b594e5",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
