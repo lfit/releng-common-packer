@@ -22,6 +22,30 @@
       },
       "revId": "fdf9cb8c6175fa978c316ef38b5e5c40c6b594e5",
       "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e2eb9c8_11107ef5",
+        "filename": "ansible-galaxy.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2024-02-16T22:29:44Z",
+      "side": 1,
+      "message": "I am hoping all these jobs will go away when the GHA workflow is put in place. \n\nThe min python version requirement depends on ansible itself!",
+      "parentUuid": "247da83d_d4ef1791",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 11
+      },
+      "revId": "fdf9cb8c6175fa978c316ef38b5e5c40c6b594e5",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
     }
   ]
 }
