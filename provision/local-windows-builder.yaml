@@ -1,2 +1,3 @@
 ---
-- import_playbook: ../common-packer/provision/windows-builder.yaml
+- name: Local windows builder
+  import_playbook: ../common-packer/provision/windows-builder.yaml

@@ -1,25 +1,31 @@
 ---
-- import_playbook: ../common-packer/provision/baseline.yaml
+- name: Devstack Pre pip CentOS
+  import_playbook: ../common-packer/provision/baseline.yaml
 
-- hosts: all
+- name: Devstack pre-pip for CentOS
+  hosts: all
   become_user: root
-  become_method: sudo
+  become: true
+  become_method: ansible.builtin.sudo
 
   pre_tasks:
-    - include_role: name=lfit.system-update
+    - name: Pre-task system update
+      ansible.builtin.include_role:
+        name: lfit.system-update
 
   tasks:
-    - name: "Install devstack dependencies"
+    - name: "Install devstack dependencies" # noqa literal-compare
+      become: true
       block:
         - name: Install xpath dependencies
-          yum:
+          ansible.builtin.yum:
             name:
               - perl-XML-XPath
               - crudini
             state: present
           become: true
         - name: Install non-baseline requirements
-          yum:
+          ansible.builtin.yum:
             name:
               - libxml2-devel
               - libxslt-devel
@@ -28,20 +34,20 @@
               - "@development"
             state: present
           become: true
-        - name: check if net link setup exists
-          stat:
+        - name: Check if net link setup exists
+          ansible.builtin.stat:
             path: /etc/udev/rules.d/80-net-setup-link.rules
           register: rules_file_exists
-        - name: Update net link setup
-          file:
+        - name: Update net link setup # noqa literal-compare
+          ansible.builtin.file:
             src: /dev/null
             dest: /etc/udev/rules.d/80-net-setup-link.rules
             state: link
-            force: yes
+            force: true
           become: true
           when: rules_file_exists.stat.exists == true
         - name: Install RDMA (InfiniBand/iWARP/RoCE) requirements
-          yum:
+          ansible.builtin.yum:
             name:
               - libibverbs
               - libmlx5
@@ -49,30 +55,31 @@
           become: true
     - name: "Pre-Install yum and pip packages"
       block:
-        - name: Create /tmp/devstack directory
-          file:
+        - name: Create /tmp/devstack directory # noqa risky-file-permissions
+          ansible.builtin.file:
             path: /tmp/devstack
             state: directory
-            mode: 0755
+            mode: "0755"
         - name: Fetch openstack devstack-dev repo
-          git:
+          ansible.builtin.git:
             repo: https://github.com/openstack-dev/devstack.git
             dest: /tmp/devstack
             version: "{{ os_branch }}"
-        - name: "Read openstack devstack dependencies"
-          shell: "sed -e 's/#.*//' /tmp/devstack/files/rpms/general"
+        - name: "Read openstack devstack dependencies" # noqa no-changed-when
+          ansible.builtin.shell: "sed -e 's/#.*//' /tmp/devstack/files/rpms/general"
           register: sed_output
           args:
-            warn: False
+            warn: false
         - name: "Install non-baseline requirements for {{ os_branch }}"
-          yum:
+          ansible.builtin.yum: # noqa no-changed-when
             name: "{{ sed_output.stdout_lines }}"
             state: present
           become: true
-        - name: git clone openstack core projects
-          git: repo='https://github.com/openstack/{{ item }}.git'
-            dest='/tmp/devstack/{{ item }}'
-            version='{{ os_branch }}'
+        - name: Clone openstack core projects
+          ansible.builtin.git:
+            repo: 'https://github.com/openstack/{{ item }}.git'
+            dest: '/tmp/devstack/{{ item }}'
+            version: '{{ os_branch }}'
           with_items:
             - requirements
             - keystone
@@ -81,8 +88,8 @@
             - neutron
             - nova
             - horizon
-        - name: Install pip dependencies
-          shell: |
+        - name: Install pip dependencies # noqa no-changed-when
+          ansible.builtin.shell: |
             cd "{{ item }}"
             git branch -a
             cd ..
@@ -93,7 +100,7 @@
             exit 0
           args:
             chdir: /tmp/devstack
-            warn: False
+            warn: false
           with_items:
             - requirements
             - keystone
@@ -107,40 +114,40 @@
     - name: "Install openvswitch from relevant openstack branch"
       block:
         - name: "Install CentOS openstack release {{ rdo_branch }}"
-          yum:
+          ansible.builtin.yum:
             name: "centos-release-openstack-{{ rdo_branch }}"
             state: present
           become: true
         - name: "Install openvswitch 2.8.2 for stable/queens"
-          yum:
+          ansible.builtin.yum:
             name: openvswitch-2.8.2-1.el7
             state: present
-            disable_gpg_check: yes
+            disable_gpg_check: true
           when: rdo_branch == 'queens'
           become: true
         - name: "Install openvswitch latest for stable/rocky"
-          yum:
+          ansible.builtin.yum:
             name: openvswitch
             state: present
-            disable_gpg_check: yes
+            disable_gpg_check: true
           when: rdo_branch == 'rocky'
           become: true
 
     # Workaround for git deps conflict on rocky
     - name: Swap to git
+      become: true
       block:
         - name: Gather rpm package facts
-          package_facts:
+          ansible.builtin.package_facts:
             manager: auto
-        - name: Replace git2u with git
-          command: yum replace -y git2u --replace-with git
+        - name: Replace git2u with git # noqa no-changed-when command-instead-of-module
+          ansible.builtin.command: yum replace -y git2u --replace-with git
           when: ansible_facts.packages['git2u'] is defined
-      become: true
 
     - name: "Cleanup devstack directory"
       block:
         - name: "Removing /tmp/devstack"
-          file:
+          ansible.builtin.file:
             path: /tmp/devstack
             state: absent
           become: true
