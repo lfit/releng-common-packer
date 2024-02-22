@@ -68,11 +68,13 @@ jobs:
     needs: prepare
     runs-on: ubuntu-latest
     steps:
-      - uses: lfit/checkout-gerrit-change-action@c13459ecc471d404139ab04aaaec4dd77002f533 # v0.8
+      # yamllint disable-line rule:line-length
+      - uses: lfit/checkout-gerrit-change-action@54d751e8bd167bc91f7d665dabe33fae87aaaa63  # v0.9
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           delay: "0s"
-      - uses: actions/setup-python@v4
+      # yamllint disable-line rule:line-length
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c  # v5.0.0
         with:
           python-version: "3.11"
       - name: Run static analysis and format checkers
@@ -84,7 +86,7 @@ jobs:
     steps:
       - name: Gerrit Checkout
         # yamllint disable-line rule:line-length
-        uses: lfit/checkout-gerrit-change-action@c13459ecc471d404139ab04aaaec4dd77002f533 # v0.8
+        uses: lfit/checkout-gerrit-change-action@54d751e8bd167bc91f7d665dabe33fae87aaaa63  # v0.9
         with:
           gerrit-refspec: ${{ inputs.GERRIT_REFSPEC }}
           delay: "0s"
@@ -100,7 +102,9 @@ jobs:
           ref: ${{ inputs.GERRIT_PATCHSET_REVISION }}
           filters: |
             src:
-              - 'packer/**'
+              - 'vars/**'
+              - 'templates/**'
+              - 'provision/**'
       - name: Setup packer
         if: steps.changes.outputs.src == 'true'
         uses: hashicorp/setup-packer@main
@@ -125,7 +129,7 @@ jobs:
       - name: Setup Python
         if: steps.changes.outputs.src == 'true'
         # yamllint disable-line rule:line-length
-        uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4.7.0
+        uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c  # v5.0.0
         with:
           python-version: "3.11"
       - name: Install openstack deps
