@@ -1,12 +1,12 @@
 ---
 - name: Add IUS repository to /etc/yum.repos.d/
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: ius
     description: IUS Community Packages for Enterprise Linux
     baseurl: https://repo.ius.io/{{ ansible_distribution_major_version|lower }}/$basearch/
     gpgkey: https://repo.ius.io/RPM-GPG-KEY-IUS-{{ ansible_distribution_major_version|lower }}
-    enabled: "yes"
-    gpgcheck: "yes"
+    enabled: "true"
+    gpgcheck: "true"
     state: present
     includepkgs:
       - git2*
@@ -21,16 +21,18 @@
 # and enable the correct repo.
 # Ref: https://wiki.centos.org/Manuals/ReleaseNotes/CentOS8.2011#Yum_repo_file_and_repoid_changes
 - name: Enable PowerTools repository for CentOS 8.{0,2,3}
+  when:
+    - ansible_facts.distribution_major_version|int >= 8
   block:
     - name: Check the file name in path '/etc/yum.repos.d/' for CentOS 8.{2.2004} or earlier versions
-      shell: grep -lE "^\[PowerTools\]" /etc/yum.repos.d/*.repo
+      ansible.builtin.shell: grep -lE "^\[PowerTools\]" /etc/yum.repos.d/*.repo
       register: repofile
       changed_when: false
       failed_when: false
-      check_mode: no
+      check_mode: false
 
     - name: Enable 'PowerTools' repo for CentOS 8.{2.2004} or earlier versions if the file exist
-      ini_file:
+      community.general.ini_file:
         path: "{{ repofile.stdout }}"
         section: "PowerTools"
         option: enabled
@@ -40,14 +42,14 @@
       become: true
 
     - name: Check the file name in path '/etc/yum.repos.d/' for CentOS 8.{3.2011} or later versions
-      shell: grep -lE "^\[powertools\]" /etc/yum.repos.d/*.repo
+      ansible.builtin.shell: grep -lE "^\[powertools\]" /etc/yum.repos.d/*.repo
       register: repofile
       changed_when: false
       failed_when: false
-      check_mode: no
+      check_mode: false
 
     - name: Enable 'powertools' repo for CentOS 8.{3.2011} or later versions if the file exist
-      ini_file:
+      community.general.ini_file:
         path: "{{ repofile.stdout }}"
         section: "powertools"
         option: enabled
@@ -55,20 +57,18 @@
         no_extra_spaces: true
       when: repofile.rc == 0
       become: true
-  when:
-    - ansible_facts.distribution_major_version|int >= 8
 
 - name: "Download the RPM GPG KEY for EPEL - {{ ansible_distribution_major_version }}"
-  get_url:
+  ansible.builtin.get_url:
     url: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
     dest: /tmp/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
-    mode: 0600
+    mode: "0644"
   become: true
   when:
     - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
 
 - name: Import RPM GPG KEY into the DB
-  rpm_key:
+  ansible.builtin.rpm_key:
     key: /tmp/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
     state: present
   become: true
@@ -76,7 +76,7 @@
     - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
 
 - name: Install base packages
-  yum:
+  ansible.builtin.yum:
     name:
       - "@base"
       - "@development"
@@ -91,19 +91,19 @@
 - name: Enable CentOS stream 8 dependent modules
   block:
     - name: Enable pki-core
-      command:
+      ansible.builtin.command:
         cmd: dnf module enable pki-core -y
-        warn: no
+        warn: false
       become: true
     - name: Enable pki-deps
-      command:
+      ansible.builtin.command:
         cmd: dnf module enable pki-deps -y
-        warn: no
+        warn: false
       become: true
   when: ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
 
 - name: Install sigul client for EL 7
-  yum:
+  ansible.builtin.yum:
     name:
       - https://kojipkgs.fedoraproject.org/repos-dist/epel7-infra/latest/x86_64/Packages/s/sigul-0.207-1.el7.x86_64.rpm
     state: latest
@@ -112,16 +112,16 @@
     - ansible_facts['distribution_major_version'] is version('8', '<')
 
 - name: "Download the RPM GPG KEY for CentOS 8 Sigul"
-  get_url:
+  ansible.builtin.get_url:
     url: https://infrastructure.fedoraproject.org/repo/infra/RPM-GPG-KEY-INFRA-TAGS
     dest: /tmp/RPM-GPG-KEY-INFRA-TAGS
-    mode: 0600
+    mode: "0644"
   become: true
   when:
     - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
 
 - name: Import RPM GPG KEY into the DB for Sigul on CentOS 8
-  rpm_key:
+  ansible.builtin.rpm_key:
     key: /tmp/RPM-GPG-KEY-INFRA-TAGS
     state: present
   become: true
@@ -129,7 +129,7 @@
     - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
 
 - name: Install sigul client for EL 8 (Streams)
-  yum:
+  ansible.builtin.yum:
     name:
       - https://kojipkgs.fedoraproject.org/repos-dist/epel8-infra/latest/x86_64/Packages/s/sigul-1.1-1.el8.infra.x86_64.rpm
     state: latest
@@ -140,7 +140,7 @@
 - name: Swap to git236
   block:
     - name: Install yum-plugin-replace
-      yum:
+      ansible.builtin.yum:
         name: yum-plugin-replace
         state: present
         update_cache: true
@@ -148,7 +148,7 @@
       package_facts:
         manager: auto
     - name: Replace git with git236
-      command: yum replace -y git --replace-with git236
+      ansible.builtin.command: yum replace -y git --replace-with git236
       args:
         warn: false
       when: ansible_facts.packages['git'] is defined

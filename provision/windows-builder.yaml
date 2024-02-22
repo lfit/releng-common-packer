@@ -1,10 +1,11 @@
 ---
-- hosts: all
+- name: Windows builder
+  hosts: all
 
   tasks:
     - name: Install Tools
-      win_chocolatey:
-        name: "{{item}}"
+      chocolatey.chocolatey.win_chocolatey:
+        name: "{{ item }}"
         state: present
       with_items:
         - cmake
@@ -19,20 +20,20 @@
         - zulu8
 
     - name: Install OpenSSH
-      win_chocolatey:
+      chocolatey.chocolatey.win_chocolatey:
         name: openssh
         state: present
         params: /SSHAgentFeature
 
     - name: Install CMake
-      win_chocolatey:
+      chocolatey.chocolatey.win_chocolatey:
         name: cmake
         state: present
         install_args: ADD_CMAKE_TO_PATH=System
 
     - name: Install Visual Studio Community Edition
-      win_chocolatey:
-        name: "{{item}}"
+      chocolatey.chocolatey.win_chocolatey:
+        name: "{{ item }}"
       with_items:
         - visualstudio2017community
         - visualstudio2017-workload-nativedesktop
@@ -40,37 +41,37 @@
     - name: Build and Install zlib
       block:
         - name: Ensure C:\temp exists
-          win_file:
+          ansible.windows.win_file:
             path: C:\temp
             state: directory
         - name: Download zlib
-          win_get_url:
+          ansible.windows.win_get_url:
             url: https://zlib.net/zlib1211.zip
             dest: C:\temp\zlib.zip
         - name: Unzip zlib
-          win_unzip:
+          ansible.windows.win_unzip:
             src: C:\temp\zlib.zip
             dest: C:\temp
         - name: CMake
-          win_command: >
+          ansible.windows.win_command: >
             "C:\Program Files\CMake\Bin\cmake"
             -DCMAKE_INSTALL_PREFIX=C:\lib\zlib
             -G "Visual Studio 15 Win64"
           args:
             chdir: C:\temp\zlib-1.2.11
-        - name: msbuild
-          win_command: >
+        - name: Check msbuild
+          ansible.windows.win_command: >
             "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild"
             zlib.sln
           args:
             chdir: C:\temp\zlib-1.2.11
-        - name: msbuild install
-          win_command: >
+        - name: Install msbuild
+          ansible.windows.win_command: >
             "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild"
             INSTALL.vcxproj
           args:
             chdir: C:\temp\zlib-1.2.11
         - name: Cleanup
-          win_file:
+          ansible.windows.win_file:
             path: C:\temp
             state: absent
