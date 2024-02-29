@@ -149,8 +149,6 @@
         manager: auto
     - name: Replace git with git236
       ansible.builtin.command: yum replace -y git --replace-with git236
-      args:
-        warn: false
       when: ansible_facts.packages['git'] is defined
   become: true
   when:
