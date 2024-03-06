@@ -93,12 +93,10 @@
     - name: Enable pki-core
       ansible.builtin.command:
         cmd: dnf module enable pki-core -y
-        warn: false
       become: true
     - name: Enable pki-deps
       ansible.builtin.command:
         cmd: dnf module enable pki-deps -y
-        warn: false
       become: true
   when: ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
 

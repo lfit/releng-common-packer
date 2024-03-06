@@ -68,8 +68,6 @@
         - name: "Read openstack devstack dependencies" # noqa no-changed-when
           ansible.builtin.shell: "sed -e 's/#.*//' /tmp/devstack/files/rpms/general"
           register: sed_output
-          args:
-            warn: false
         - name: "Install non-baseline requirements for {{ os_branch }}"
           ansible.builtin.yum: # noqa no-changed-when
             name: "{{ sed_output.stdout_lines }}"
@@ -100,7 +98,6 @@
             exit 0
           args:
             chdir: /tmp/devstack
-            warn: false
           with_items:
             - requirements
             - keystone
