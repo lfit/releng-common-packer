@@ -1,0 +1,4 @@
+---
+fixes:
+  - |
+    Remove broken link to non-existent Docker template

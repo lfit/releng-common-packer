@@ -53,11 +53,6 @@ following examples for ``docker template`` and ``provisioning script`` show how
 they import the existing baseline playbook into the local playbook to reduce
 duplication in code.
 
-Example docker template:
-
-.. literalinclude:: ../templates/docker.json
-   :language: json
-
 Example provisioning script:
 
 .. literalinclude:: ../provision/docker.yaml
