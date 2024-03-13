@@ -5,3 +5,4 @@ docs/_build/
 cloud-env.json
 *.pyc
 *.retry
+node_modules/
