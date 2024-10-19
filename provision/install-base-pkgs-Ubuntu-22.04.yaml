@@ -1,0 +1,10 @@
+---
+- name: Install base packages
+  ansible.builtin.apt:
+    name:
+      - build-essential
+      - devscripts
+      - equivs
+      - gdebi
+    state: latest
+  become: true

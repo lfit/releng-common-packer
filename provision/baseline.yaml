@@ -13,8 +13,9 @@
     - name: Install base packages
       ansible.builtin.include_tasks: "{{ item }}"
       with_first_found:
-        - "install-base-pkgs-{{ ansible_distribution }}.yaml"
+        - "install-base-pkgs-{{ ansible_distribution }}-{{ ansible_distribution_version }}.yaml"
         - "install-base-pkgs-{{ ansible_os_family }}.yaml"
+        - "install-base-pkgs-{{ ansible_distribution }}.yaml"
 
     - name: Allow jenkins user sudo access
       ansible.builtin.copy:
