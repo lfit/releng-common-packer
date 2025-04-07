@@ -104,6 +104,11 @@ if is_ubuntu; then
 fi
 
 if is_centos8; then
+    echo "Clean up deprecated repos"
+    sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/CentOS-*.repo
+    sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/CentOS-*.repo
+    sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/CentOS-*.repo
+
     echo "Install python38"
     dnf clean all
     dnf install -y python38
