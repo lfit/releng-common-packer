@@ -120,7 +120,7 @@ jobs:
         if: steps.changes.outputs.src == 'true'
         shell: bash
         run: |
-          echo "${{ secrets.CLOUDS_ENV_B64 }}" | base64 --decode \
+          echo "${{ secrets.CLOUD_ENV_B64 }}" | base64 --decode \
                   > "${GITHUB_WORKSPACE}/cloud-env.pkrvars.hcl"
       - name: Create cloud.yaml file for openstack client
         id: create-cloud-yaml-file
