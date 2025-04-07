@@ -42,7 +42,8 @@ variable "cloud_pass" {
 }
 
 variable "cloud_network" {
-  type = string
+  type    = string
+  default = null
 }
 
 variable "cloud_region" {
