@@ -75,16 +75,19 @@ if is_ubuntu; then
 
     case $_ARCH in
         x86_64)
-           NETSELECT_DEB="netselect_0.3.ds1-28+b1_amd64.deb"
-           echo "NetSelect version to install is ${NETSELECT_DEB}"
-           select_fastest
-           ;;
+            source /etc/lsb-release
+            if [[ ${DISTRIB_RELEASE:0:2} -lt 24 ]]; then
+                NETSELECT_DEB="netselect_0.3.ds1-28+b1_amd64.deb"
+                echo "NetSelect version to install is ${NETSELECT_DEB}"
+                select_fastest
+            fi
+            ;;
         aarch64)
-           #NETSELECT_DEB="netselect_0.3.ds1-28+b1_arm64.deb"
-           ;;
+            #NETSELECT_DEB="netselect_0.3.ds1-28+b1_arm64.deb"
+            ;;
         *)
-           echo "Unknown arch ${_ARCH}. Exiting..."
-           exit 1
+            echo "Unknown arch ${_ARCH}. Exiting..."
+            exit 1
     esac
 
 
