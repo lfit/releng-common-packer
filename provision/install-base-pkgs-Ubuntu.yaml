@@ -3,8 +3,8 @@
   ansible.builtin.apt:
     name:
       - build-essential
+      - debhelper
       - devscripts
-      - dh-systemd
       - equivs
       - gdebi
     state: latest

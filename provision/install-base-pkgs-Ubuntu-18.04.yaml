@@ -4,6 +4,7 @@
     name:
       - build-essential
       - devscripts
+      - dh-systemd
       - equivs
       - gdebi
     state: latest
