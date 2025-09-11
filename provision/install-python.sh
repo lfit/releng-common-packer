@@ -43,7 +43,7 @@ function select_fastest()
 {
   echo "Install netselect from debian to choose a mirror."
   apt install wget -y
-  wget "http://ftp.au.debian.org/debian/pool/main/n/netselect/${NETSELECT_DEB}"
+  wget "http://deb.debian.org/debian/pool/main/n/netselect/${NETSELECT_DEB}"
   dpkg -i "${NETSELECT_DEB}"
   apt install netselect -y
 
@@ -77,7 +77,7 @@ if is_ubuntu; then
         x86_64)
             source /etc/lsb-release
             if [[ ${DISTRIB_RELEASE:0:2} -lt 24 ]]; then
-                NETSELECT_DEB="netselect_0.3.ds1-28+b1_amd64.deb"
+                NETSELECT_DEB="netselect_0.3.ds1-30.1_amd64.deb"
                 echo "NetSelect version to install is ${NETSELECT_DEB}"
                 select_fastest
             fi
