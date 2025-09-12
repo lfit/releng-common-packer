@@ -47,6 +47,12 @@ variable "ansible_roles_path" {
   default = ".galaxy"
 }
 
+variable "local_build" {
+  type        = bool
+  default     = false
+  description = "Set to true for local builds to enable SSH compatibility options"
+}
+
 variable "arch" {
   type    = string
   default = "x86_64"
@@ -112,6 +118,17 @@ variable "vm_volume_size" {
   default = "20"
 }
 
+locals {
+  # SSH arguments for local builds only
+  ssh_extra_args = var.local_build ? [
+    "--scp-extra-args", "'-O'",
+    "--ssh-extra-args",
+    "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa"
+  ] : [
+    "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa"
+  ]
+}
+
 source "docker" "docker" {
   changes = ["ENTRYPOINT [\"\"]", "CMD [\"\"]"]
   commit  = true
@@ -158,9 +175,7 @@ build {
         "ANSIBLE_STDOUT_CALLBACK=debug"
     ]
     command            = "./common-packer/ansible-playbook.sh"
-    extra_arguments    = [
-        "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa"
-    ]
+    extra_arguments    = local.ssh_extra_args
     playbook_file      = "provision/local-docker.yaml"
     skip_version_check = true
   }

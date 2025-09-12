@@ -12,6 +12,12 @@ variable "ansible_roles_path" {
   default = ".galaxy"
 }
 
+variable "local_build" {
+  type        = bool
+  default     = false
+  description = "Set to true for local builds to enable SSH compatibility options"
+}
+
 variable "arch" {
   type    = string
   default = "x86_64"
@@ -127,6 +133,17 @@ variable "vpc_id" {
   default = null
 }
 
+locals {
+  # SSH arguments for local builds only
+  ssh_extra_args = var.local_build ? [
+    "--scp-extra-args", "'-O'",
+    "--ssh-extra-args",
+    "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa"
+  ] : [
+    "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa"
+  ]
+}
+
 data "amazon-ami" "builder-aws" {
   access_key = "${var.aws_access_key}"
   filters = {
@@ -180,9 +197,7 @@ build {
         "ANSIBLE_STDOUT_CALLBACK=debug"
     ]
     command            = "./common-packer/ansible-playbook.sh"
-    extra_arguments    = [
-        "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa"
-    ]
+    extra_arguments    = local.ssh_extra_args
     playbook_file      = "provision/local-builder.yaml"
     skip_version_check = true
     user               = "${var.ssh_user}"

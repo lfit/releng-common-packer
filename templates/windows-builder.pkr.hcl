@@ -32,6 +32,12 @@ variable "ansible_roles_path" {
   default = ".galaxy"
 }
 
+variable "local_build" {
+  type        = bool
+  default     = false
+  description = "Set to true for local builds to enable SSH compatibility options"
+}
+
 variable "arch" {
   type    = string
   default = "x86_64"
@@ -112,6 +118,21 @@ variable "vm_volume_size" {
   default = "20"
 }
 
+locals {
+  # SSH arguments for local builds only
+  ssh_extra_args = var.local_build ? [
+    "--extra-vars", "ansible_shell_type=powershell",
+    "--extra-vars", "ansible_shell_executable=None",
+    "--scp-extra-args", "'-O'",
+    "--ssh-extra-args",
+    "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa"
+  ] : [
+    "--extra-vars", "ansible_shell_type=powershell",
+    "--extra-vars", "ansible_shell_executable=None",
+    "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa"
+  ]
+}
+
 source "openstack" "windows-builder" {
   communicator      = "winrm"
   flavor            = "${var.flavor}"
@@ -156,11 +177,7 @@ build {
         "ANSIBLE_STDOUT_CALLBACK=debug"
     ]
     command            = "./common-packer/ansible-playbook.sh"
-    extra_arguments    = [
-        "--extra-vars", "ansible_shell_type=powershell",
-        "--extra-vars", "ansible_shell_executable=None",
-        "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa"
-    ]
+    extra_arguments    = local.ssh_extra_args
     playbook_file   = "provision/local-windows-builder.yaml"
     skip_version_check = true
   }
