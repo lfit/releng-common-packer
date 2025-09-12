@@ -77,7 +77,12 @@ if is_ubuntu; then
         x86_64)
             source /etc/lsb-release
             if [[ ${DISTRIB_RELEASE:0:2} -lt 24 ]]; then
-                NETSELECT_DEB="netselect_0.3.ds1-30.1_amd64.deb"
+                # Use older netselect version for Ubuntu 20.04 and earlier (libc6 < 2.34)
+                if [[ ${DISTRIB_RELEASE:0:2} -le 20 ]]; then
+                    NETSELECT_DEB="netselect_0.3.ds1-29_amd64.deb"
+                else
+                    NETSELECT_DEB="netselect_0.3.ds1-30.1_amd64.deb"
+                fi
                 echo "NetSelect version to install is ${NETSELECT_DEB}"
                 select_fastest
             fi

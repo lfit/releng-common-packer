@@ -1,0 +1,84 @@
+---
+features:
+  - |
+    **Interactive JJB Build Script**: Added comprehensive build-packer-images.sh
+    script that integrates with Jenkins Job Builder (JJB) configurations to
+    validate and execute only approved platform+template combinations.
+
+    Key features include:
+    - Parses 21 validated combinations from jjb/releng-packer-jobs.yaml
+    - Automatically excludes End-of-Life platforms (ubuntu-18.04)
+    - Individual timestamped log files for each build in /tmp/
+    - Three execution modes: interactive, dry-run, and background
+    - Real-time build progress tracking with status reporting
+    - Smart file discovery and validation
+
+  - |
+    **Conditional SSH Compatibility System**: Implemented dynamic SSH argument
+    handling using HCL conditional expressions to support both local development
+    and CI/CD environments without breaking existing workflows.
+
+    Templates updated with local_build variable:
+    - templates/builder.pkr.hcl
+    - templates/builder-aws.pkr.hcl
+    - templates/docker.pkr.hcl
+    - templates/docker-aws.pkr.hcl
+    - templates/devstack.pkr.hcl
+    - templates/devstack-pre-pip-yoga.pkr.hcl
+    - templates/windows-builder.pkr.hcl
+
+  - |
+    **Comprehensive Documentation**: Added complete README.md with usage
+    instructions, prerequisites, troubleshooting guide, and examples for
+    all supported build combinations and execution modes.
+
+fixes:
+  - |
+    **SCP Upload Failures**: Resolved critical SSH/SCP compatibility issues
+    that were causing Packer builds to fail with errors.
+
+    The fix implements conditional SSH arguments:
+    - For local builds: --scp-extra-args "'-O'" with enhanced SSH algorithms
+    - For CI builds: Standard SSH arguments (backward compatible)
+
+issues:
+  - |
+    **SSH Compatibility Problems**: Previous Packer template configurations
+    used hardcoded SSH arguments that were incompatible with newer SSH versions
+    and local development environments, causing SCP file transfer failures
+    during Ansible provisioning steps.
+
+  - |
+    **Build Combination Management**: No systematic way to ensure builds only
+    used Jenkins Job Builder validated platform+template combinations, leading
+    to potential builds of unsupported or End-of-Life platform images.
+
+  - |
+    **Build Process Visibility**: Limited visibility into build progress and
+    no centralized logging mechanism for troubleshooting failed builds across
+    multiple platform+template combinations.
+
+upgrade:
+  - |
+    **Migration to JJB-Validated Builds**: The new build script automatically
+    restricts builds to only JJB-approved combinations (21 total), excluding
+    EOL platforms. This ensures consistency with CI/CD infrastructure.
+
+    **Backward Compatibility**: All existing manual packer build commands
+    continue to work unchanged. The local_build variable defaults to false,
+    maintaining existing SSH behavior for automated builds.
+
+    **Enhanced Local Development**: Set local_build=true when building locally
+    to enable SSH compatibility options for modern SSH versions.
+
+deprecations:
+  - |
+    **Manual Build Combination Discovery**: While still functional, manual
+    discovery of valid platform+template combinations is deprecated in favor
+    of the JJB-validated approach provided by build-packer-images.sh script.
+
+security:
+  - |
+    **SSH Algorithm Updates**: Enhanced SSH compatibility includes support for
+    modern SSH key algorithms while maintaining backward compatibility with
+    older SSH implementations used in CI/CD environments.
