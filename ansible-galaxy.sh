@@ -19,8 +19,18 @@ wget -q https://raw.githubusercontent.com/lfit/releng-global-jjb/master/jenkins-
 # shellcheck disable=SC1090
 . ~/lf-env.sh
 
-lf-activate-venv --python python3.10 --venv-file "/tmp/.ansible_venv" \
-    ansible~=9.2.0
+# ansible-galaxy.sh runs before pyenv is installed, so use available system Python
+# The lfit.python-install role will install pyenv later in the build process
+if command -v python3 >/dev/null 2>&1; then
+    lf-activate-venv --python python3 --venv-file "/tmp/.ansible_venv" \
+        ansible~=9.2.0
+elif command -v python >/dev/null 2>&1; then
+    lf-activate-venv --python python --venv-file "/tmp/.ansible_venv" \
+        ansible~=9.2.0
+else
+    echo "ERROR: No Python interpreter found (python3 or python)"
+    exit 1
+fi
 
 ansible_roles_path=${1:-.galaxy}
 ansible_requirements_file=${2:-requirements.yaml}

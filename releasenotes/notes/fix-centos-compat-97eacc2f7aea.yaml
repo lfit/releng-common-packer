@@ -1,0 +1,30 @@
+---
+fixes:
+  - |
+    Fix repository issues for CentOS 7/8/9 Stream with proper vault URLs and
+    repository configurations. Addresses 404 errors with non-existent extras-common
+    repository in CentOS 9.
+  - |
+    Add fix-centos-repos.sh script to handle EOL repository configurations for
+    all CentOS versions.
+  - |
+    Add fix-ssh-config.sh script to enable legacy SSH algorithms for CentOS 9 Stream
+    to ensure compatibility with Ansible provisioning.
+  - |
+    Enhance ansible-galaxy.sh with better Python interpreter detection to work
+    with various system configurations.
+  - |
+    Update install-python.sh with improved version detection and automatic paramiko
+    installation to support Ansible SSH connections.
+  - |
+    Fix CentOS 7 repository connectivity issues by using direct vault.centos.org URLs
+    instead of mirrorlist.centos.org.
+  - |
+    Fix SSH compatibility issues on newer CentOS Stream versions by enabling legacy
+    algorithms required by Ansible.
+  - |
+    Fix mirror selection timeouts on Ubuntu systems with better error handling and
+    version-specific configuration.
+  - |
+    Fix Python package installation failures with improved error handling and
+    alternative package sources.

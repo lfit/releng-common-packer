@@ -156,9 +156,21 @@ source "openstack" "docker" {
 build {
   sources = ["source.docker.docker", "source.openstack.docker"]
 
+  # Fix CentOS 7 repository issues
+  provisioner "shell" {
+    execute_command = "chmod +x {{ .Path }}; if [ \"$UID\" == \"0\" ]; then {{ .Vars }} '{{ .Path }}'; else {{ .Vars }} sudo -E '{{ .Path }}'; fi"
+    scripts         = ["provision/fix-centos7-repos.sh"]
+  }
+
   provisioner "shell" {
     execute_command = "chmod +x {{ .Path }}; if [ \"$UID\" == \"0\" ]; then {{ .Vars }} '{{ .Path }}'; else {{ .Vars }} sudo -E '{{ .Path }}'; fi"
     scripts         = ["common-packer/provision/install-python.sh"]
+  }
+
+  # Install paramiko for Ansible SSH transport
+  provisioner "shell" {
+    execute_command = "chmod +x {{ .Path }}; if [ \"$UID\" == \"0\" ]; then {{ .Vars }} '{{ .Path }}'; else {{ .Vars }} sudo -E '{{ .Path }}'; fi"
+    scripts         = ["provision/install-paramiko.sh"]
   }
 
   provisioner "shell-local" {

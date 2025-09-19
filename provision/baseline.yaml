@@ -6,6 +6,13 @@
   become_method: ansible.builtin.sudo
 
   pre_tasks:
+    - name: Fix CentOS EOL repository configuration
+      ansible.builtin.script: fix-centos-repos.sh
+      become: true
+      when:
+        - ansible_facts['os_family'] == 'RedHat'
+      ignore_errors: false
+
     - name: Pre-task system update
       ansible.builtin.include_role:
         name: lfit.system-update

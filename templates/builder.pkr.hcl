@@ -150,9 +150,27 @@ source "openstack" "builder" {
 build {
   sources = ["source.docker.builder", "source.openstack.builder"]
 
+  # Fix CentOS 7 repository issues
+  provisioner "shell" {
+    execute_command = "chmod +x {{ .Path }}; if [ \"$UID\" == \"0\" ]; then {{ .Vars }} '{{ .Path }}'; else {{ .Vars }} sudo -E '{{ .Path }}'; fi"
+    scripts         = ["provision/fix-centos7-repos.sh"]
+  }
+
   provisioner "shell" {
     execute_command = "chmod +x {{ .Path }}; if [ \"$UID\" == \"0\" ]; then {{ .Vars }} '{{ .Path }}'; else {{ .Vars }} sudo -E '{{ .Path }}'; fi"
     scripts         = ["common-packer/provision/install-python.sh"]
+  }
+
+  # Install paramiko for Ansible SSH transport
+  provisioner "shell" {
+    execute_command = "chmod +x {{ .Path }}; if [ \"$UID\" == \"0\" ]; then {{ .Vars }} '{{ .Path }}'; else {{ .Vars }} sudo -E '{{ .Path }}'; fi"
+    scripts         = ["provision/install-paramiko.sh"]
+  }
+
+  # Apply SSH transfer fixes for CentOS 9 Stream
+  provisioner "shell" {
+    execute_command = "chmod +x {{ .Path }}; if [ \"$UID\" == \"0\" ]; then {{ .Vars }} '{{ .Path }}'; else {{ .Vars }} sudo -E '{{ .Path }}'; fi"
+    scripts         = ["provision/ssh-transfer-fix.sh"]
   }
 
   provisioner "shell-local" {
@@ -164,6 +182,8 @@ build {
         "ANSIBLE_NOCOWS=1",
         "ANSIBLE_PIPELINING=False",
         "ANSIBLE_HOST_KEY_CHECKING=False",
+        "ANSIBLE_TRANSPORT=paramiko",
+        "ANSIBLE_SCP_IF_SSH=False",
         "ANSIBLE_ROLES_PATH=${var.ansible_roles_path}",
         "ANSIBLE_CALLBACK_WHITELIST=profile_tasks",
         "ANSIBLE_STDOUT_CALLBACK=debug"

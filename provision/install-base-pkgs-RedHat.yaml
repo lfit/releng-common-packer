@@ -1,19 +1,83 @@
 ---
-- name: Add IUS repository to /etc/yum.repos.d/
+- name: Run fix-centos-repos.sh script to ensure repositories are configured properly
+  ansible.builtin.script: ../fix-centos-repos.sh
+  args:
+    creates: /var/tmp/fix-centos-repos-done
+  register: repo_fix_result
+  ignore_errors: true
+  when:
+    - ansible_os_family == 'RedHat'
+
+- name: Check if IUS repository is available (for legacy compatibility)
+  ansible.builtin.uri:
+    url: "https://repo.ius.io/stable/{{ ansible_distribution_major_version|lower }}/x86_64/repodata/repomd.xml"
+    method: HEAD
+    timeout: 10
+  register: ius_check
+  failed_when: false
+  ignore_errors: yes
+
+- name: Configure alternate Git source for CentOS 7
+  block:
+    - name: Install Software Collections Repository for CentOS 7 (alternative to IUS)
+      ansible.builtin.yum:
+        name: centos-release-scl
+        state: present
+      when:
+        - ansible_facts['distribution_major_version'] is version('7', '==')
+
+    - name: Install Git 2.x from SCL
+      ansible.builtin.yum:
+        name: git224-git
+        state: present
+      register: git_scl_result
+      when:
+        - ansible_facts['distribution_major_version'] is version('7', '==')
+
+    - name: Create git symlink for SCL
+      ansible.builtin.file:
+        src: /opt/rh/git224/root/usr/bin/git
+        dest: /usr/bin/git
+        state: link
+      when:
+        - ansible_facts['distribution_major_version'] is version('7', '==')
+        - git_scl_result.changed
+  when:
+    - ansible_os_family == 'RedHat'
+    - ansible_facts['distribution_major_version'] is version('7', '==')
+    - ius_check.status != 200
+
+- name: Configure IUS repository (only if available)
+  become: true
   ansible.builtin.yum_repository:
     name: ius
     description: IUS Community Packages for Enterprise Linux
-    baseurl: https://repo.ius.io/{{ ansible_distribution_major_version|lower }}/$basearch/
+    baseurl: https://repo.ius.io/stable/{{ ansible_distribution_major_version|lower }}/$basearch/
     gpgkey: https://repo.ius.io/RPM-GPG-KEY-IUS-{{ ansible_distribution_major_version|lower }}
     enabled: "true"
     gpgcheck: "true"
+  when:
+    - ansible_os_family == 'RedHat'
+    - ansible_facts['distribution_major_version'] is version('7', '>=')
+    - ius_check.status == 200
+
+- name: Install fallback git package if IUS repository unavailable
+  ansible.builtin.yum:
+    name: git
     state: present
-    includepkgs:
-      - git2*
-      - yum-plugin-replace
   become: true
   when:
     - ansible_facts['distribution_major_version'] is version('8', '<')
+    - ius_check is failed
+
+- name: Install git from default repositories for CentOS 8+
+  ansible.builtin.yum:
+    name: git
+    state: present
+  become: true
+  when:
+    - ansible_facts['distribution_major_version'] is version('8', '>=')
+    - ansible_facts['os_family'] == 'RedHat'
 
 # Note: Using ansible_facts does not match/return the minor versions of the
 # Repoid (for CentOS 8.2.2004 and earlier is 'PowerTools' and for CentOS 8.3.2011
@@ -75,13 +139,45 @@
   when:
     - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
 
+- name: Enable CRB repository for CentOS Stream 9 (needed for EPEL)
+  ansible.builtin.command: dnf config-manager --set-enabled crb
+  args:
+    creates: /var/tmp/crb-enabled
+  become: true
+  when:
+    - ansible.builtin.command: grep -q "centos:9" /etc/os-release
+      args:
+        warn: false
+      register: centos9_check
+      ignore_errors: true
+    - ansible_os_family == 'RedHat'
+    - ansible_facts['distribution_major_version'] is version('9', '==')
+    - centos9_check.rc == 0
+
+- name: Install EPEL repository first (needed for lf-recommended-tools packages)
+  ansible.builtin.yum:
+    name:
+      - https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
+    state: present
+  become: true
+  when:
+    - ansible_os_family == 'RedHat'
+
+- name: Enable CRB repository for CentOS 9 (required for EPEL packages)
+  ansible.builtin.command:
+    cmd: /usr/bin/crb enable
+  become: true
+  ignore_errors: true
+  when:
+    - ansible_facts['distribution_major_version'] is version('9', '>=')
+    - ansible_facts['os_family'] == 'RedHat'
+
 - name: Install base packages
   ansible.builtin.yum:
     name:
       - "@base"
       - "@development"
       - yum-utils
-      - https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
     state: latest
   become: true
 
@@ -151,3 +247,68 @@
   become: true
   when:
     - ansible_distribution_major_version|int < 8
+
+# Retry package installation with alternative repositories if needed
+# Fix SSH configuration for CentOS 9 Stream
+- name: Fix SSH configuration for better Ansible compatibility on CentOS Stream 9
+  ansible.builtin.script: ../fix-ssh-config.sh
+  args:
+    creates: /var/tmp/ssh-fixed-for-ansible
+  register: ssh_fix_result
+  ignore_errors: true
+  when:
+    - ansible_os_family == 'RedHat'
+    - ansible_facts['distribution_major_version'] is version('9', '==')
+
+# Fallback task for when EPEL packages are not found (sshpass, xmlstarlet)
+- name: Install alternative packages when standard packages are unavailable
+  block:
+    - name: Try to install sshpass from EPEL directly
+      ansible.builtin.yum:
+        name: https://dl.fedoraproject.org/pub/epel/{{ ansible_distribution_major_version }}/Everything/x86_64/Packages/s/sshpass-1.09-4.el{{ ansible_distribution_major_version }}.x86_64.rpm
+        state: present
+        disable_gpg_check: true
+      when:
+        - ansible_facts['os_family'] == 'RedHat'
+      ignore_errors: true
+
+    - name: Try to install xmlstarlet from EPEL directly
+      ansible.builtin.yum:
+        name: https://dl.fedoraproject.org/pub/epel/{{ ansible_distribution_major_version }}/Everything/x86_64/Packages/x/xmlstarlet-1.6.1-20.el{{ ansible_distribution_major_version }}.x86_64.rpm
+        state: present
+        disable_gpg_check: true
+      when:
+        - ansible_facts['os_family'] == 'RedHat'
+      ignore_errors: true
+
+    - name: For CentOS 9, try direct package download if repository version fails
+      block:
+        - name: Create temporary download directory
+          ansible.builtin.file:
+            path: /tmp/direct-pkgs
+            state: directory
+            mode: '0755'
+
+        - name: Download packages directly from CentOS 9 mirror
+          ansible.builtin.get_url:
+            url: "https://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/{{ item }}"
+            dest: "/tmp/direct-pkgs/{{ item }}"
+          loop:
+            - "sshpass-1.09-4.el9.x86_64.rpm"
+            - "xmlstarlet-1.6.1-21.el9.x86_64.rpm"
+          ignore_errors: true
+
+        - name: Install downloaded packages
+          ansible.builtin.yum:
+            name: "/tmp/direct-pkgs/{{ item }}"
+            state: present
+            disable_gpg_check: true
+          loop:
+            - "sshpass-1.09-4.el9.x86_64.rpm"
+            - "xmlstarlet-1.6.1-21.el9.x86_64.rpm"
+          ignore_errors: true
+      when:
+        - ansible_facts['os_family'] == 'RedHat'
+        - ansible_facts['distribution_major_version'] is version('9', '==')
+  when:
+    - ansible_facts['os_family'] == 'RedHat'
