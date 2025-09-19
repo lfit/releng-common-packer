@@ -1,7 +1,7 @@
 source_ami_filter_name = "*ubuntu*20.04*"
 source_ami_filter_owner = "aws-marketplace"
 source_ami_filter_product_code = "a8jyynf4hjutohctm41o2z18m"
-base_image = "Ubuntu 20.04 LTS [2022-04-11]"
+base_image = "Ubuntu 20.04.5 LTS (x86_64) [2025-04-03]"
 distro = "Ubuntu 20.04"
 docker_source_image = "ubuntu:20.04"
 ssh_user = "ubuntu"

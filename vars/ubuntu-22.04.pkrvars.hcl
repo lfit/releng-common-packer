@@ -1,7 +1,7 @@
 source_ami_filter_name = "*ubuntu*22.04*"
 source_ami_filter_owner = "aws-marketplace"
 source_ami_filter_product_code = "082ebbea44fc7abcd"
-base_image = "Ubuntu 22.04 LTS (x86_64) [2023-10-26]"
+base_image = "Ubuntu 22.04.5 LTS (x86_64) [2025-03-27]"
 distro = "Ubuntu 22.04"
 docker_source_image = "ubuntu:22.04"
 ssh_user = "ubuntu"
