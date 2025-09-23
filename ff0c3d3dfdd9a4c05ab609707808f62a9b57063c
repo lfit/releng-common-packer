@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91c75d82_e70e2c54",
+        "filename": "provision/fix-centos-repos.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2025-09-23T20:54:40Z",
+      "side": 1,
+      "message": "A lot of this seems like it\u0027s replicating functionality that Ansible already has. Rather than determining what OS family and version we\u0027re using in the script, why not rely on Ansible to determine that, and then call a specific script for the version being used (or maybe pass a parameter to the script)?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 1
+      },
+      "revId": "ff0c3d3dfdd9a4c05ab609707808f62a9b57063c",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03c49180_2c3b2a6b",
+        "filename": "templates/builder.pkr.hcl",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2025-09-23T20:54:40Z",
+      "side": 1,
+      "message": "Incorrect file name.",
+      "range": {
+        "startLine": 156,
+        "startChar": 24,
+        "endLine": 156,
+        "endChar": 54
+      },
+      "revId": "ff0c3d3dfdd9a4c05ab609707808f62a9b57063c",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be10440c_9d84863b",
+        "filename": "templates/builder.pkr.hcl",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2025-09-23T20:54:40Z",
+      "side": 1,
+      "message": "This file doesn\u0027t exist.",
+      "range": {
+        "startLine": 167,
+        "startChar": 24,
+        "endLine": 167,
+        "endChar": 53
+      },
+      "revId": "ff0c3d3dfdd9a4c05ab609707808f62a9b57063c",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cc7bf15_cde9c455",
+        "filename": "templates/builder.pkr.hcl",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2025-09-23T20:54:40Z",
+      "side": 1,
+      "message": "This file doesn\u0027t exist.",
+      "range": {
+        "startLine": 173,
+        "startChar": 24,
+        "endLine": 173,
+        "endChar": 53
+      },
+      "revId": "ff0c3d3dfdd9a4c05ab609707808f62a9b57063c",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
