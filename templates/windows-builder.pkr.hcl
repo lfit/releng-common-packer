@@ -83,6 +83,43 @@ variable "ssh_proxy_host" {
   default = null
 }
 
+variable "ssh_bastion_host" {
+  type        = string
+  default     = ""
+  description = "Bastion/jump host for SSH access to OpenStack instances"
+}
+
+variable "ssh_bastion_username" {
+  type        = string
+  default     = ""
+  description = "Username for bastion host authentication"
+}
+
+variable "ssh_bastion_port" {
+  type        = number
+  default     = 22
+  description = "SSH port on bastion host"
+}
+
+variable "ssh_bastion_agent_auth" {
+  type        = bool
+  default     = true
+  description = "Use SSH agent for bastion authentication"
+}
+
+variable "ssh_bastion_private_key_file" {
+  type        = string
+  default     = ""
+  description = "Path to SSH private key file for bastion authentication"
+}
+
+variable "ssh_bastion_password" {
+  type        = string
+  default     = ""
+  sensitive   = true
+  description = "Password for bastion host authentication (not recommended)"
+}
+
 variable "ssh_user" {
   type    = string
   default = null

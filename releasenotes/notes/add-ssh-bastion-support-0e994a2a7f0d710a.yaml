@@ -1,0 +1,40 @@
+---
+features:
+  - |
+    Add SSH bastion/jump host support for OpenStack builder template.
+    The following new variables are now available for configuring SSH
+    bastion connections:
+
+    - ``ssh_bastion_host`` - IP address or hostname of the bastion host
+    - ``ssh_bastion_username`` - Username for bastion authentication
+    - ``ssh_bastion_port`` - SSH port on bastion (default: 22)
+    - ``ssh_bastion_agent_auth`` - Use SSH agent for authentication (default: true)
+    - ``ssh_bastion_private_key_file`` - Path to SSH private key file
+    - ``ssh_bastion_password`` - Password for bastion authentication (not recommended)
+
+    All bastion variables are optional with empty string defaults, making them
+    backward compatible with existing builds that don't require bastion access.
+
+    Example usage:
+
+    .. code-block:: bash
+
+       packer build \\
+         -var=ssh_bastion_host=100.64.183.39 \\
+         -var=ssh_bastion_username=root \\
+         -var-file=vars/ubuntu-22.04.pkrvars.hcl \\
+         templates/builder.pkr.hcl
+
+    This enables Packer builds to access OpenStack instances through a
+    bastion/jump host, which is required when direct access to OpenStack
+    networks is not available (e.g., in CI/CD environments using Tailscale
+    or other ephemeral bastion solutions).
+
+    Reference:
+    https://developer.hashicorp.com/packer/integrations/hashicorp/openstack/latest/components/builder/openstack
+upgrade:
+  - |
+    Existing builds using ``ssh_proxy_host`` will continue to work without
+    changes. The legacy proxy support is maintained for backward compatibility.
+    New deployments should use the SSH bastion variables for native jump host
+    support instead of proxy-based SSH tunneling.

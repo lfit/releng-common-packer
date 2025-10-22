@@ -108,6 +108,37 @@ variable "ssh_proxy_host" {
   default = ""
 }
 
+variable "ssh_bastion_host" {
+  type    = string
+  default = ""
+}
+
+variable "ssh_bastion_username" {
+  type    = string
+  default = ""
+}
+
+variable "ssh_bastion_port" {
+  type    = number
+  default = 22
+}
+
+variable "ssh_bastion_agent_auth" {
+  type    = bool
+  default = true
+}
+
+variable "ssh_bastion_private_key_file" {
+  type    = string
+  default = ""
+}
+
+variable "ssh_bastion_password" {
+  type    = string
+  default = ""
+  sensitive = true
+}
+
 variable "ssh_user" {
   type = string
   default = null
