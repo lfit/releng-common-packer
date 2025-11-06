@@ -19,7 +19,7 @@ wget -q https://raw.githubusercontent.com/lfit/releng-global-jjb/master/jenkins-
 # shellcheck disable=SC1090
 . ~/lf-env.sh
 
-lf-activate-venv --python python3.10 --venv-file "/tmp/.ansible_venv" \
+lf-activate-venv --python python3 --venv-file "/tmp/.ansible_venv" \
     ansible~=9.2.0
 
 ansible_roles_path=${1:-.galaxy}

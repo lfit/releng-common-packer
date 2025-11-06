@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Fixed ansible-galaxy.sh script failing on Ubuntu 24.04 with error
+    ``python3.10: command not found``. The script now uses the system's
+    default Python 3 instead of requiring a specific version.
