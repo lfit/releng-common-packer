@@ -6,3 +6,4 @@ cloud-env.json
 *.pyc
 *.retry
 node_modules/
+.packer.d/
