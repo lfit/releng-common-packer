@@ -1,0 +1,31 @@
+---
+fixes:
+  - |
+    Fixed compatibility with Packer 1.11.x by adding explicit plugin
+    declarations to all template files. Packer 1.11.x introduced stricter
+    plugin validation requiring all plugins to be declared in
+    ``required_plugins`` blocks.
+
+    Updated templates with required_plugins blocks:
+
+    - builder.pkr.hcl (openstack, docker, ansible)
+    - docker.pkr.hcl (openstack, docker, ansible)
+    - devstack.pkr.hcl (openstack, docker, ansible)
+    - devstack-pre-pip-yoga.pkr.hcl (openstack, docker, ansible)
+    - windows-builder.pkr.hcl (openstack, ansible)
+    - builder-aws.pkr.hcl (amazon, ansible)
+    - docker-aws.pkr.hcl (amazon, ansible)
+
+    This fix maintains backward compatibility with Packer 1.9.x and 1.10.x
+    while ensuring builds work correctly with Packer 1.11.x and future
+    versions. The GitHub Actions workflow already includes the necessary
+    ``packer init`` command to download plugins.
+
+    Added .packer.d/ directory to .gitignore to exclude plugin cache.
+upgrade:
+  - |
+    No action required for existing deployments. All changes are backward
+    compatible with Packer 1.9.x and 1.10.x. If upgrading to or using
+    Packer 1.11.x, ensure ``packer init`` is run before ``packer build``
+    or ``packer validate`` to download the required plugins (this is
+    already handled in the CI/CD workflow).
