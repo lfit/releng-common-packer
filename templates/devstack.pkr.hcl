@@ -235,5 +235,6 @@ build {
     extra_arguments    = local.ssh_extra_args
     playbook_file      = "provision/devstack-centos.yaml"
     skip_version_check = true
+    user               = "${var.ssh_user}"
   }
 }

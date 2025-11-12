@@ -1,0 +1,46 @@
+---
+fixes:
+  - |
+    Fix Ansible provisioner user parameter in OpenStack templates.
+
+    The Ansible provisioner in OpenStack templates (builder.pkr.hcl,
+    docker.pkr.hcl, devstack.pkr.hcl, devstack-pre-pip-yoga.pkr.hcl, and
+    windows-builder.pkr.hcl) was missing the ``user`` parameter, causing
+    Ansible to default to the wrong user account when connecting to
+    instances through SSH.
+
+    This resulted in SCP failures during the "Gathering Facts" task with
+    errors like:
+
+    .. code-block:: text
+
+       fatal: [default]: FAILED! => {}
+       MSG:
+       failed to transfer file to /home/runner/.ansible/tmp/...
+       scp: dest open '~runner/.ansible/tmp/...': No such file or directory
+
+    **Root Cause**: During the HCL2 conversion (commit 6e2fdc9), AWS
+    templates were created with ``user = "${var.ssh_user}"`` but OpenStack
+    templates were not. This was an oversight that went undetected until
+    Ansible provisioning was tested through bastion/jump hosts in CI/CD
+    environments.
+
+    **Resolution**: Added ``user = "${var.ssh_user}"`` parameter to the
+    Ansible provisioner block in all affected OpenStack templates. This
+    ensures Ansible uses the correct SSH user (ubuntu/centos/cloud-user)
+    as defined in the respective vars files.
+
+    **Backward Compatibility**: This change is fully backward compatible:
+
+    - The ``ssh_user`` variable already exists in all vars files
+    - AWS templates already use this pattern successfully
+    - No changes required to existing Jenkins jobs or workflows
+    - The fix aligns OpenStack templates with the existing AWS template pattern
+
+    Templates updated:
+
+    - templates/builder.pkr.hcl
+    - templates/docker.pkr.hcl
+    - templates/devstack.pkr.hcl
+    - templates/devstack-pre-pip-yoga.pkr.hcl
+    - templates/windows-builder.pkr.hcl
