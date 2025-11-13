@@ -175,7 +175,7 @@ locals {
   # Ansible environment variables - force SCP for local builds to work with bastion
   ansible_env_vars = var.local_build ? [
     "ANSIBLE_NOCOWS=1",
-    "ANSIBLE_PIPELINING=False",
+    "ANSIBLE_PIPELINING=True",
     "ANSIBLE_HOST_KEY_CHECKING=False",
     "ANSIBLE_SCP_IF_SSH=True",
     "ANSIBLE_ROLES_PATH=${var.ansible_roles_path}",
@@ -183,7 +183,7 @@ locals {
     "ANSIBLE_STDOUT_CALLBACK=debug"
   ] : [
     "ANSIBLE_NOCOWS=1",
-    "ANSIBLE_PIPELINING=False",
+    "ANSIBLE_PIPELINING=True",
     "ANSIBLE_HOST_KEY_CHECKING=False",
     "ANSIBLE_ROLES_PATH=${var.ansible_roles_path}",
     "ANSIBLE_CALLBACK_WHITELIST=profile_tasks",

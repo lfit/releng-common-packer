@@ -1,0 +1,73 @@
+---
+fixes:
+  - |
+    Fix CentOS Stream 9 Ansible provisioning failures through bastion hosts.
+
+    **Problem**: CentOS Stream 9 packer builds were failing during Ansible
+    provisioning with SCP/SFTP transfer errors when building through
+    bastion/jump hosts:
+
+    .. code-block:: text
+
+       TASK [Enable pki-core] *************************************
+       fatal: [default]: FAILED! => {}
+       MSG:
+       failed to transfer file to /home/cloud-user/.ansible/tmp/.../
+       AnsiballZ_command.py:
+
+    This was a **platform-specific issue** - Ubuntu 24.04 builds worked fine
+    with the same configuration, but CentOS Stream 9 consistently failed at
+    Ansible file transfer operations.
+
+    **Root Cause**: CentOS Stream 9 cloud images have different SSH/SCP/SFTP
+    configurations compared to Ubuntu. Even with ``ANSIBLE_SCP_IF_SSH=True``
+    and ``--scp-extra-args '-O'`` flags, Ansible file transfers failed when
+    trying to copy Python module wrappers to the remote system.
+
+    **Resolution**: Enabled Ansible pipelining (``ANSIBLE_PIPELINING=True``)
+    when ``local_build=true`` (bastion/jump host builds). Pipelining completely
+    bypasses the problematic SCP/SFTP file transfer mechanism by sending Python
+    code directly over SSH stdin, eliminating the file transfer step entirely.
+
+    **Benefits**:
+
+    - ✅ Fixes CentOS Stream 9 Ansible provisioning failures
+    - ✅ Reduces number of SSH connections (performance improvement)
+    - ✅ Avoids platform-specific SCP/SFTP incompatibilities
+    - ✅ Works across all Linux distributions (Ubuntu, CentOS, RHEL)
+    - ✅ Backward compatible with Jenkins builds (local_build=false unchanged)
+
+    **Technical Details**:
+
+    Pipelining works by:
+
+    1. Ansible generates Python module code
+    2. Sends it directly over SSH stdin (no temp files)
+    3. Remote Python interpreter executes it from stdin
+    4. Results returned over SSH stdout
+
+    This eliminates the need for:
+
+    - Creating temporary files on the remote system
+    - Transferring files via SCP/SFTP
+    - Cleaning up temporary files
+
+    **Compatibility**: Pipelining requires that ``requiretty`` is disabled
+    in ``/etc/sudoers`` on the target system. Modern cloud images (Ubuntu 24.04,
+    CentOS Stream 9) have this disabled by default, so no additional
+    configuration is needed.
+
+    **Impact**:
+
+    - ``local_build=true`` (bastion builds): Pipelining enabled
+    - ``local_build=false`` (Jenkins builds): No change, pipelining disabled
+
+    Templates updated:
+
+    - templates/builder.pkr.hcl
+    - templates/docker.pkr.hcl
+    - templates/devstack.pkr.hcl
+    - templates/devstack-pre-pip-yoga.pkr.hcl
+    - templates/windows-builder.pkr.hcl
+
+    Reference: https://docs.ansible.com/ansible/latest/reference_appendices/config.html#ansible-pipelining
