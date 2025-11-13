@@ -1,0 +1,50 @@
+---
+fixes:
+  - |
+    Fix Ansible file transfer failures when building through bastion/jump hosts.
+
+    **Problem**: Packer builds with ``local_build=true`` (bastion/jump host mode)
+    were failing during Ansible provisioning with SFTP errors:
+
+    .. code-block:: text
+
+       failed to transfer file to /home/ubuntu/.ansible/tmp/...
+       bash: line 1: /usr/lib/sftp-server: No such file or directory
+       scp: Connection closed
+
+    **Root Cause**: Ansible defaults to SFTP for file transfers, not SCP.
+    The existing ``--scp-extra-args '-O'`` flag was being ignored because
+    Ansible was using SFTP, not SCP. Many cloud instances and bastion hosts
+    don't have ``sftp-server`` installed, causing transfer failures.
+
+    **Resolution**: Added ``ANSIBLE_SCP_IF_SSH=True`` environment variable
+    when ``local_build=true`` to force Ansible to use SCP mode instead of
+    SFTP. This makes the ``--scp-extra-args '-O'`` flag take effect, which
+    forces the legacy SCP protocol that works through bastion hosts.
+
+    **Implementation**: Created conditional ``ansible_env_vars`` in the
+    locals block of all templates:
+
+    - When ``local_build=true``: Sets ``ANSIBLE_SCP_IF_SSH=True``
+    - When ``local_build=false``: Standard Ansible environment (no change)
+
+    **Backward Compatibility**: This change only affects builds with
+    ``local_build=true`` (packer-build-action through bastion). Existing
+    Jenkins builds continue to work unchanged since ``local_build``
+    defaults to false.
+
+    Templates updated:
+
+    - templates/builder.pkr.hcl
+    - templates/docker.pkr.hcl
+    - templates/devstack.pkr.hcl
+    - templates/devstack-pre-pip-yoga.pkr.hcl
+    - templates/windows-builder.pkr.hcl
+
+    **Usage**: When building through a bastion/jump host, set:
+
+    .. code-block:: bash
+
+       packer build -var local_build=true ...
+
+    Reference: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ssh_connection.html
