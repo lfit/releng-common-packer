@@ -42,6 +42,9 @@ function is_centos8()
 function select_fastest()
 {
   echo "Install netselect from debian to choose a mirror."
+  # Update apt lists first to fix corrupted/missing package lists
+  apt-get clean
+  apt-get update -y
   apt install wget -y
   wget "http://deb.debian.org/debian/pool/main/n/netselect/${NETSELECT_DEB}"
   dpkg -i "${NETSELECT_DEB}"

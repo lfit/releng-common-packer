@@ -142,20 +142,42 @@ locals {
   ssh_extra_args = var.local_build ? [
     "--scp-extra-args", "'-O'",
     "--ssh-extra-args",
-    "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa"
+    "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa",
   ] : [
-    "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa"
+    "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa",
+  ]
+
+  # Ansible environment variables - conditional pipelining for bastion builds
+  ansible_env_vars = var.local_build ? [
+    "ANSIBLE_NOCOWS=1",
+    "ANSIBLE_PIPELINING=True",
+    "ANSIBLE_HOST_KEY_CHECKING=False",
+    "ANSIBLE_SCP_IF_SSH=True",
+    "ANSIBLE_ROLES_PATH=${var.ansible_roles_path}",
+    "ANSIBLE_CALLBACK_WHITELIST=profile_tasks",
+    "ANSIBLE_STDOUT_CALLBACK=debug"
+  ] : [
+    "ANSIBLE_NOCOWS=1",
+    "ANSIBLE_PIPELINING=False",
+    "ANSIBLE_HOST_KEY_CHECKING=False",
+    "ANSIBLE_ROLES_PATH=${var.ansible_roles_path}",
+    "ANSIBLE_CALLBACK_WHITELIST=profile_tasks",
+    "ANSIBLE_STDOUT_CALLBACK=debug"
   ]
 }
 
 data "amazon-ami" "builder-aws" {
   access_key = "${var.aws_access_key}"
-  filters = {
-    name                = "${var.source_ami_filter_name}"
-    product-code        = "${var.source_ami_filter_product_code}"
-    root-device-type    = "ebs"
-    virtualization-type = "hvm"
-  }
+  filters = merge(
+    {
+      name                = "${var.source_ami_filter_name}"
+      root-device-type    = "ebs"
+      virtualization-type = "hvm"
+    },
+    var.source_ami_filter_product_code != "" && var.source_ami_filter_product_code != null ? {
+      product-code = "${var.source_ami_filter_product_code}"
+    } : {}
+  )
   most_recent = true
   owners      = ["${var.source_ami_filter_owner}"]
   region      = "${var.aws_region}"
@@ -175,6 +197,24 @@ source "amazon-ebs" "aws" {
   subnet_id         = "${var.subnet_id}"
   user_data_file    = "${var.cloud_user_data}"
   vpc_id            = "${var.vpc_id}"
+
+  # Enable enhanced networking (SR-IOV is automatic with ENA and modern instance types)
+  ena_support       = true
+
+  # Allow IMDSv1 for compatibility with older Jenkins plugins
+  metadata_options {
+    http_endpoint               = "enabled"
+    http_tokens                 = "optional"  # Allows both v1 and v2
+    http_put_response_hop_limit = 1
+  }
+
+  # Configure root volume with 20GB to provide sufficient space for Jenkins builds
+  launch_block_device_mappings {
+    device_name = "/dev/sda1"
+    volume_size = 20
+    volume_type = "gp2"
+    delete_on_termination = true
+  }
 }
 
 build {
@@ -192,14 +232,7 @@ build {
   }
 
   provisioner "ansible" {
-    ansible_env_vars   = [
-        "ANSIBLE_NOCOWS=1",
-        "ANSIBLE_PIPELINING=False",
-        "ANSIBLE_HOST_KEY_CHECKING=False",
-        "ANSIBLE_ROLES_PATH=${var.ansible_roles_path}",
-        "ANSIBLE_CALLBACK_WHITELIST=profile_tasks",
-        "ANSIBLE_STDOUT_CALLBACK=debug"
-    ]
+    ansible_env_vars   = local.ansible_env_vars
     command            = "./common-packer/ansible-playbook.sh"
     extra_arguments    = local.ssh_extra_args
     playbook_file      = "provision/local-builder.yaml"

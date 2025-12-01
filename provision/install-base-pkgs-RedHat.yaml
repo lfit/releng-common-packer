@@ -98,7 +98,7 @@
       ansible.builtin.command:
         cmd: dnf module enable pki-deps -y
       become: true
-  when: ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
+  when: ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '==')
 
 - name: Install sigul client for EL 7
   ansible.builtin.yum:
@@ -116,7 +116,7 @@
     mode: "0644"
   become: true
   when:
-    - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
+    - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '==')
 
 - name: Import RPM GPG KEY into the DB for Sigul on CentOS 8
   ansible.builtin.rpm_key:
@@ -124,7 +124,7 @@
     state: present
   become: true
   when:
-    - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '>=')
+    - ansible_os_family == 'RedHat' and ansible_facts['distribution_major_version'] is version('8', '==')
 
 - name: Install sigul client for EL 8 (Streams)
   ansible.builtin.yum:
@@ -133,7 +133,7 @@
     state: latest
   become: true
   when:
-    - ansible_facts['distribution_major_version'] is version('8', '>=')
+    - ansible_facts['distribution_major_version'] is version('8', '==')
 
 - name: Swap to git236
   block:

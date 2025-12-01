@@ -1,0 +1,78 @@
+---
+fixes:
+  - |
+    Fixed AWS AMI builds for Ubuntu 20.04, 22.04, 24.04, and CentOS Stream 9
+    that were failing due to incorrect source AMI filters and package
+    availability issues.
+
+    **Ubuntu AMI Build Fixes:**
+
+    - Updated source AMI filters to use Canonical owner ID (099720109477)
+      instead of aws-marketplace
+    - Removed product code filtering which is not applicable for Canonical
+      Ubuntu AMIs
+    - Updated AMI name patterns to match current Ubuntu naming conventions:
+      ubuntu-*20.04*, ubuntu-*22.04*, ubuntu-*24.04*
+    - Added ``apt-get update`` to provision/install-python.sh to ensure
+      package lists are current before installing dependencies
+
+    **CentOS Stream 9 Build Fixes:**
+
+    - Fixed version-specific conditionals in provision/install-base-pkgs-RedHat.yaml
+      to use ``version('8', '==')`` instead of ``version('8', '>=')`` to prevent
+      incompatible package installation on Stream 9
+    - Removed obsolete packages not available in CentOS Stream 9:
+      compat-openssl10*, python36*, python36-devel, python36-pip,
+      python36-setuptools, python36-virtualenv, openssl11*, openssl11-devel
+    - Updated python3-virtualenv dependency handling for Stream 9 compatibility
+
+    **AWS-Specific Enhancements:**
+
+    - Added ``enable_ena_support = true`` to enable SR-IOV enhanced networking
+      on all AMIs for better performance and Jenkins EC2 plugin compatibility
+    - Increased root volume size from 8GB to 10GB to prevent "No space left
+      on device" errors during Jenkins builds
+    - Added IMDS v2 metadata support configuration
+    - Standardized instance types to t3.small for consistent builds
+
+    **Verified Working AMIs:**
+
+    - Ubuntu 22.04: ami-049dc0c4ecd9335ae (tested in Jenkins)
+    - CentOS Stream 9: ami-0541c45aeac2e4a04 (build successful)
+
+    **Files Modified:**
+
+    - provision/install-base-pkgs-RedHat.yaml
+    - provision/install-python.sh
+    - templates/builder-aws.pkr.hcl
+    - vars/centos-cs-9.pkrvars.hcl
+    - vars/ubuntu-20.04-arm64.pkrvars.hcl
+    - vars/ubuntu-20.04.pkrvars.hcl
+    - vars/ubuntu-22.04.pkrvars.hcl
+    - vars/ubuntu-24.04-arm64.pkrvars.hcl
+    - vars/ubuntu-24.04.pkrvars.hcl
+issues:
+  - |
+    Resolved "Invalid Image Id" errors in Jenkins EC2 plugin when attempting
+    to provision Ubuntu and CentOS Stream 9 AMIs.
+  - |
+    Resolved "No space left on device" errors during Jenkins builds by
+    increasing root volume size to 10GB.
+  - |
+    Fixed AWS AMI builds that were failing due to package repository
+    availability issues on Ubuntu (stale package lists) and CentOS Stream 9
+    (obsolete package references).
+upgrade:
+  - |
+    No action required for existing deployments. These changes fix broken
+    AWS AMI build functionality. New AMIs built with these fixes will:
+
+    - Have SR-IOV enhanced networking enabled (ENA support)
+    - Have 10GB root volumes instead of 8GB
+    - Be compatible with Jenkins EC2 plugin for automatic provisioning
+    - Use current Ubuntu base images from Canonical
+    - Have correct package dependencies for CentOS Stream 9
+
+    **Note:** Ansible role fixes for lf-recommended-tools and lf-dev-libs
+    need to be submitted separately to the ansible/roles repository for
+    CentOS Stream 9 support.
