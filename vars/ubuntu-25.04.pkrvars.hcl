@@ -1,0 +1,8 @@
+source_ami_filter_name = "ubuntu/images/hvm-ssd*/ubuntu-plucky-25.04-amd64-server-*"
+source_ami_filter_owner = "099720109477"
+source_ami_filter_product_code = ""
+base_image = "Ubuntu 25.04 (x86_64)"
+distro = "Ubuntu 25.04"
+docker_source_image = "ubuntu:25.04"
+ssh_user = "ubuntu"
+cloud_user_data = "common-packer/provision/ubuntu-user_data.sh"
