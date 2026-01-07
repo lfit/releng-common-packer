@@ -206,7 +206,7 @@ source "openstack" "docker" {
   metadata = {
     ci_managed = "yes"
   }
-  networks                = ["${var.cloud_network}"]
+  networks                = var.cloud_network != null ? ["${var.cloud_network}"] : null
   region                  = "${var.cloud_region}"
   source_image_name       = "${var.base_image}"
 

@@ -56,7 +56,8 @@ variable "cloud_pass" {
 }
 
 variable "cloud_network" {
-  type = string
+  type    = string
+  default = null
 }
 
 variable "cloud_region" {
@@ -200,7 +201,7 @@ source "openstack" "builder" {
   metadata = {
     ci_managed = "yes"
   }
-  networks                = ["${var.cloud_network}"]
+  networks                = var.cloud_network != null ? ["${var.cloud_network}"] : null
   region                  = "${var.cloud_region}"
   source_image_name       = "${var.base_image}"
 
