@@ -129,6 +129,12 @@ variable "ssh_user" {
   default = null
 }
 
+variable "aws_ssh_user" {
+  type        = string
+  default     = null
+  description = "SSH user for AWS AMIs when it differs from ssh_user (OpenStack)"
+}
+
 variable "source_ami_filter_name" {
   type    = string
   default = null

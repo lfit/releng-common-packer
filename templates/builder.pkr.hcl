@@ -143,6 +143,12 @@ variable "ssh_user" {
   type = string
 }
 
+variable "aws_ssh_user" {
+  type        = string
+  default     = null
+  description = "SSH user for AWS AMIs when it differs from ssh_user (OpenStack)"
+}
+
 variable "vm_image_disk_format" {
   type    = string
   default = ""

@@ -112,6 +112,12 @@ variable "ssh_user" {
   default = null
 }
 
+variable "aws_ssh_user" {
+  type        = string
+  default     = null
+  description = "SSH user for AWS AMIs when it differs from ssh_user (OpenStack)"
+}
+
 variable "source_ami_filter_name" {
   type    = string
   default = null
@@ -193,7 +199,7 @@ source "amazon-ebs" "aws" {
   security_group_id = "${var.security_group_id}"
   source_ami        = "${data.amazon-ami.builder-aws.id}"
   ssh_proxy_host    = "${var.ssh_proxy_host}"
-  ssh_username      = "${var.ssh_user}"
+  ssh_username      = var.aws_ssh_user != null ? var.aws_ssh_user : var.ssh_user
   subnet_id         = "${var.subnet_id}"
   user_data_file    = "${var.cloud_user_data}"
   vpc_id            = "${var.vpc_id}"
