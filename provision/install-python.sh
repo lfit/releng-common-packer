@@ -116,9 +116,20 @@ fi
 
 if is_centos8; then
     echo "Clean up deprecated repos"
-    sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/CentOS-*.repo
-    sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/CentOS-*.repo
-    sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/CentOS-*.repo
+    # This script runs with 'noglob', so CentOS-*.repo would reach sed
+    # unexpanded and abort the build. Expand the pattern explicitly.
+    set +o noglob
+    centos_repos=(/etc/yum.repos.d/CentOS-*.repo)
+    set -o noglob
+
+    if [ -e "${centos_repos[0]}" ]; then
+        sed -i -e s/mirror.centos.org/vault.centos.org/g \
+            -e s/^#.*baseurl=http/baseurl=http/g \
+            -e s/^mirrorlist=http/#mirrorlist=http/g \
+            "${centos_repos[@]}"
+    else
+        echo "No /etc/yum.repos.d/CentOS-*.repo files found, skipping vault rewrite"
+    fi
 
     echo "Install python38"
     dnf clean all
