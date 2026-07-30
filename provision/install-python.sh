@@ -27,6 +27,17 @@ function is_ubuntu()
     return 1
 }
 
+function is_centos7()
+{
+    # if the file exists and contains a centos:7 CPE_NAME, return 0
+    if grep -Eq "^CPE_NAME=.*centos:7" /etc/os-release 2> /dev/null; then
+        echo "Distro is CentOS 7"
+        return 0
+    fi
+    echo "Distro is NOT CentOS 7"
+    return 1
+}
+
 function is_centos8()
 {
     # if the file exists and contains a centos:8 CPE_NAME, return 0
@@ -114,7 +125,9 @@ if is_ubuntu; then
     fi
 fi
 
-if is_centos8; then
+# CentOS 7 and 8 are EOL: their content only lives on vault.centos.org and
+# mirrorlist.centos.org no longer resolves.
+if is_centos7 || is_centos8; then
     echo "Clean up deprecated repos"
     # This script runs with 'noglob', so CentOS-*.repo would reach sed
     # unexpanded and abort the build. Expand the pattern explicitly.
@@ -130,7 +143,9 @@ if is_centos8; then
     else
         echo "No /etc/yum.repos.d/CentOS-*.repo files found, skipping vault rewrite"
     fi
+fi
 
+if is_centos8; then
     echo "Install python38"
     dnf clean all
     dnf install -y python38
