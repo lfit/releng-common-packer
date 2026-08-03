@@ -1,0 +1,50 @@
+---
+fixes:
+  - |
+    Fix Ansible file transfer failures on CentOS Stream 9 when building
+    through a bastion/jump host.
+
+    **Problem**: ``centos-cs-9`` builder images failed at the first task that
+    copies a file to the target (``Allow jenkins user sudo access``)::
+
+       fatal: [default]: FAILED! => {}
+       failed to transfer file to /home/runner/.ansible/tmp/.../tmp0d3czn_v
+       /home/cloud-user/.ansible/tmp/.../source:
+
+    Both stdout and stderr were empty, and the failure reproduced on every
+    run. ``centos-cs-8`` passed the same task, so the image built for over
+    13 minutes before failing elsewhere.
+
+    **Root Cause**: The previous fix set ``ANSIBLE_SCP_IF_SSH=True`` to work
+    around missing ``sftp-server`` on some targets. That option forces SCP as
+    the *only* transfer method, with no fallback. Combined with
+    ``--scp-extra-args '-O'`` it selects the legacy SCP protocol, which
+    executes ``scp`` on the remote host. Trading one hard dependency
+    (``sftp-server``) for another (``/usr/bin/scp``) simply moved the failure
+    to images that ship the second one but not the first.
+
+    ``scp_if_ssh`` is also deprecated in favour of ``ssh_transfer_method``.
+
+    **Resolution**: Replaced ``ANSIBLE_SCP_IF_SSH=True`` with
+    ``ANSIBLE_SSH_TRANSFER_METHOD=piped``. The ``piped`` method streams the
+    file through the already-established SSH session using ``dd`` on both
+    ends, so it requires neither ``sftp-server`` nor ``scp`` on the target
+    and works unchanged through a bastion ``ProxyCommand``.
+
+    This supersedes the earlier ``ANSIBLE_SCP_IF_SSH`` workaround and fixes
+    both the original SFTP failure and the new SCP one with a single setting.
+
+    **Backward Compatibility**: Only affects builds with ``local_build=true``
+    (packer-build-action through a bastion). Jenkins builds set
+    ``local_build=false`` and are unchanged.
+
+    Templates updated:
+
+    - templates/builder.pkr.hcl
+    - templates/builder-aws.pkr.hcl
+    - templates/docker.pkr.hcl
+    - templates/devstack.pkr.hcl
+    - templates/devstack-pre-pip-yoga.pkr.hcl
+    - templates/windows-builder.pkr.hcl
+
+    Reference: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ssh_connection.html

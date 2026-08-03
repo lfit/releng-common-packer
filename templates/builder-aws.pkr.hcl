@@ -158,7 +158,7 @@ locals {
     "ANSIBLE_NOCOWS=1",
     "ANSIBLE_PIPELINING=True",
     "ANSIBLE_HOST_KEY_CHECKING=False",
-    "ANSIBLE_SCP_IF_SSH=True",
+    "ANSIBLE_SSH_TRANSFER_METHOD=piped",
     "ANSIBLE_ROLES_PATH=${var.ansible_roles_path}",
     "ANSIBLE_CALLBACK_WHITELIST=profile_tasks",
     "ANSIBLE_STDOUT_CALLBACK=debug"

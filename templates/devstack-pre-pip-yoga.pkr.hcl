@@ -178,12 +178,13 @@ locals {
     "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa"
   ]
 
-  # Ansible environment variables - force SCP for local builds to work with bastion
+  # Ansible environment variables - stream file transfers over the existing SSH
+  # session for local builds, so no sftp-server or scp binary is needed on the target
   ansible_env_vars = var.local_build ? [
     "ANSIBLE_NOCOWS=1",
     "ANSIBLE_PIPELINING=True",
     "ANSIBLE_HOST_KEY_CHECKING=False",
-    "ANSIBLE_SCP_IF_SSH=True",
+    "ANSIBLE_SSH_TRANSFER_METHOD=piped",
     "ANSIBLE_ROLES_PATH=${var.ansible_roles_path}",
     "ANSIBLE_CALLBACK_WHITELIST=profile_tasks",
     "ANSIBLE_STDOUT_CALLBACK=debug"
