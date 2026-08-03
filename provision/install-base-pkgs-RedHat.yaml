@@ -1,19 +1,9 @@
 ---
-- name: Add IUS repository to /etc/yum.repos.d/
-  ansible.builtin.yum_repository:
-    name: ius
-    description: IUS Community Packages for Enterprise Linux
-    baseurl: https://repo.ius.io/{{ ansible_distribution_major_version|lower }}/$basearch/
-    gpgkey: https://repo.ius.io/RPM-GPG-KEY-IUS-{{ ansible_distribution_major_version|lower }}
-    enabled: "true"
-    gpgcheck: "true"
-    state: present
-    includepkgs:
-      - git2*
-      - yum-plugin-replace
-  become: true
-  when:
-    - ansible_facts['distribution_major_version'] is version('8', '<')
+# IUS retired its EL7 repository after CentOS 7 went EOL: repo.ius.io/7/ returns
+# 404 and no archive/vault mirror exists, so the "Add IUS repository" task that
+# used to live here made yum fail on every subsequent transaction. It supplied
+# git2* and yum-plugin-replace, used solely by the "Swap to git236" block (also
+# removed). EL7 now keeps the base git package.
 
 # Note: Using ansible_facts does not match/return the minor versions of the
 # Repoid (for CentOS 8.2.2004 and earlier is 'PowerTools' and for CentOS 8.3.2011
@@ -134,20 +124,3 @@
   become: true
   when:
     - ansible_facts['distribution_major_version'] is version('8', '==')
-
-- name: Swap to git236
-  block:
-    - name: Install yum-plugin-replace
-      ansible.builtin.yum:
-        name: yum-plugin-replace
-        state: present
-        update_cache: true
-    - name: Gather rpm package facts
-      package_facts:
-        manager: auto
-    - name: Replace git with git236
-      ansible.builtin.command: yum replace -y git --replace-with git236
-      when: ansible_facts.packages['git'] is defined
-  become: true
-  when:
-    - ansible_distribution_major_version|int < 8
