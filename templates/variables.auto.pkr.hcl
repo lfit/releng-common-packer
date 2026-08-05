@@ -33,6 +33,13 @@ variable "base_image" {
   default = null
 }
 
+variable "build_url" {
+  type = string
+  # Populated from the CI job environment so a published image records the
+  # build that produced it. Empty for local builds.
+  default = env("BUILD_URL")
+}
+
 variable "cloud_auth_url" {
   type    = string
   default = null

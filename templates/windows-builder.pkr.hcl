@@ -11,6 +11,13 @@ packer {
   }
 }
 
+variable "build_url" {
+  type = string
+  # Populated from the CI job environment so a published image records the
+  # build that produced it. Empty for local builds.
+  default = env("BUILD_URL")
+}
+
 variable "cloud_auth_url" {
   type    = string
   default = null
@@ -207,6 +214,7 @@ source "openstack" "windows-builder" {
   instance_name     = "${var.distro}-win-builder-${uuidv4()}"
   metadata = {
     ci_managed = "yes"
+    build_url  = "${var.build_url}"
   }
   networks                = ["${var.cloud_network}"]
   region                  = "${var.cloud_region}"
