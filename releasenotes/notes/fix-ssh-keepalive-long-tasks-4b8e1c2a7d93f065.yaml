@@ -1,0 +1,49 @@
+---
+fixes:
+  - |
+    Keep the SSH channel alive during long-running Ansible tasks when
+    building through a bastion/jump host.
+
+    **Problem**: Builds driven from GitHub Actions failed whenever a single
+    Ansible task ran for roughly 20 minutes::
+
+       fatal: [default]: FAILED! => {"changed": false, "rc": 58}
+       MSG: MODULE FAILURE
+       See stdout/stderr for the exact error
+
+    Both stdout and stderr were empty. The pattern was consistent across
+    workflows and months: a build succeeded when its longest task stayed
+    under roughly 7 minutes, and failed when a task ran for about
+    20 minutes.
+
+    ======================  =================  =========
+    Build                   Longest task       Result
+    ======================  =================  =========
+    robot ubuntu-22.04      3.59 min           success
+    robot ubuntu-24.04      4.41 min           success
+    builder ubuntu-22.04    3.58 min           success
+    docker ubuntu-25.04     6.63 min           success
+    docker ubuntu-22.04     19.57 min          rc 58
+    mininet ubuntu-24.04    19.40 min          rc 58
+    ======================  =================  =========
+
+    **Root Cause**: Two unrelated commands, a pyenv source build and a
+    ``fakeroot debian/rules binary`` package build, both reported ``58``,
+    so the value is an artifact of the transport rather than an exit
+    status from the command itself. The failure only appears on builds
+    with ``local_build=true``, which reach the build VM through a bastion
+    hop. Jenkins builds connect directly and never hit it. ``ssh_extra_args``
+    set no keepalive options, so OpenSSH used its default of
+    ``ServerAliveInterval=0`` and sent nothing while a task occupied the
+    channel, letting an intermediate device drop an apparently idle
+    connection.
+
+    **Resolution**: Added ``ServerAliveInterval=30`` and
+    ``ServerAliveCountMax=120`` to the
+    ``local_build=true`` branch of ``ssh_extra_args`` in the ``builder``
+    and ``docker`` templates. Traffic now crosses the tunnel every
+    30 seconds regardless of task duration.
+
+    **Backward Compatibility**: Only affects builds with
+    ``local_build=true``. Jenkins builds use ``local_build=false`` and are
+    unchanged.
