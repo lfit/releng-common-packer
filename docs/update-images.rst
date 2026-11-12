@@ -10,7 +10,7 @@ OpenStack cloud.
 
    .. code-block:: bash
 
-       pip install lftools[openstack]
+       pip install lftools-uv[openstack]
        yum/apt install qemu-img
 
 
@@ -26,7 +26,7 @@ OpenStack cloud.
 
    .. code-block:: bash
 
-       lftools openstack --os-cloud "cloudname" image upload --disk-format raw local-server-cloudimg-arm64-raw.img "Ubuntu 18.04 LTS [2020-08-04]"
+       lftools-uv openstack --os-cloud "cloudname" image upload --disk-format raw local-server-cloudimg-arm64-raw.img "Ubuntu 18.04 LTS [2020-08-04]"
 
 4. Update common-packer to use this new image.
 
